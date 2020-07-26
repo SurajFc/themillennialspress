@@ -1,0 +1,36 @@
+.navbar-nav {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-nav .nav-item:hover .nav-link {
+  color: #fe5900;
+}
+
+.main>li {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.social>li {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+.nav-tabs .nav-link {
+  color: #000;
+  border: none;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #fe5900;
+  background-color: #fff;
+
+}
