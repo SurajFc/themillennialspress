@@ -1,41 +1,73 @@
 <template>
-  <div class="row">
-    <div class="col-lg-2 mt-2 d-none d-lg-block ">
-      <h3>
-        {{ $moment().format("dddd") }}
-      </h3>
-      <p>
-        {{ $moment().format("LLL") }}<br />
-        <span>GMT{{ $moment().format("Z") }}</span>
-      </p>
-    </div>
-    <div class="col-lg-1  ">
-      <b-img src="corona.png" height="100"></b-img>
-    </div>
-    <div class="col-lg-3  ml-4" style="margin-top:-28px;">
-      <b-tabs content-class="mt-3">
-        <b-tab active>
-          <template v-slot:title>
-            <b-spinner type="grow" small></b-spinner> India
-          </template>
-          <p>I'm the first tab</p></b-tab
-        >
-        <b-tab>
-          <template v-slot:title>
-            <b-spinner type="grow" small></b-spinner> World
-          </template>
-          <p>I'm the second tab</p></b-tab
-        >
-        <b-tab title="Covid-19 Statistics" disabled style="margin-left:-20px"
-          ><p>I'm the second tab</p></b-tab
-        >
-      </b-tabs>
-    </div>
+  <div class="col-lg-5 ml-3 " style="margin-top:-28px; ">
+    <b-tabs content-class="mt-2 mx-2">
+      <b-tab active>
+        <template v-slot:title>
+          <b-spinner type="grow" small></b-spinner>India
+        </template>
+        <Corona :data="india" />
+      </b-tab>
+      <b-tab>
+        <template v-slot:title>
+          <b-spinner type="grow" small></b-spinner>World
+        </template>
+        <Corona :data="world" />
+      </b-tab>
+      <b-tab
+        title="Covid-19 Statistics"
+        disabled
+        style="margin-left:-20px"
+      ></b-tab>
+    </b-tabs>
   </div>
 </template>
 
 <script>
-export default {};
+import Corona from "~/components/partials/_corona.vue";
+export default {
+  components: {
+    Corona
+  },
+  data() {
+    return {
+      india: [],
+      world: []
+    };
+  },
+  methods: {
+    async getCoronaIndia() {
+      try {
+        const res = await this.$axios.$get(
+          "https://disease.sh/v3/covid-19/countries/india"
+        );
+
+        this.india = res;
+      } catch {
+        console.log("some error");
+      }
+    },
+    getCoronaWorld() {
+      this.$axios.$get("https://disease.sh/v3/covid-19/all").then(res => {
+        this.world = res;
+      });
+    }
+  },
+  created() {
+    this.getCoronaIndia();
+    this.getCoronaWorld();
+  }
+};
 </script>
 
-<style></style>
+<style>
+.card-header {
+  margin-bottom: 0;
+  background-color: white;
+  border-bottom: none;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0;
+}
+</style>
