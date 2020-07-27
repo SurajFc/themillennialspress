@@ -42,9 +42,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    '~/plugins/numberFilter.js'
-  ],
+  plugins: ["~/plugins/numberFilter.js"],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -77,13 +75,16 @@ export default {
         ]
       }
     ],
-    "nuxt-moment"
+    "nuxt-moment",
+
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: "http://127.0.0.1:8000/"
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

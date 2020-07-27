@@ -5,13 +5,15 @@
         <template v-slot:title>
           <b-spinner type="grow" small></b-spinner>India
         </template>
-        <Corona :data="india" />
+        <Corona :data="india" v-if="show" />
+        <CoronaSkel v-else />
       </b-tab>
       <b-tab>
         <template v-slot:title>
           <b-spinner type="grow" small></b-spinner>World
         </template>
-        <Corona :data="world" />
+        <Corona :data="world" v-if="show" />
+        <CoronaSkel v-else />
       </b-tab>
       <b-tab
         title="Covid-19 Statistics"
@@ -24,14 +26,17 @@
 
 <script>
 import Corona from "~/components/partials/_corona.vue";
+import CoronaSkel from "~/components/skeletons/_coronaSkel.vue";
 export default {
   components: {
-    Corona
+    Corona,
+    CoronaSkel
   },
   data() {
     return {
       india: [],
-      world: []
+      world: [],
+      show: false
     };
   },
   methods: {
@@ -42,6 +47,7 @@ export default {
         );
 
         this.india = res;
+        this.show = true;
       } catch {
         console.log("some error");
       }
@@ -49,6 +55,7 @@ export default {
     getCoronaWorld() {
       this.$axios.$get("https://disease.sh/v3/covid-19/all").then(res => {
         this.world = res;
+        this.show = true;
       });
     }
   },

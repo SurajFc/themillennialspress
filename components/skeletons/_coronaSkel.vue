@@ -3,19 +3,19 @@
     <div class="container row">
       <div class="col-lg-3  text-center">
         <p>Total</p>
-        <h5 style="color:#FF083B;">{{ data.cases | numberFormat }}</h5>
+        <content-loader> </content-loader>
       </div>
       <div class="col-lg-3  text-center">
         <p>Active</p>
-        <h5 style="color:#1686FF;">{{ data.active | numberFormat }}</h5>
+        <content-loader> </content-loader>
       </div>
       <div class="col-lg-3 text-center">
         <p>Recovered</p>
-        <h5 style="color:#29A746;">{{ data.recovered | numberFormat }}</h5>
+        <content-loader> </content-loader>
       </div>
       <div class="col-lg-2  text-center">
         <p>Deaths</p>
-        <h5 style="color:#6D767E;">{{ data.deaths | numberFormat }}</h5>
+        <content-loader> </content-loader>
       </div>
       <p class="text-center ml-4">Source: Worldometers.info</p>
     </div>
@@ -23,8 +23,11 @@
 </template>
 
 <script>
+import { ContentLoader } from "vue-content-loader";
 export default {
-  props: ["data"]
+  components: {
+    ContentLoader
+  }
 };
 </script>
 
