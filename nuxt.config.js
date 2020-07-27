@@ -75,8 +75,7 @@ export default {
         ]
       }
     ],
-    "nuxt-moment",
-
+    "nuxt-moment", 'vue-social-sharing/nuxt'
   ],
   /*
    ** Axios module configuration

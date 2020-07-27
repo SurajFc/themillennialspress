@@ -12,8 +12,7 @@
           <b-nav-item active>India</b-nav-item>
           <b-nav-item>World</b-nav-item>
           <b-nav-item>Business</b-nav-item>
-          <b-nav-item>Technology</b-nav-item>
-          <b-nav-item>World</b-nav-item>
+          <b-nav-item>Videos</b-nav-item>
 
           <b-nav-item-dropdown text="More" right>
             <b-dropdown-item href="#">India</b-dropdown-item>
@@ -24,22 +23,13 @@
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto social">
           <b-nav-text class="d-none d-lg-block">
-            <font-awesome-icon
-              :icon="['fab', 'facebook-f']"
-              style="color:#3B5998;"
-            />
+            <font-awesome-icon :icon="['fab', 'facebook-f']" style="color:#3B5998;" />
           </b-nav-text>
           <b-nav-text class="d-none d-lg-block">
-            <font-awesome-icon
-              :icon="['fab', 'instagram']"
-              style="color:#DD2A7B "
-            />
+            <font-awesome-icon :icon="['fab', 'instagram']" style="color:#DD2A7B " />
           </b-nav-text>
           <b-nav-text class="d-none d-lg-block">
-            <font-awesome-icon
-              :icon="['fab', 'twitter']"
-              style="color: #1da1f2;"
-            />
+            <font-awesome-icon :icon="['fab', 'twitter']" style="color: #1da1f2;" />
           </b-nav-text>
 
           <b-button
@@ -48,20 +38,14 @@
             class="search_button"
             @click="searchNews()"
           >
-            <font-awesome-icon
-              :icon="['fas', 'search']"
-              style="color:
-              #000;"
-            />
+            <font-awesome-icon :icon="['fas', 'search']" style="color:
+              #000;" />
           </b-button>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
-    <b-collapse
-      id="search-collapse"
-      class="col-lg-8 col-md-6 col-sm-12 mb-2 mx-auto"
-    >
+    <b-collapse id="search-collapse" class="col-lg-8 col-md-6 col-sm-12 mb-2 mx-auto">
       <b-form-input v-model="search" placeholder="search"></b-form-input>
     </b-collapse>
   </div>
@@ -72,7 +56,7 @@ export default {
   data() {
     return {
       search_icon: false,
-      search: ""
+      search: "",
     };
   },
 
@@ -84,8 +68,8 @@ export default {
       } else {
         this.search_icon = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style>

@@ -14,22 +14,20 @@
       </div>
       <Coronavirus />
       <div class="col-lg-2 offset-1">
-        <b-button type="button" size="lg" pill class="btn-1 btn-danger"
-          >Support</b-button
-        >
+        <b-button type="button" size="lg" pill class="btn-1 btn-danger">Support</b-button>
       </div>
     </div>
     <div class="row">
       <div class="col-md-8 col-lg-8">
         <LatestNews />
       </div>
-      <div class="col-md-4 col-lg-4 ">
+      <div class="col-md-4 col-lg-4" v-if="show1">
         <h3>
           <span>Latest News</span>
         </h3>
         <hr />
         <ul class="list-unstyled">
-          <li v-for="x in this.$store.state.latestnews.latest">
+          <li v-for="x in getData">
             <b-card>
               <b-card-text>
                 <b-card-img-lazy
@@ -38,13 +36,18 @@
                   style="width:90px; height: 70px;"
                   :src="`${$axios.defaults.baseURL}` + x.cover"
                   :alt="x.tags[1]"
-                /><span>
-                  {{ x.title | truncate(70) }}
-                </span></b-card-text
-              >
+                />
+                <span>{{ x.title | truncate(70) }}</span>
+              </b-card-text>
             </b-card>
           </li>
         </ul>
+      </div>
+      <div class="col-md-4 col-lg-4" v-else>
+        <h3>
+          <span>Latest News</span>
+        </h3>
+        <ListSkeleton />
       </div>
     </div>
   </div>
@@ -53,11 +56,23 @@
 <script>
 import Coronavirus from "~/components/coronavirus.vue";
 import LatestNews from "~/components/home/carousel.vue";
+import ListSkeleton from "~/components/skeletons/_listSkel.vue";
 
 export default {
   components: {
     Coronavirus,
-    LatestNews
+    LatestNews,
+    ListSkeleton,
+  },
+  data() {
+    return {
+      show1: false,
+    };
+  },
+  computed: {
+    getData() {
+      return this.$store.state.latestnews.latest;
+    },
   },
   filters: {
     /**
@@ -65,8 +80,11 @@ export default {
      */
     truncate(value, length) {
       return value.length > length ? value.substr(0, length) : value;
-    }
-  }
+    },
+  },
+  mounted() {
+    this.show1 = true;
+  },
 };
 </script>
 <style scoped>
