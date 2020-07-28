@@ -1,8 +1,8 @@
 <template>
   <div>
-    <facebook-loader :speed="2"></facebook-loader>
-    <facebook-loader :speed="2"></facebook-loader>
-    <facebook-loader :speed="2"></facebook-loader>
+    <facebook-loader></facebook-loader>
+    <facebook-loader></facebook-loader>
+    <facebook-loader></facebook-loader>
   </div>
 </template>
 
@@ -14,6 +14,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

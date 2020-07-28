@@ -2,12 +2,9 @@
   <div>
     <div v-if="show">
       <b-carousel
-        id="carousel-1"
-        v-model="slide"
+        id="carousel-fade"
+        fade
         :interval="6000"
-        background="#news"
-        img-width="1024"
-        img-height="480"
         style="text-shadow: 1px 1px 2px #333;"
         indicators
       >
@@ -82,8 +79,9 @@
 
           <template v-slot:img>
             <b-img-lazy
+              fluid-grow
               class="d-block img-fluid w-100"
-              style="width:100%; height: 400px;"
+              style="width:100%; height: 450px;"
               :src="`${$axios.defaults.baseURL}` + x.cover"
               :alt="x.tags[1]"
             />
@@ -92,6 +90,7 @@
       </b-carousel>
     </div>
     <div v-else>
+      <content-loader></content-loader>
       <content-loader></content-loader>
     </div>
   </div>
@@ -105,7 +104,6 @@ export default {
   },
   data() {
     return {
-      slide: 0,
       show: false,
     };
   },

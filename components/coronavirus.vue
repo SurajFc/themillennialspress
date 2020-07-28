@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-5 ml-3 " style="margin-top:-28px; ">
+  <div class="col-lg-5 ml-3" style="margin-top:-28px; ">
     <b-tabs content-class="mt-2 mx-2">
       <b-tab active>
         <template v-slot:title>
@@ -15,11 +15,7 @@
         <Corona :data="world" v-if="show" />
         <CoronaSkel v-else />
       </b-tab>
-      <b-tab
-        title="Covid-19 Statistics"
-        disabled
-        style="margin-left:-20px"
-      ></b-tab>
+      <b-tab title="Covid-19 Statistics" disabled style="margin-left:-20px"></b-tab>
     </b-tabs>
   </div>
 </template>
@@ -30,13 +26,13 @@ import CoronaSkel from "~/components/skeletons/_coronaSkel.vue";
 export default {
   components: {
     Corona,
-    CoronaSkel
+    CoronaSkel,
   },
   data() {
     return {
       india: [],
       world: [],
-      show: false
+      show: false,
     };
   },
   methods: {
@@ -53,16 +49,16 @@ export default {
       }
     },
     getCoronaWorld() {
-      this.$axios.$get("https://disease.sh/v3/covid-19/all").then(res => {
+      this.$axios.$get("https://disease.sh/v3/covid-19/all").then((res) => {
         this.world = res;
         this.show = true;
       });
-    }
+    },
   },
   created() {
     this.getCoronaIndia();
     this.getCoronaWorld();
-  }
+  },
 };
 </script>
 

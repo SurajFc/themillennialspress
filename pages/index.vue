@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="col-lg-1 d-none d-lg-block">
-        <b-img src="corona.png" height="100"></b-img>
+        <b-img src="corona.webp" height="100"></b-img>
       </div>
       <Coronavirus />
       <div class="col-lg-2 offset-1">
@@ -21,13 +21,13 @@
       <div class="col-md-8 col-lg-8">
         <LatestNews />
       </div>
-      <div class="col-md-4 col-lg-4" v-if="show1">
+      <div class="col-md-4 col-lg-4 text-center" v-if="show1">
         <h3>
           <span>Latest News</span>
         </h3>
         <hr />
         <ul class="list-unstyled">
-          <li v-for="x in getData">
+          <li v-for="x in getData" class="mb-2">
             <b-card>
               <b-card-text>
                 <b-card-img-lazy
@@ -43,13 +43,13 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-4 col-lg-4" v-else>
-        <h3>
-          <span>Latest News</span>
-        </h3>
+      <div class="col-md-4 col-lg-4 col-sm-12 text-center" v-else>
+        <h3>Latest News</h3>
         <ListSkeleton />
       </div>
     </div>
+
+    <TrendingNews />
   </div>
 </template>
 
@@ -57,12 +57,14 @@
 import Coronavirus from "~/components/coronavirus.vue";
 import LatestNews from "~/components/home/carousel.vue";
 import ListSkeleton from "~/components/skeletons/_listSkel.vue";
+import TrendingNews from "~/components/home/trending.vue";
 
 export default {
   components: {
     Coronavirus,
     LatestNews,
     ListSkeleton,
+    TrendingNews,
   },
   data() {
     return {
@@ -75,9 +77,6 @@ export default {
     },
   },
   filters: {
-    /**
-     * Filter to truncate string, accepts a length parameter
-     */
     truncate(value, length) {
       return value.length > length ? value.substr(0, length) : value;
     },
