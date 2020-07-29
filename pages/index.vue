@@ -76,11 +76,7 @@ export default {
       return this.$store.state.latestnews.latest;
     },
   },
-  filters: {
-    truncate(value, length) {
-      return value.length > length ? value.substr(0, length) : value;
-    },
-  },
+
   mounted() {
     this.show1 = true;
   },

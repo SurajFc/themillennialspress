@@ -18,7 +18,7 @@
       <div class="row" v-if="show">
         <b-carousel
           ref="trending"
-          :interval="10000"
+          :interval="100000"
           style="text-shadow: 1px 1px 2px #333;"
           :no-animation="true"
         >
@@ -27,16 +27,12 @@
               <b-card-group>
                 <b-card tag="article" style="max-width: 30rem;" class="mb-2">
                   <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + data[index].cover"></b-card-img-lazy>
-                  <b-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</b-card-text>
-
-                  <b-button href="#" variant="primary">Go somewhere</b-button>
+                  <b-card-text>{{data[index].title | truncate(80)}}</b-card-text>
                 </b-card>
 
                 <b-card tag="article" style="max-width: 30rem;" class="ml-2" v-if="data[index+1]">
                   <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + data[index+1].cover"></b-card-img-lazy>
-                  <b-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</b-card-text>
-
-                  <b-button href="#" variant="primary">Go somewhere</b-button>
+                  <b-card-text>{{data[index+1].title | truncate(80)}}</b-card-text>
                 </b-card>
               </b-card-group>
             </template>
@@ -47,26 +43,16 @@
         <content-loader></content-loader>
       </div>
     </div>
-    <div class="col-md-4 col-lg-4 col-sm-12 text-center" v-if="show">
-      <h3>
-        <span>Most Viewed</span>
-      </h3>
-      <hr />
-    </div>
-    <div class="col-md-4 col-lg-4 col-sm-12 text-center" v-else>
-           <h3>
-        <span>Most Viewed</span>
-      </h3>
-      <hr />
-        <ListSkeleton />
-      </div>
+    <div class="col-md-4 col-lg-4">
+      <TrendingList :getData="data" :show="show" />
     </div>
   </div>
 </template>
 
 <script>
 import { ContentLoader } from "vue-content-loader";
-import ListSkeleton from "~/components/skeletons/_listSkel.vue";
+
+import TrendingList from "~/components/partials/_trending.vue";
 
 export default {
   data() {
@@ -78,10 +64,8 @@ export default {
   },
   components: {
     ContentLoader,
-    ListSkeleton
+    TrendingList,
   },
-  computed: {},
-
   methods: {
     prev() {
       console.log("here", Math.floor(this.data.length / 2));
@@ -110,7 +94,6 @@ export default {
         .$get("news/getTrendingNews")
         .then((res) => {
           this.data = res;
-          console.log("====>", this.data);
         })
         .catch((e) => {
           console.log(e);
@@ -127,7 +110,7 @@ export default {
 <style scoped>
 .card-img,
 .card-img-bottom {
-  height: 15vw;
+  height: 14vw;
   width: 100%;
 }
 </style>

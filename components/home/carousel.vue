@@ -113,14 +113,6 @@ export default {
     },
   },
 
-  filters: {
-    /**
-     * Filter to truncate string, accepts a length parameter
-     */
-    truncate(value, length) {
-      return value.length > length ? value.substr(0, length) + "....." : value;
-    },
-  },
   async fetch() {
     await this.$store.dispatch("latestnews/getLatestNews");
   },
