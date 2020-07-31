@@ -1,6 +1,6 @@
 <template>
   <div class="row my-2">
-    <div class="col-md-8 col-lg-8">
+    <div class="col-md-8 col-lg-8 shadow-md p-3 mb-3 bg-white rounded">
       <div>
         <h3>
           <span class="font-weight-bold">Trending News</span>

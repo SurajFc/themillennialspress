@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="show" class="shadow-md p-3 mb-3 bg-white rounded">
+    <div v-if="show">
       <h3>
-        <b>Most Viewed</b>
+        <span>Latest News</span>
       </h3>
       <hr />
       <ul class="list-unstyled">
@@ -14,7 +14,7 @@
                 left
                 style="width:90px; height: 70px;"
                 :src="`${$axios.defaults.baseURL}` + x.cover"
-                :alt="x.tags[0]"
+                :alt="x.tags[1]"
               />
               <span>{{ x.title | truncate(70) }}</span>
             </b-card-text>
@@ -23,10 +23,7 @@
       </ul>
     </div>
     <div v-else>
-      <h3>
-        <b>Most Viewed</b>
-      </h3>
-      <hr />
+      <h3>Latest News</h3>
       <ListSkeleton />
     </div>
   </div>
@@ -34,6 +31,7 @@
 
 <script>
 import ListSkeleton from "~/components/skeletons/_listSkel.vue";
+
 export default {
   props: ["getData", "show"],
   components: {

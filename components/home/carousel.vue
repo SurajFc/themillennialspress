@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-if="show">
+  <div class="row">
+    <div class="col-md-8 col-lg-8" v-if="show">
       <b-carousel
         id="carousel-fade"
         fade
@@ -8,7 +8,7 @@
         style="text-shadow: 1px 1px 2px #333;"
         indicators
       >
-        <b-carousel-slide v-for="x in mydata" :key="x.id">
+        <b-carousel-slide v-for="x in data" :key="x.id">
           <b class="text-uppercase">
             {{ x.category["name"] }} /
             <span>{{ $moment(x.realease).format("ll") }}</span>
@@ -89,35 +89,44 @@
         </b-carousel-slide>
       </b-carousel>
     </div>
-    <div v-else>
+    <div class="col-md-8 col-lg-8" v-else>
       <content-loader></content-loader>
       <content-loader></content-loader>
+    </div>
+    <div class="col-md-4 col-lg-4 text-center">
+      <Latest :show="show" :getData="data" />
     </div>
   </div>
 </template>
 
 <script>
 import { ContentLoader } from "vue-content-loader";
+import Latest from "~/components/partials/_latest.vue";
 export default {
   components: {
     ContentLoader,
+    Latest,
   },
   data() {
     return {
       show: false,
+      data: [],
     };
   },
-  computed: {
-    mydata() {
-      return this.$store.state.latestnews.latest;
+  methods: {
+    async getLatest() {
+      try {
+        const res = await this.$axios.$get("news/getLatestnews");
+        this.data = res;
+        this.show = true;
+      } catch (err) {
+        console.log("error", err);
+      }
     },
   },
 
-  async fetch() {
-    await this.$store.dispatch("latestnews/getLatestNews");
-  },
   mounted() {
-    this.show = true;
+    this.getLatest();
   },
 };
 </script>

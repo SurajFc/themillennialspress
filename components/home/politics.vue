@@ -1,6 +1,6 @@
 <template>
   <div class="row my-3">
-    <div class="col-12" v-if="show">
+    <div class="shadow-lg p-3 bg-white rounded" v-if="show">
       <div>
         <h3>
           <span class="font-weight-bold">Political News</span>

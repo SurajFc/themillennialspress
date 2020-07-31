@@ -42,7 +42,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["~/plugins/numberFilter.js", "~/plugins/truncatetext.js"],
+  plugins: ["~/plugins/numberFilter.js", "~/plugins/truncatetext.js", '~/plugins/vee-validate.js', ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -51,7 +51,9 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [
+
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -75,8 +77,17 @@ export default {
         ]
       }
     ],
-    "nuxt-moment", 'vue-social-sharing/nuxt'
+    "nuxt-moment",
+    'vue-social-sharing/nuxt',
+    '@nuxtjs/recaptcha',
   ],
+
+  recaptcha: {
+    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
+    siteKey: '6LfTk7gZAAAAAGXcbllvtwUz-xeHUpjPzwZDUG9E',
+    version: 2, // Version
+    size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -88,5 +99,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {}
+  build: {
+    transpile: ['vee-validate/dist/rules'],
+  }
 };
