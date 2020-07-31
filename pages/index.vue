@@ -50,6 +50,8 @@
     </div>
 
     <TrendingNews />
+
+    <Politics />
   </div>
 </template>
 
@@ -58,6 +60,7 @@ import Coronavirus from "~/components/coronavirus.vue";
 import LatestNews from "~/components/home/carousel.vue";
 import ListSkeleton from "~/components/skeletons/_listSkel.vue";
 import TrendingNews from "~/components/home/trending.vue";
+import Politics from "~/components/home/politics.vue";
 
 export default {
   components: {
@@ -65,6 +68,7 @@ export default {
     LatestNews,
     ListSkeleton,
     TrendingNews,
+    Politics,
   },
   data() {
     return {
@@ -76,7 +80,6 @@ export default {
       return this.$store.state.latestnews.latest;
     },
   },
-
   mounted() {
     this.show1 = true;
   },
@@ -89,7 +92,5 @@ export default {
   border-color: #fb5000;
   box-shadow: azure;
   /* box-shadow: none; */
-}
-.line {
 }
 </style>

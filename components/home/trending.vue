@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row my-2">
     <div class="col-md-8 col-lg-8">
       <div>
         <h3>
@@ -25,7 +25,7 @@
           <b-carousel-slide v-for="(i,index) in data" :key="index">
             <template v-slot:img>
               <b-card-group>
-                <b-card tag="article" style="max-width: 30rem;" class="mb-2">
+                <b-card tag="article" style="max-width: 30rem; " class="mb-2">
                   <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + data[index].cover"></b-card-img-lazy>
                   <b-card-text>{{data[index].title | truncate(80)}}</b-card-text>
                 </b-card>
