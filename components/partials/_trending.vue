@@ -6,18 +6,26 @@
       </h3>
       <hr />
       <ul class="list-unstyled">
-        <li v-for="x in getData" class="mb-2">
-          <b-card>
-            <b-card-text>
-              <b-card-img-lazy
-                thumbnail
-                left
-                style="width:90px; height: 70px;"
-                :src="`${$axios.defaults.baseURL}` + x.cover"
-                :alt="x.tags[0]"
-              />
-              <span>{{ x.title | truncate(70) }}</span>
-            </b-card-text>
+        <li v-for="x in getData.slice(0,5)" class="mb-2">
+          <b-card no-body class="overflow-hidden" style=" border:none;">
+            <b-row no-gutters>
+              <b-col md="4">
+                <b-card-img-lazy
+                  thumbnail
+                  left
+                  style="width:85%; "
+                  :src="`${$axios.defaults.baseURL}` + x.cover"
+                  :alt="x.tags[1]"
+                />
+              </b-col>
+              <b-col md="8">
+                <b-card-body>
+                  <b-card-text>
+                    <h5>{{x.title | truncate(60)}}</h5>
+                  </b-card-text>
+                </b-card-body>
+              </b-col>
+            </b-row>
           </b-card>
         </li>
       </ul>

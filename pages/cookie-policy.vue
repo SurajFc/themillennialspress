@@ -115,7 +115,9 @@
       </li>
       <li>
         By visiting this link:
-        <a href="http://www.themillennialspress.com">http://www.themillennialspress.com/contactus</a>
+        <a
+          href="http://www.themillennialspress.com"
+        >http://www.themillennialspress.com/contact-us</a>
       </li>
     </ul>
   </div>

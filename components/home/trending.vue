@@ -1,6 +1,6 @@
 <template>
   <div class="row my-2">
-    <div class="col-md-8 col-lg-8 shadow-md p-3 mb-3 bg-white rounded">
+    <div class="col-md-8 col-lg-8 col-sm-10 shadow-md p-3 mb-3 bg-white rounded">
       <div>
         <h3>
           <span class="font-weight-bold">Trending News</span>
@@ -25,14 +25,25 @@
           <b-carousel-slide v-for="(i,index) in data" :key="index">
             <template v-slot:img>
               <b-card-group>
-                <b-card tag="article" style="max-width: 30rem; " class="mb-2">
-                  <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + data[index].cover"></b-card-img-lazy>
-                  <b-card-text>{{data[index].title | truncate(80)}}</b-card-text>
+                <b-card tag="article" style="max-width: 30rem;height:15rem; " class="mb-2">
+                  <b-card-img-lazy
+                    :src="`${$axios.defaults.baseURL}` + data[index].cover"
+                    style="height:12rem;"
+                  ></b-card-img-lazy>
+                  <b-card-text>{{data[index].title | truncate(60)}}</b-card-text>
                 </b-card>
 
-                <b-card tag="article" style="max-width: 30rem;" class="ml-2" v-if="data[index+1]">
-                  <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + data[index+1].cover"></b-card-img-lazy>
-                  <b-card-text>{{data[index+1].title | truncate(80)}}</b-card-text>
+                <b-card
+                  tag="article"
+                  style="max-width: 30rem;height:15rem;"
+                  class="ml-2"
+                  v-if="data[index+1]"
+                >
+                  <b-card-img-lazy
+                    :src="`${$axios.defaults.baseURL}` + data[index+1].cover"
+                    style="height:12rem;"
+                  ></b-card-img-lazy>
+                  <b-card-text>{{data[index+1].title | truncate(60)}}</b-card-text>
                 </b-card>
               </b-card-group>
             </template>

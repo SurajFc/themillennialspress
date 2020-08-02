@@ -18,7 +18,7 @@
           </h4>
           <p class="sub text-capitalize">
             {{ x.subtitle | truncate(60) }}
-            <span align="right" class="ml-4">
+            <!-- <span align="right" class="ml-4">
               <ShareNetwork
                 network="facebook"
                 :url="
@@ -74,7 +74,7 @@
                   class="icons__btn"
                 />
               </ShareNetwork>
-            </span>
+            </span>-->
           </p>
 
           <template v-slot:img>

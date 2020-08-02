@@ -58,12 +58,12 @@ body {
 ::-moz-selection {
   /* Code for Firefox */
   color: #fe5900;
-  background: #ebcebe;
+  background: #ffffff;
 }
 
 ::selection {
   color: #fe5900;
-  background: #ebcebe;
+  background: #ffffff;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -82,4 +82,9 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: -2.75rem;
   font-size: 80%;
   color: #dc3545;
+}
+
+
+.nuxt-link-active {
+  color: #fe5900 !important;
 }
