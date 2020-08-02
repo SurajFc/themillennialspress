@@ -1,11 +1,10 @@
 import {
   required,
   confirmed,
-
-
   length,
   email,
-  digits
+  digits,
+  min_value
 } from 'vee-validate/dist/rules'
 import {
   extend
@@ -24,6 +23,11 @@ extend('email', {
   message: 'This field must be a valid email',
 })
 
+extend('min_value', {
+  ...min_value,
+  message: 'This minimum value should be 100',
+})
+
 extend('digits', {
   ...digits,
 
@@ -35,9 +39,9 @@ extend('confirmed', {
   message: 'This field confirmation does not match',
 })
 
-extend('length', {
+extend('plength', {
   ...length,
-  message: 'This field must have  options',
+  message: 'This Phone number should be of 10 digits',
 })
 
 extend('min', {

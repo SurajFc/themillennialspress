@@ -94,11 +94,11 @@ export default {
         .$get("news/getTrendingNews")
         .then((res) => {
           this.data = res;
+          this.show = true;
         })
         .catch((e) => {
           console.log(e);
-        })
-        .finally((this.show = true));
+        });
     },
   },
   mounted() {
