@@ -7,6 +7,7 @@
         :interval="6000"
         style="text-shadow: 1px 1px 2px #333;"
         indicators
+        class="mycon"
       >
         <b-carousel-slide v-for="x in data" :key="x.id">
           <b class="text-uppercase">
@@ -16,66 +17,7 @@
           <h4>
             <b class="sub text-capitalize">{{ x.title | truncate(100) }}</b>
           </h4>
-          <p class="sub text-capitalize">
-            {{ x.subtitle | truncate(60) }}
-            <!-- <span align="right" class="ml-4">
-              <ShareNetwork
-                network="facebook"
-                :url="
-                  'https://themillennialspress.com/' +
-                    x.category['name'] +
-                    '/' +
-                    x.slug
-                "
-                :title="x.title"
-                :description="x.subtitle"
-                quote="The Millennials Press"
-                :hashtags="x.tags.join(',')"
-              >
-                <font-awesome-icon
-                  :icon="['fab', 'facebook-f']"
-                  style="color:#3B5998;"
-                  class="icons__btn"
-                />
-              </ShareNetwork>
-              <ShareNetwork
-                network="reddit"
-                :url="
-                  'https://themillennialspress.com/' +
-                    x.category['name'] +
-                    '/' +
-                    x.slug
-                "
-                :title="x.title"
-              >
-                <font-awesome-icon
-                  :icon="['fab', 'reddit']"
-                  style="color:#FF4500 "
-                  class="icons__btn"
-                />
-              </ShareNetwork>
-
-              <ShareNetwork
-                network="twitter"
-                :url="
-                  'https://themillennialspress.com/' +
-                    x.category['name'] +
-                    '/' +
-                    x.slug
-                "
-                :title="x.title"
-                twitter-user="themillennialspress"
-                quote="The Millennials Press"
-                :hashtags="x.tags.join(',')"
-              >
-                <font-awesome-icon
-                  :icon="['fab', 'twitter']"
-                  style="color: #1da1f2;"
-                  class="icons__btn"
-                />
-              </ShareNetwork>
-            </span>-->
-          </p>
+          <p class="sub text-capitalize">{{ x.subtitle | truncate(60) }}</p>
 
           <template v-slot:img>
             <b-img-lazy
@@ -85,6 +27,7 @@
               :src="`${$axios.defaults.baseURL}` + x.cover"
               :alt="x.tags[1]"
             />
+            <SocialButton :x="x" />
           </template>
         </b-carousel-slide>
       </b-carousel>
@@ -93,7 +36,7 @@
       <content-loader></content-loader>
       <content-loader></content-loader>
     </div>
-    <div class="col-md-4 col-lg-4 text-center">
+    <div class="col-md-4 col-lg-4">
       <Latest :show="show" :getData="data" />
     </div>
   </div>
@@ -102,10 +45,12 @@
 <script>
 import { ContentLoader } from "vue-content-loader";
 import Latest from "~/components/partials/_latest.vue";
+import SocialButton from "~/components/partials/socialshare.vue";
 export default {
   components: {
     ContentLoader,
     Latest,
+    SocialButton,
   },
   data() {
     return {
@@ -139,7 +84,24 @@ img:hover {
   filter: none;
 }
 
-.icons__btn {
-  font-size: 2rem;
+.top_left {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 7%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 700px) {
+  .top_left {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
 }
 </style>

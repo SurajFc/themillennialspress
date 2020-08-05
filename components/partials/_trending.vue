@@ -7,7 +7,7 @@
       <hr />
       <ul class="list-unstyled">
         <li v-for="x in getData.slice(0,5)" class="mb-2">
-          <b-card no-body class="overflow-hidden" style=" border:none;">
+          <b-card no-body class="overflow-hidden mycon" style=" border:none;">
             <b-row no-gutters>
               <b-col md="4">
                 <b-card-img-lazy
@@ -17,6 +17,7 @@
                   :src="`${$axios.defaults.baseURL}` + x.cover"
                   :alt="x.tags[1]"
                 />
+                <SocialButton :x="x" />
               </b-col>
               <b-col md="8">
                 <b-card-body>
@@ -42,13 +43,30 @@
 
 <script>
 import ListSkeleton from "~/components/skeletons/_listSkel.vue";
+import SocialButton from "~/components/partials/socialshare.vue";
+
 export default {
   props: ["getData", "show"],
   components: {
     ListSkeleton,
+    SocialButton,
   },
 };
 </script>
 
-<style>
+<style scoped>
+@media only screen and (max-width: 700px) {
+  .top_left {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  .mycon:hover .top_left {
+    opacity: 1;
+  }
+}
 </style>

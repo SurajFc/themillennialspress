@@ -1,22 +1,23 @@
 <template>
   <div>
-    <div v-if="show">
+    <div v-if="show" class="shadow-md p-3 mb-3 bg-white rounded">
       <h3>
-        <span>Latest News</span>
+        <b>Latest News</b>
       </h3>
       <hr />
       <ul class="list-unstyled" v-for="x in getData">
         <li>
-          <b-card no-body class="overflow-hidden" style=" border:none;">
+          <b-card no-body class="overflow-hidden mycon" style=" border:none;">
             <b-row no-gutters>
               <b-col md="4">
                 <b-card-img-lazy
-                  thumbnail
                   left
                   style="width:85%; "
                   :src="`${$axios.defaults.baseURL}` + x.cover"
                   :alt="x.tags[1]"
                 />
+
+                <SocialButton :x="x" />
               </b-col>
               <b-col md="8">
                 <b-card-body>
@@ -31,7 +32,9 @@
       </ul>
     </div>
     <div v-else>
-      <h3>Latest News</h3>
+      <h3>
+        <b>Latest News</b>
+      </h3>
       <ListSkeleton />
     </div>
   </div>
@@ -39,14 +42,30 @@
 
 <script>
 import ListSkeleton from "~/components/skeletons/_listSkel.vue";
+import SocialButton from "~/components/partials/socialshare.vue";
 
 export default {
   props: ["getData", "show"],
   components: {
     ListSkeleton,
+    SocialButton,
   },
 };
 </script>
 
-<style>
+<style scoped>
+@media only screen and (max-width: 700px) {
+  .top_left {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  .mycon:hover .top_left {
+    opacity: 1;
+  }
+}
 </style>
