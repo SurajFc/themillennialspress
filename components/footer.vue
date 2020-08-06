@@ -57,69 +57,30 @@
         <div class="col-md-4">
           <h6 class="footer-title">Recent News</h6>
 
-          <!-- Start Item Post1-->
-          <div class="single-item">
+          <div class="single-item" v-for="(x,index) in data.slice(0,4)" :key="index">
             <div class="single_post widgets_small">
               <div class="post_img">
                 <div class="img_wrap">
                   <a href="#">
-                    <img src="images/sports2.jpg" alt />
+                    <b-img-lazy
+                      left
+                      style="width:85%; "
+                      :src="`${$axios.defaults.baseURL}` + x.cover"
+                      :alt="x.tags[1]"
+                    />
                   </a>
                 </div>
               </div>
               <div class="single_post_text">
                 <h4>
-                  <a href="#">Copa America: Luis Suarez from devastated US</a>
+                  <a href="#">{{x.title | truncate(50)}}</a>
                 </h4>
-                <span class="date">March 26, 2020</span>
+                <span class="date">{{ $moment(x.realease).format("LLLL")}}</span>
               </div>
             </div>
             <div class="space-15"></div>
             <div class="border_black"></div>
             <div class="space-15"></div>
-          </div>
-          <!-- End post1 -->
-
-          <!-- Start Item Post1-->
-          <div class="single-item">
-            <div class="single_post widgets_small">
-              <div class="post_img">
-                <div class="img_wrap">
-                  <a href="#">
-                    <img src="images/sports3.jpg" alt />
-                  </a>
-                </div>
-              </div>
-              <div class="single_post_text">
-                <h4>
-                  <a href="#">Copa America: Luis Suarez from devastated US</a>
-                </h4>
-                <span class="date">March 26, 2020</span>
-              </div>
-            </div>
-            <div class="space-15"></div>
-            <div class="border_black"></div>
-            <div class="space-15"></div>
-          </div>
-          <!-- End post1 -->
-
-          <!-- Start Item Post1-->
-          <div class="single-item">
-            <div class="single_post widgets_small">
-              <div class="post_img">
-                <div class="img_wrap">
-                  <a href="#">
-                    <img src="images/sports4.jpg" alt />
-                  </a>
-                </div>
-              </div>
-              <div class="single_post_text">
-                <h4>
-                  <a href="#">Copa America: Luis Suarez from devastated US</a>
-                </h4>
-                <span class="date">March 26, 2020</span>
-              </div>
-            </div>
           </div>
           <!-- End post1 -->
         </div>
@@ -166,7 +127,7 @@
             <div class="gallery-img">
               <img src="images/sports4.jpg" class="w-100" alt />
             </div>
-            <div class="gallery-img">
+            <!-- <div class="gallery-img">
               <img src="images/sports2.jpg" class="w-100" alt />
             </div>
             <div class="gallery-img">
@@ -174,7 +135,7 @@
             </div>
             <div class="gallery-img">
               <img src="images/sports2.jpg" class="w-100" alt />
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -200,7 +161,7 @@ export default {
     ValidationProvider,
   },
   data() {
-    return { email: null };
+    return { email: null, data: [] };
   },
   methods: {
     onsubscribe() {
@@ -227,6 +188,21 @@ export default {
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
     },
+
+    // getinstafeed() {
+    //   this.$axios.$get().then((res) => {
+    //     console.log(res);
+    //   });
+    // },
+    getlatest() {
+      this.$axios.$get("news/getLatestnews").then((res) => {
+        this.data = res;
+        console.log(this.data);
+      });
+    },
+  },
+  mounted() {
+    this.getlatest();
   },
 };
 </script>
