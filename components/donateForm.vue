@@ -90,7 +90,7 @@
           :rules="{ required: true, email: true ,max:40 }"
           v-slot="validationContext"
         >
-          <b-form-group id="last name">
+          <b-form-group id="email">
             <b-form-input
               id="email"
               class="border-right-0 border-top-0 border-left-0 shadow-sm p-3 mb-5 bg-white rounded"

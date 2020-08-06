@@ -14,7 +14,7 @@
               </li>
               <li>
                 <a href="#" class="instagram">
-                  <font-awesome-icon :icon="['fab', 'instagram']" />
+                  <font-awesome-icon :icon="['fab', 'reddit-alien']" />
                 </a>
               </li>
               <li>
@@ -34,7 +34,22 @@
                 <strong>Phone :</strong> +91 999 999 9999
               </p>
               <p>
-                <strong>Email :</strong> info@millenials.com
+                <strong>Email :</strong>
+                <a href="mailto:info@millennialspress.com">info@millennialspress.com</a>
+              </p>
+            </div>
+            <div class="mt-4">
+              <p>
+                <router-link to="/privacy-policy" exact>About us</router-link>
+              </p>
+              <p>
+                <router-link to="/privacy-policy" exact>Privacy Policy</router-link>
+              </p>
+              <p>
+                <router-link to="/cookie-policy" exact>Cookie Policy</router-link>
+              </p>
+              <p>
+                <router-link to="/disclaimer" exact>Disclaimer</router-link>
               </p>
             </div>
           </div>
@@ -113,12 +128,34 @@
           <h6 class="footer-title">Newsletter</h6>
 
           <div class="newsletter-form-area">
-            <form action="#">
-              <input type="email" placeholder="Your email address..." />
-              <button type="submit">
-                <font-awesome-icon :icon="['fas', 'paper-plane']" />
-              </button>
-            </form>
+            <validation-observer ref="fc" v-slot="{ handleSubmit }">
+              <b-form @submit.stop.prevent="handleSubmit(onsubscribe)">
+                <validation-provider
+                  name="Email"
+                  :rules="{ required: true, email: true ,max:40 }"
+                  v-slot="validationContext"
+                >
+                  <b-form-input
+                    id="email"
+                    class="border-right-0 border-top-0 border-left-0 shadow-sm p-3 mb-5 bg-white rounded"
+                    name="email"
+                    v-model="email"
+                    placeholder="your email address"
+                    :state="getValidationState(validationContext)"
+                    required
+                  ></b-form-input>
+
+                  <b-form-invalid-feedback>
+                    {{
+                    validationContext.errors[0]
+                    }}
+                  </b-form-invalid-feedback>
+                </validation-provider>
+                <b-button type="submit" variant="outline-primary">
+                  <font-awesome-icon :icon="['fas', 'paper-plane']" style="background-color:black" />
+                </b-button>
+              </b-form>
+            </validation-observer>
 
             <p>Sign up to hear and get our daily update via email</p>
           </div>
@@ -155,7 +192,43 @@
 </template>
 
 <script>
-export default {};
+import { ValidationObserver, ValidationProvider } from "vee-validate";
+
+export default {
+  components: {
+    ValidationObserver,
+    ValidationProvider,
+  },
+  data() {
+    return { email: null };
+  },
+  methods: {
+    onsubscribe() {
+      this.$axios
+        .$post("news/newsletter", { email: this.email })
+        .then((res) => {
+          this.$store.dispatch("toasty/myToaster", {
+            body: " Thank You..! For Subscribing",
+            title: "Newsletter",
+            autoHideDelay: 3000,
+          });
+        })
+        .catch((e) => {
+          this.$store.dispatch("toasty/myToaster", {
+            body: " Already Subscribed",
+            title: "Newsletter",
+            autoHideDelay: 3000,
+          });
+        })
+        .finally((e) => {
+          (this.email = null), this.$refs.fc.reset();
+        });
+    },
+    getValidationState({ dirty, validated, valid = null }) {
+      return dirty || validated ? valid : null;
+    },
+  },
+};
 </script>
 
 <style scoped>

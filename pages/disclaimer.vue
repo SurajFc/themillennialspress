@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3">
+  <div class="p-4">
     <h2>The Millennials Press Terms of Service</h2>
     <h3>1. Terms</h3>
     <p>
@@ -45,5 +45,19 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+a {
+  text-decoration: none;
+  color: #fe5900;
+}
+li:hover {
+  transform: translateY(0px);
+  transition: 0s;
+}
+p {
+  margin: 5px 0 10px 27px;
+}
+ol {
+  margin: 5px 0 10px 30px;
+}
 </style>

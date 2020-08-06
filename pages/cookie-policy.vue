@@ -123,9 +123,14 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
 
-<style>
+<style scoped>
+li:hover {
+  transform: translateY(0px);
+  transition: 0s;
+}
+a {
+  text-decoration: none;
+  color: #fe5900;
+}
 </style>
