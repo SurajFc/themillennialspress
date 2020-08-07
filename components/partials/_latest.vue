@@ -5,8 +5,8 @@
         <b>Latest News</b>
       </h3>
       <hr />
-      <ul class="list-unstyled" v-for="x in getData">
-        <li>
+      <ul class="list-unstyled">
+        <li v-for="x in getData">
           <b-card no-body class="overflow-hidden mycon" style=" border:none;">
             <b-row no-gutters>
               <b-col md="4">
@@ -14,7 +14,7 @@
                   left
                   style="width:85%; "
                   :src="`${$axios.defaults.baseURL}` + x.cover"
-                  :alt="x.tags[1]"
+                  :alt="x.tags[0]"
                 />
 
                 <SocialButton :x="x" />

@@ -8,17 +8,25 @@
           <div class="fotter-social-links">
             <ul>
               <li>
-                <a href="#" class="facebook">
+                <a
+                  href="https://www.facebook.com/Themillennialspress/"
+                  class="facebook"
+                  target="_blank"
+                >
                   <font-awesome-icon :icon="['fab', 'facebook-f']" />
                 </a>
               </li>
               <li>
-                <a href="#" class="instagram">
-                  <font-awesome-icon :icon="['fab', 'reddit-alien']" />
+                <a
+                  href="https://www.instagram.com/themillennialspress/"
+                  class="instagram"
+                  target="_blank"
+                >
+                  <font-awesome-icon :icon="['fab', 'instagram']" />
                 </a>
               </li>
               <li>
-                <a href="#" class="twitter">
+                <a href="#" class="twitter" target="_blank">
                   <font-awesome-icon :icon="['fab', 'twitter']" />
                 </a>
               </li>
@@ -73,7 +81,7 @@
               </div>
               <div class="single_post_text">
                 <h4>
-                  <a href="#">{{x.title | truncate(50)}}</a>
+                  <a href="#">{{x.title | truncate(70)}}</a>
                 </h4>
                 <span class="date">{{ $moment(x.realease).format("LLLL")}}</span>
               </div>
@@ -145,7 +153,7 @@
       <div class="copy-bg text-center">
         <p>
           Copyright © 2020. All rights reserved by
-          The Millennials
+          The Millennials Press
         </p>
       </div>
     </div>

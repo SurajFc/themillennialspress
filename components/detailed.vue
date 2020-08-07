@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="p-3" v-if="show">
-      <div class="mr-3 mycon">
+      <div class="mr-3">
         <b-img-lazy
           :src="`${$axios.defaults.baseURL}` + data[0].cover"
           :alt="data[0].tags[1]"
@@ -65,25 +65,3 @@ export default {
 </script>
 
 
-<style scoped>
-.top_left {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 8%;
-  left: 8%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-@media only screen and (max-width: 700px) {
-  .top_left {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 5%;
-    left: 23%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
-}
-</style>

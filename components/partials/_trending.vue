@@ -6,7 +6,7 @@
       </h3>
       <hr />
       <ul class="list-unstyled">
-        <li v-for="x in getData.slice(0,5)" class="mb-2">
+        <li v-for="x in getData.slice(0,5)">
           <b-card no-body class="overflow-hidden mycon" style=" border:none;">
             <b-row no-gutters>
               <b-col md="4">
@@ -15,7 +15,7 @@
                   left
                   style="width:85%; "
                   :src="`${$axios.defaults.baseURL}` + x.cover"
-                  :alt="x.tags[1]"
+                  :alt="x.tags[0]"
                 />
                 <SocialButton :x="x" />
               </b-col>

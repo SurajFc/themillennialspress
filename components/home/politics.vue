@@ -5,7 +5,7 @@
         <h3>
           <span class="font-weight-bold">Political News</span>
           <span style="float:right;">
-            <b-button variant="outline-secondary">SEE ALL</b-button>
+            <b-button variant="outline-secondary" to="/political-news">SEE ALL</b-button>
           </span>
         </h3>
         <hr />
