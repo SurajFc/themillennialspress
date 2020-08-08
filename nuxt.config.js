@@ -52,6 +52,7 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/dotenv',
 
   ],
   /*
@@ -84,7 +85,7 @@ export default {
 
   recaptcha: {
     hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
-    siteKey: '6LfTk7gZAAAAAGXcbllvtwUz-xeHUpjPzwZDUG9E',
+    siteKey: process.env.siteKey,
     version: 2, // Version
     size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
   },
@@ -93,7 +94,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://127.0.0.1:8000/"
+    baseURL: process.env.server_url
   },
   /*
    ** Build configuration
