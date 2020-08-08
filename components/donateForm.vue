@@ -8,10 +8,14 @@
       >
         <validation-provider
           name="Amount"
-          :rules="{ required: true,min_value:100 }"
+          :rules="{ required: true, min_value: 100 }"
           v-slot="validationContext"
         >
-          <b-form-group id="example-input-group-1" label="Amount" label-for="Amount">
+          <b-form-group
+            id="example-input-group-1"
+            label="Amount"
+            label-for="Amount"
+          >
             <b-form-input
               id="Amount"
               size="lg"
@@ -24,9 +28,7 @@
             ></b-form-input>
 
             <b-form-invalid-feedback>
-              {{
-              validationContext.errors[0]
-              }}
+              {{ validationContext.errors[0] }}
             </b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
@@ -34,7 +36,7 @@
           <div class="col-6">
             <validation-provider
               name="First Name"
-              :rules="{ required: true, min: 3,max:20 }"
+              :rules="{ required: true, min: 3, max: 20 }"
               v-slot="validationContext"
             >
               <b-form-group id="example-input-group-1" label-for="fname">
@@ -50,9 +52,7 @@
                 ></b-form-input>
 
                 <b-form-invalid-feedback>
-                  {{
-                  validationContext.errors[0]
-                  }}
+                  {{ validationContext.errors[0] }}
                 </b-form-invalid-feedback>
               </b-form-group>
             </validation-provider>
@@ -60,7 +60,7 @@
           <div class="col-6">
             <validation-provider
               name="Last name"
-              :rules="{ required: true, min: 3,max:20  }"
+              :rules="{ required: true, min: 3, max: 20 }"
               v-slot="validationContext"
             >
               <b-form-group id="last name">
@@ -76,9 +76,7 @@
                 ></b-form-input>
 
                 <b-form-invalid-feedback>
-                  {{
-                  validationContext.errors[0]
-                  }}
+                  {{ validationContext.errors[0] }}
                 </b-form-invalid-feedback>
               </b-form-group>
             </validation-provider>
@@ -87,7 +85,7 @@
 
         <validation-provider
           name="Email"
-          :rules="{ required: true, email: true ,max:40 }"
+          :rules="{ required: true, email: true, max: 40 }"
           v-slot="validationContext"
         >
           <b-form-group id="email">
@@ -103,9 +101,7 @@
             ></b-form-input>
 
             <b-form-invalid-feedback>
-              {{
-              validationContext.errors[0]
-              }}
+              {{ validationContext.errors[0] }}
             </b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
@@ -128,9 +124,7 @@
             ></b-form-input>
 
             <b-form-invalid-feedback>
-              {{
-              validationContext.errors[0]
-              }}
+              {{ validationContext.errors[0] }}
             </b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
@@ -142,7 +136,8 @@
           value="accepted"
           unchecked-value="not_accepted"
           required
-        >I declare that I am a citizen of India.</b-form-checkbox>
+          >I declare that I am a citizen of India.</b-form-checkbox
+        >
         <br />
 
         <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
@@ -163,14 +158,14 @@ export default {
       script: [
         {
           src: "https://checkout.razorpay.com/v1/checkout.js",
-          body: true,
-        },
-      ],
+          body: true
+        }
+      ]
     };
   },
   components: {
     ValidationObserver,
-    ValidationProvider,
+    ValidationProvider
   },
   data() {
     return {
@@ -179,10 +174,10 @@ export default {
         lname: null,
         email: null,
         phone: null,
-        amount: 500,
+        amount: 500
       },
       status: "not_accepted",
-      captcha: false,
+      captcha: false
     };
   },
 
@@ -194,8 +189,7 @@ export default {
     onSubmit() {
       var order_id = "";
       if (this.captcha) {
-        this.$axios.$post("news/razorpay", this.form).then((res) => {
-          console.log("herexcvxv", res);
+        this.$axios.$post("news/razorpay", this.form).then(res => {
           order_id = res.id;
           var options = {
             key: "rzp_test_P1kchqg0zHT5QO",
@@ -205,22 +199,21 @@ export default {
             currency: "INR",
             image: "tmp.webp",
             order_id: order_id,
-            handler: (response) => {
-              console.log("res====>", response);
+            handler: response => {
               this.finalFunction(response);
             },
             prefill: {
               name: this.form.fname + this.form.lname,
               contact: "+91" + this.form.phone,
-              email: this.form.email,
+              email: this.form.email
             },
             notes: {
-              address: "The Millennials Press",
+              address: "The Millennials Press"
             },
 
             theme: {
-              color: "#FB5000",
-            },
+              color: "#FB5000"
+            }
           };
           var rzp1 = new Razorpay(options);
           rzp1.open();
@@ -228,31 +221,28 @@ export default {
       }
     },
     onError(error) {
-      console.log("Error happened:", error);
       this.captcha = false;
       this.$store.dispatch("toasty/myToaster", {
         body: "Error",
         title: "Captcha Failed",
-        variant: "danger",
+        variant: "danger"
       });
     },
     onSuccess(token) {
       this.captcha = true;
-      console.log(token);
+
       // here you submit the form
       //   this.$refs.form.submit();
     },
     onExpired() {
-      console.log("Expired");
       this.captcha = false;
       this.$store.dispatch("toasty/myToaster", {
         body: "Error",
         title: "Captcha expired. Retry Again",
-        variant: "danger",
+        variant: "danger"
       });
     },
     finalFunction(response) {
-      console.log("omg", response);
       if (response["razorpay_signature"]) {
         this.$axios
           .$post(`news/razorpay/${response.razorpay_order_id}`)
@@ -261,19 +251,19 @@ export default {
             this.$store.dispatch("toasty/myToaster", {
               body: "Donation Success. Thank You..!",
               title: "Success",
-              autoHideDelay: 4000,
+              autoHideDelay: 4000
             })
           )
-          .catch((e) => {
+          .catch(e => {
             this.$store.dispatch("toasty/myToaster", {
               body: "Error",
               title: "Error",
-              variant: "danger",
+              variant: "danger"
             });
           });
       }
-    },
-  },
+    }
+  }
 };
 // cusMsg(response) {
 //   console.log("in here", response);

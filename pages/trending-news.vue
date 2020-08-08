@@ -9,13 +9,13 @@ import DetailedView from "~/components/detailed.vue";
 export default {
   name: "TrendingAll",
   components: {
-    DetailedView,
+    DetailedView
   },
   data() {
     return {
       data: [],
       page: 1,
-      show: false,
+      show: false
     };
   },
   methods: {
@@ -23,13 +23,13 @@ export default {
       try {
         const res = await this.$axios.$get(`news/trending/all?q=${this.page}`);
         this.data = res.results;
-        console.log(res);
+
         this.show = true;
       } catch {}
-    },
+    }
   },
   mounted() {
     this.getTrendingAll();
-  },
+  }
 };
 </script>

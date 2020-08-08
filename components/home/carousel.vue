@@ -50,12 +50,12 @@ export default {
   components: {
     ContentLoader,
     Latest,
-    SocialButton,
+    SocialButton
   },
   data() {
     return {
       show: false,
-      data: [],
+      data: []
     };
   },
   methods: {
@@ -64,15 +64,13 @@ export default {
         const res = await this.$axios.$get("news/getLatestnews");
         this.data = res;
         this.show = true;
-      } catch (err) {
-        console.log("error", err);
-      }
-    },
+      } catch (err) {}
+    }
   },
 
   mounted() {
     this.getLatest();
-  },
+  }
 };
 </script>
 <style scoped>

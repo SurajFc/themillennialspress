@@ -17,7 +17,7 @@ const actions = {
       toaster: payload.toaster ? payload.toaster : 'b-toaster-top-center',
       appendToast: false
     })
-    console.log("herere222")
+
   }
 };
 
