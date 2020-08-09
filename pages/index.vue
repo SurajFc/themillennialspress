@@ -33,6 +33,19 @@ import TrendingNews from "~/components/home/trending.vue";
 import Politics from "~/components/home/politics.vue";
 
 export default {
+  head() {
+    return {
+      title: "The Millennials Press",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "Home",
+          name: "Home",
+          content: "Home | The Millennials Press",
+        },
+      ],
+    };
+  },
   components: {
     Coronavirus,
     LatestNews,

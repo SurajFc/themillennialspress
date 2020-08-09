@@ -3,8 +3,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: "India News",
+      meta: [
+        {
+          hid: "India News",
+          name: "India News",
+          content: "India News | The Millennials Press",
+        },
+      ],
+    };
+  },
+};
 </script>
-
-<style>
-</style>

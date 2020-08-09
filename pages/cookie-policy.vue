@@ -123,7 +123,23 @@
   </div>
 </template>
 
-
+<script>
+export default {
+  head() {
+    return {
+      title: "Cookie Policy",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "Cookie Policy",
+          name: "Cookie Policy",
+          content: "Cookie Policy | The Millennials Press",
+        },
+      ],
+    };
+  },
+};
+</script>
 <style scoped>
 li:hover {
   transform: translateY(0px);

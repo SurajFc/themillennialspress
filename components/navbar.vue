@@ -1,28 +1,17 @@
 <template>
   <div>
-    <b-navbar
-      toggleable="lg"
-      type="light"
-      variant="white"
-      style="margin-bottom:-20px;"
-    >
-      <b-navbar-brand href="#">
-        <nuxt-link to="/" exact>
-          <img src="tmp.webp" alt="The Millennials Press" height="150" />
-        </nuxt-link>
+    <b-navbar toggleable="lg" type="light" variant="white" style="margin-bottom:-20px;">
+      <b-navbar-brand to="/" exact>
+        <img src="tmp.webp" alt="The Millennials Press" height="150" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="main">
-          <b-nav-item to="/trending-news" exact-active-class
-            >Trending</b-nav-item
-          >
+          <b-nav-item to="/trending-news" exact-active-class>Trending</b-nav-item>
           <b-nav-item to="/india-news" exact-active-class>India</b-nav-item>
           <b-nav-item>World</b-nav-item>
           <b-nav-item>Technology</b-nav-item>
-          <b-nav-item to="/political-news" exact-active-class
-            >Politics</b-nav-item
-          >
+          <b-nav-item to="/political-news" exact-active-class>Politics</b-nav-item>
           <b-nav-item>Videos</b-nav-item>
 
           <b-nav-item-dropdown text="More" right>
@@ -80,13 +69,7 @@
           </b-button>
         </b-navbar-nav>
 
-        <b-modal
-          id="modal-xl"
-          size="xl"
-          title="Search Anything"
-          hide-footer
-          lazy
-        >
+        <b-modal id="modal-xl" size="xl" title="Search Anything" hide-footer lazy>
           <b-input placeholder="e.g. india"></b-input>
         </b-modal>
       </b-collapse>
@@ -99,7 +82,7 @@ export default {
   data() {
     return {
       search_icon: false,
-      search: ""
+      search: "",
     };
   },
 
@@ -110,8 +93,8 @@ export default {
       } else {
         this.search_icon = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style></style>

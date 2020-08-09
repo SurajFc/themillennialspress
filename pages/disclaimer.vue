@@ -42,7 +42,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: "Disclaimer",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "Disclaimer",
+          name: "Disclaimer",
+          content: "Disclaimer | The Millennials Press",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

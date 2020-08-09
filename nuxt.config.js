@@ -19,7 +19,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: process.env.npm_package_name || "The Millennials Press",
     meta: [{
         charset: "utf-8"
       },
@@ -28,8 +28,8 @@ export default {
         content: "width=device-width, initial-scale=1"
       },
       {
-        hid: "description",
-        name: "description",
+        hid: "The Millennials Press",
+        name: "The Millennials Press",
         content: process.env.npm_package_description || ""
       }
     ],
@@ -68,6 +68,7 @@ export default {
     "bootstrap-vue/nuxt",
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
+    '@nuxtjs/pwa',
 
     [
       "nuxt-fontawesome",

@@ -29,6 +29,19 @@ export default {
   components: {
     DonateForm,
   },
+  head() {
+    return {
+      title: "Support us",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "Support us",
+          name: "Support us",
+          content: "Support us | The Millennials Press",
+        },
+      ],
+    };
+  },
 };
 </script>
 

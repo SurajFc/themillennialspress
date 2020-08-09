@@ -8,14 +8,26 @@
 import DetailedView from "~/components/detailed.vue";
 export default {
   name: "PoliticalAll",
+  head() {
+    return {
+      title: "Political News",
+      meta: [
+        {
+          hid: "Political News",
+          name: "Political News",
+          content: "Political News | The Millennials Press",
+        },
+      ],
+    };
+  },
   components: {
-    DetailedView
+    DetailedView,
   },
   data() {
     return {
       data: [],
       page: 1,
-      show: false
+      show: false,
     };
   },
   methods: {
@@ -26,11 +38,11 @@ export default {
 
         this.show = true;
       } catch {}
-    }
+    },
   },
   mounted() {
     this.getTrendingAll();
-  }
+  },
 };
 </script>
 

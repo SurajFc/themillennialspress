@@ -8,14 +8,26 @@
 import DetailedView from "~/components/detailed.vue";
 export default {
   name: "TrendingAll",
+  head() {
+    return {
+      title: "Trending News",
+      meta: [
+        {
+          hid: "Trending News",
+          name: "Trending News",
+          content: "Trending News | The Millennials Press",
+        },
+      ],
+    };
+  },
   components: {
-    DetailedView
+    DetailedView,
   },
   data() {
     return {
       data: [],
       page: 1,
-      show: false
+      show: false,
     };
   },
   methods: {
@@ -26,10 +38,10 @@ export default {
 
         this.show = true;
       } catch {}
-    }
+    },
   },
   mounted() {
     this.getTrendingAll();
-  }
+  },
 };
 </script>
