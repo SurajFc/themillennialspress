@@ -1,3 +1,4 @@
+const getAppRoutes = require('./utils/getsitemaps.js');
 export default {
   /*
    ** Nuxt rendering mode
@@ -30,14 +31,35 @@ export default {
       {
         hid: "The Millennials Press",
         name: "The Millennials Press",
-        content: process.env.npm_package_description || ""
-      }
+        content: "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: 'icon.png',
+      },
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
+        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com ",
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com ",
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "websites",
+      },
     ],
     link: [{
       rel: "icon",
       type: "image/x-icon",
       href: "/favicon.ico"
-    }]
+    }],
+
   },
   /*
    ** Global CSS
@@ -87,6 +109,7 @@ export default {
     "nuxt-moment",
     'vue-social-sharing/nuxt',
     '@nuxtjs/recaptcha',
+    '@nuxtjs/sitemap' //should be last
   ],
 
   recaptcha: {
@@ -102,6 +125,15 @@ export default {
   axios: {
     baseURL: process.env.server_url
   },
+  sitemap: {
+    routes() {
+      return getAppRoutes();
+    },
+    path: '/sitemap.xml',
+    gzip: true,
+
+
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
@@ -109,5 +141,7 @@ export default {
   build: {
     transpile: ['vee-validate/dist/rules'],
 
-  }
+  },
+
+
 };

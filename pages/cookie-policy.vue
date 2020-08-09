@@ -127,7 +127,7 @@
 export default {
   head() {
     return {
-      title: "Cookie Policy",
+      title: "Cookie Policy | themillennialspress.com",
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {

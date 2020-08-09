@@ -18,7 +18,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: "Privacy Policy | themillennialspress.com",
+      meta: [
+        {
+          hid: "Privacy Policy",
+          name: "Privacy Policy",
+          content: "Privacy Policy | The Millennials Press",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>

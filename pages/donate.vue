@@ -31,7 +31,7 @@ export default {
   },
   head() {
     return {
-      title: "Support us",
+      title: "Support us | themillennialspress.com",
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
