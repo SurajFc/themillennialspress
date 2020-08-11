@@ -5,18 +5,13 @@
         <h3>
           <span class="font-weight-bold">Political News</span>
           <span style="float:right;">
-            <b-button variant="outline-secondary" to="/political-news"
-              >SEE ALL</b-button
-            >
+            <b-button variant="outline-secondary" to="/political-news">SEE ALL</b-button>
           </span>
         </h3>
         <hr />
       </div>
       <b-card-group deck>
-        <b-card
-          class="overflow-hidden mycon"
-          style="max-width: 40rem; height:200px"
-        >
+        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
@@ -29,20 +24,12 @@
             <b-col md="6">
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[0].title }}</b-card-text>
-                <b-button
-                  href="#"
-                  variant="outline-secondary"
-                  style="margin-left:1rem;"
-                  >Read More</b-button
-                >
+                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
         </b-card>
-        <b-card
-          class="overflow-hidden mycon"
-          style="max-width: 40rem; height:200px"
-        >
+        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
@@ -54,12 +41,7 @@
             <b-col md="6">
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
-                <b-button
-                  href="#"
-                  variant="outline-secondary"
-                  style="margin-left:1rem;"
-                  >Read More</b-button
-                >
+                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
@@ -67,10 +49,7 @@
       </b-card-group>
       <br />
       <b-card-group deck>
-        <b-card
-          class="overflow-hidden mycon"
-          style="max-width: 40rem; height:200px"
-        >
+        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
@@ -83,20 +62,12 @@
             <b-col md="6">
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[0].title }}</b-card-text>
-                <b-button
-                  href="#"
-                  variant="outline-secondary"
-                  style="margin-left:1rem;"
-                  >Read More</b-button
-                >
+                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
         </b-card>
-        <b-card
-          class="overflow-hidden mycon"
-          style="max-width: 40rem; height:200px"
-        >
+        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
@@ -108,12 +79,7 @@
             <b-col md="6">
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
-                <b-button
-                  href="#"
-                  variant="outline-secondary"
-                  style="margin-left:1rem;"
-                  >Read More</b-button
-                >
+                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
@@ -133,28 +99,28 @@ import SocialButton from "~/components/partials/socialshare.vue";
 export default {
   components: {
     PoliticsList,
-    SocialButton
+    SocialButton,
   },
   data() {
     return {
       show: false,
-      data: []
+      data: [],
     };
   },
   methods: {
-    async getPoliticalNews() {
-      try {
-        const res = await this.$axios.$get("news/getPoliticsNews");
-
+    getPoliticalNews() {
+      this.$axios.$get("news/getPoliticsNews").then((res) => {
         this.data = res;
-
-        this.show = true;
-      } catch {}
-    }
+        console.log("==>", this.data);
+        if (this.data.length > 0) {
+          this.show = true;
+        }
+      });
+    },
   },
   mounted() {
     this.getPoliticalNews();
-  }
+  },
 };
 </script>
 

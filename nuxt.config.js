@@ -1,4 +1,4 @@
-const getAppRoutes = require('./utils/getsitemaps.js');
+const getAppRoutes = require("./utils/getsitemaps.js");
 export default {
   /*
    ** Nuxt rendering mode
@@ -21,7 +21,8 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || "The Millennials Press",
-    meta: [{
+    meta: [
+      {
         charset: "utf-8"
       },
       {
@@ -31,35 +32,39 @@ export default {
       {
         hid: "The Millennials Press",
         name: "The Millennials Press",
-        content: "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
+        content:
+          "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
       },
       {
         hid: "og:image",
         property: "og:image",
-        content: 'icon.png',
+        content: "icon.png"
       },
       {
         hid: "og:site_name",
         property: "og:site_name",
-        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com ",
+        content:
+          "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
       },
       {
         hid: "og:description",
         property: "og:description",
-        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com ",
+        content:
+          "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
       },
       {
         hid: "og:type",
         property: "og:type",
-        content: "websites",
-      },
+        content: "websites"
+      }
     ],
-    link: [{
-      rel: "icon",
-      type: "image/x-icon",
-      href: "/favicon.ico"
-    }],
-
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      }
+    ]
   },
   /*
    ** Global CSS
@@ -69,7 +74,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["~/plugins/numberFilter.js", "~/plugins/truncatetext.js", '~/plugins/vee-validate.js', ],
+  plugins: [
+    "~/plugins/numberFilter.js",
+    "~/plugins/truncatetext.js",
+    "~/plugins/vee-validate.js"
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -78,10 +87,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxtjs/dotenv',
-
-  ],
+  buildModules: ["@nuxtjs/dotenv"],
   /*
    ** Nuxt.js modules
    */
@@ -90,12 +96,13 @@ export default {
     "bootstrap-vue/nuxt",
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    '@nuxtjs/pwa',
+    "@nuxtjs/pwa",
 
     [
       "nuxt-fontawesome",
       {
-        imports: [{
+        imports: [
+          {
             set: "@fortawesome/free-solid-svg-icons",
             icons: ["fas"]
           },
@@ -107,16 +114,17 @@ export default {
       }
     ],
     "nuxt-moment",
-    'vue-social-sharing/nuxt',
-    '@nuxtjs/recaptcha',
-    '@nuxtjs/sitemap' //should be last
+    "vue-social-sharing/nuxt",
+    "@nuxtjs/recaptcha",
+    "nuxt-purgecss",
+    "@nuxtjs/sitemap" //should be last
   ],
 
   recaptcha: {
     hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
     siteKey: process.env.siteKey,
     version: 2, // Version
-    size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
+    size: "normal" // Size: 'compact', 'normal', 'invisible' (v2)
   },
   /*
    ** Axios module configuration
@@ -126,22 +134,26 @@ export default {
     baseURL: process.env.server_url
   },
   sitemap: {
+    defaults: {
+      changefreq: "daily",
+      priority: 1,
+      lastmod: new Date()
+    },
+    path: "/sitemap.xml",
+    gzip: true,
+    hostname: "https://themillennialspress.com",
+
+    generate: false,
     routes() {
       return getAppRoutes();
-    },
-    path: '/sitemap.xml',
-    gzip: true,
-
-
+    }
   },
+
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    transpile: ['vee-validate/dist/rules'],
-
-  },
-
-
+    transpile: ["vee-validate/dist/rules"]
+  }
 };

@@ -8,7 +8,6 @@
           fluid
           style="width:100%;height:25rem;"
         />
-        <SocialButton :x="data[0]" />
 
         <p class="h3">{{data[0].title | truncate(80)}}</p>
       </div>
@@ -54,12 +53,11 @@
 
 <script>
 import DetailSkel from "~/components/skeletons/detailSkel.vue";
-import SocialButton from "~/components/partials/socialshare.vue";
+
 export default {
   props: ["data", "show"],
   components: {
     DetailSkel,
-    SocialButton,
   },
 };
 </script>

@@ -38,12 +38,12 @@
             </p>
 
             <div class="contact-info">
-              <p><strong>Phone :</strong> +91 999 999 9999</p>
+              <p>
+                <strong>Phone :</strong> +91 999 999 9999
+              </p>
               <p>
                 <strong>Email :</strong>
-                <a href="mailto:info@millennialspress.com"
-                  >info@millennialspress.com</a
-                >
+                <a href="mailto:info@millennialspress.com">info@millennialspress.com</a>
               </p>
             </div>
             <div class="mt-4">
@@ -51,14 +51,10 @@
                 <router-link to="/privacy-policy" exact>About us</router-link>
               </p>
               <p>
-                <router-link to="/privacy-policy" exact
-                  >Privacy Policy</router-link
-                >
+                <router-link to="/privacy-policy" exact>Privacy Policy</router-link>
               </p>
               <p>
-                <router-link to="/cookie-policy" exact
-                  >Cookie Policy</router-link
-                >
+                <router-link to="/cookie-policy" exact>Cookie Policy</router-link>
               </p>
               <p>
                 <router-link to="/disclaimer" exact>Disclaimer</router-link>
@@ -69,11 +65,7 @@
         <div class="col-md-4">
           <h6 class="footer-title">Recent News</h6>
 
-          <div
-            class="single-item"
-            v-for="(x, index) in data.slice(0, 4)"
-            :key="index"
-          >
+          <div class="single-item" v-for="(x, index) in data.slice(0, 4)" :key="index">
             <div class="single_post widgets_small">
               <div class="post_img">
                 <div class="img_wrap">
@@ -91,9 +83,11 @@
                 <h4>
                   <a href="#">{{ x.title | truncate(70) }}</a>
                 </h4>
-                <span class="date">{{
+                <span class="date">
+                  {{
                   $moment(x.realease).format("LLLL")
-                }}</span>
+                  }}
+                </span>
               </div>
             </div>
             <div class="space-15"></div>
@@ -124,15 +118,10 @@
                     required
                   ></b-form-input>
 
-                  <b-form-invalid-feedback>
-                    {{ validationContext.errors[0] }}
-                  </b-form-invalid-feedback>
+                  <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
                 </validation-provider>
                 <b-button type="submit" variant="outline-primary">
-                  <font-awesome-icon
-                    :icon="['fas', 'paper-plane']"
-                    style="background-color:black"
-                  />
+                  <font-awesome-icon :icon="['fas', 'paper-plane']" style="background-color:black" />
                 </b-button>
               </b-form>
             </validation-observer>
@@ -144,7 +133,7 @@
 
           <div class="instagram-grid">
             <div class="gallery-img">
-              <img src="images/sports4.jpg" class="w-100" alt />
+              <!-- <img src="images/sports4.jpg" class="w-100" alt /> -->
             </div>
             <!-- <div class="gallery-img">
               <img src="images/sports2.jpg" class="w-100" alt />
@@ -162,9 +151,7 @@
 
       <!-- Copyright -->
       <div class="copy-bg text-center">
-        <p>
-          Copyright © 2020. All rights reserved by The Millennials Press
-        </p>
+        <p>Copyright © 2020. All rights reserved by The Millennials Press</p>
       </div>
     </div>
   </footer>
@@ -176,7 +163,7 @@ import { ValidationObserver, ValidationProvider } from "vee-validate";
 export default {
   components: {
     ValidationObserver,
-    ValidationProvider
+    ValidationProvider,
   },
   data() {
     return { email: null, data: [] };
@@ -185,21 +172,21 @@ export default {
     onsubscribe() {
       this.$axios
         .$post("news/newsletter", { email: this.email })
-        .then(res => {
+        .then((res) => {
           this.$store.dispatch("toasty/myToaster", {
             body: " Thank You..! For Subscribing",
             title: "Newsletter",
-            autoHideDelay: 3000
+            autoHideDelay: 3000,
           });
         })
-        .catch(e => {
+        .catch((e) => {
           this.$store.dispatch("toasty/myToaster", {
             body: " Already Subscribed",
             title: "Newsletter",
-            autoHideDelay: 3000
+            autoHideDelay: 3000,
           });
         })
-        .finally(e => {
+        .finally((e) => {
           (this.email = null), this.$refs.fc.reset();
         });
     },
@@ -213,14 +200,14 @@ export default {
     //   });
     // },
     getlatest() {
-      this.$axios.$get("news/getLatestnews").then(res => {
+      this.$axios.$get("news/getLatestnews").then((res) => {
         this.data = res;
       });
-    }
+    },
   },
   mounted() {
     this.getlatest();
-  }
+  },
 };
 </script>
 
