@@ -16,8 +16,6 @@
                   :src="`${$axios.defaults.baseURL}` + x.cover"
                   :alt="x.tags[0]"
                 />
-
-                <SocialButton :x="x" />
               </b-col>
               <b-col md="8">
                 <b-card-body>

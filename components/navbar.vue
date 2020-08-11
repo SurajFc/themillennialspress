@@ -9,9 +9,10 @@
         <b-navbar-nav class="main">
           <b-nav-item to="/trending-news" exact-active-class>Trending</b-nav-item>
           <b-nav-item to="/india-news" exact-active-class>India</b-nav-item>
-          <b-nav-item>World</b-nav-item>
-          <b-nav-item>Technology</b-nav-item>
+          <b-nav-item to="/world-news" exact-active-class>World</b-nav-item>
           <b-nav-item to="/political-news" exact-active-class>Politics</b-nav-item>
+          <b-nav-item to="/technology-news" exact-active-class>Technology</b-nav-item>
+
           <b-nav-item>Videos</b-nav-item>
 
           <b-nav-item-dropdown text="More" right>
