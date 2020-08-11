@@ -7,7 +7,6 @@
         :interval="6000"
         style="text-shadow: 1px 1px 2px #333;"
         indicators
-        class="mycon"
       >
         <b-carousel-slide v-for="x in data" :key="x.id">
           <b class="text-uppercase">
@@ -27,7 +26,6 @@
               :src="`${$axios.defaults.baseURL}` + x.cover"
               :alt="x.tags[1]"
             />
-            <SocialButton :x="x" />
           </template>
         </b-carousel-slide>
       </b-carousel>
@@ -45,17 +43,16 @@
 <script>
 import { ContentLoader } from "vue-content-loader";
 import Latest from "~/components/partials/_latest.vue";
-import SocialButton from "~/components/partials/socialshare.vue";
+
 export default {
   components: {
     ContentLoader,
     Latest,
-    SocialButton
   },
   data() {
     return {
       show: false,
-      data: []
+      data: [],
     };
   },
   methods: {
@@ -65,12 +62,12 @@ export default {
         this.data = res;
         this.show = true;
       } catch (err) {}
-    }
+    },
   },
 
   mounted() {
     this.getLatest();
-  }
+  },
 };
 </script>
 <style scoped>

@@ -11,14 +11,14 @@
         <hr />
       </div>
       <b-card-group deck>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
                 :src="`${$axios.defaults.baseURL}` + data[0].cover"
                 :alt="data[0].tags[0]"
               ></b-card-img-lazy>
-              <SocialButton :x="data[0]" />
+
               <br />
             </b-col>
             <b-col md="6">
@@ -29,14 +29,13 @@
             </b-col>
           </b-row>
         </b-card>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
                 :src="`${$axios.defaults.baseURL}` + data[1].cover"
                 :alt="data[1].tags[0]"
               ></b-card-img-lazy>
-              <SocialButton :x="data[1]" />
             </b-col>
             <b-col md="6">
               <b-card-body>
@@ -49,14 +48,14 @@
       </b-card-group>
       <br />
       <b-card-group deck>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
                 :src="`${$axios.defaults.baseURL}` + data[0].cover"
                 :alt="data[0].tags[0]"
               ></b-card-img-lazy>
-              <SocialButton :x="data[0]" />
+
               <br />
             </b-col>
             <b-col md="6">
@@ -67,14 +66,13 @@
             </b-col>
           </b-row>
         </b-card>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img-lazy
                 :src="`${$axios.defaults.baseURL}` + data[1].cover"
                 :alt="data[1].tags[0]"
               ></b-card-img-lazy>
-              <SocialButton :x="data[1]" />
             </b-col>
             <b-col md="6">
               <b-card-body>
@@ -112,7 +110,7 @@ export default {
       this.$axios.$get("news/getPoliticsNews").then((res) => {
         this.data = res;
         console.log("==>", this.data);
-        if (this.data.length > 0) {
+        if (this.data.length > 2) {
           this.show = true;
         }
       });
@@ -124,14 +122,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.top_left {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 13%;
-  left: 23%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-</style>
+
