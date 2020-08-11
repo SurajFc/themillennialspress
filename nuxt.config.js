@@ -21,7 +21,8 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || "The Millennials Press",
-    meta: [{
+    meta: [
+      {
         charset: "utf-8"
       },
       {
@@ -31,7 +32,8 @@ export default {
       {
         hid: "The Millennials Press",
         name: "The Millennials Press",
-        content: "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
+        content:
+          "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
       },
       {
         hid: "og:image",
@@ -41,12 +43,14 @@ export default {
       {
         hid: "og:site_name",
         property: "og:site_name",
-        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
+        content:
+          "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
       },
       {
         hid: "og:description",
         property: "og:description",
-        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
+        content:
+          "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
       },
       {
         hid: "og:type",
@@ -54,11 +58,13 @@ export default {
         content: "websites"
       }
     ],
-    link: [{
-      rel: "icon",
-      type: "image/x-icon",
-      href: "/favicon.ico"
-    }]
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      }
+    ]
   },
   /*
    ** Global CSS
@@ -95,7 +101,8 @@ export default {
     [
       "nuxt-fontawesome",
       {
-        imports: [{
+        imports: [
+          {
             set: "@fortawesome/free-solid-svg-icons",
             icons: ["fas"]
           },
@@ -109,7 +116,7 @@ export default {
     "nuxt-moment",
     "vue-social-sharing/nuxt",
     "@nuxtjs/recaptcha",
-
+    "@nuxtjs/robots",
     "@nuxtjs/sitemap" //should be last
   ],
 
@@ -148,5 +155,11 @@ export default {
    */
   build: {
     transpile: ["vee-validate/dist/rules"]
+  },
+
+  robots: {
+    UserAgent: "*",
+    Allow: "/",
+    Sitemap: "/sitemap.xml"
   }
 };

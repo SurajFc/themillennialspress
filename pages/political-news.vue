@@ -10,12 +10,36 @@ export default {
   name: "PoliticalAll",
   head() {
     return {
-      title: "Political News",
+      title:
+        "Political News - Latest Political News, Breaking Political News, Political News Headlines | themillennialspress.com ",
       meta: [
+        {
+          hid: "og:title",
+          property: "og:title",
+          content:
+            "Political News - Latest Political News, Breaking Political News, Political News Headlines | themillennialspress.com ",
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "articles",
+        },
         {
           hid: "Political News",
           name: "Political News",
           content: "Political News | The Millennials Press",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "Political News, Latest Political News, Breaking Political News, Political News Headlines, millennials,  themillennials, millennialsnews, themillennialspress.com ",
+        },
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Get top and latest Political News - Read Breaking Political News and Political News Headlines. millennials is leading news website worldwide get all latest and breaking world news online on themillennialspress.com",
         },
       ],
     };
@@ -46,4 +70,3 @@ export default {
 };
 </script>
 
-<style></style>

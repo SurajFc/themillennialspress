@@ -92,12 +92,10 @@
 
 <script>
 import PoliticsList from "~/components/partials/_politics.vue";
-import SocialButton from "~/components/partials/socialshare.vue";
 
 export default {
   components: {
     PoliticsList,
-    SocialButton,
   },
   data() {
     return {
