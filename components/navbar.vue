@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="light" variant="white" style="margin-bottom:-20px;">
+  <div class="col-md-12 col-sm-12">
+    <b-navbar toggleable="lg" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp.webp" alt="The Millennials Press" height="150" />
       </b-navbar-brand>
@@ -16,8 +16,8 @@
           <b-nav-item>Videos</b-nav-item>
 
           <b-nav-item-dropdown text="More" right>
-            <b-dropdown-item href="#">India</b-dropdown-item>
-            <b-dropdown-item href="#">Politics</b-dropdown-item>
+            <b-dropdown-item href="#">Sports</b-dropdown-item>
+            <b-dropdown-item href="#">Women</b-dropdown-item>
             <b-dropdown-item href="#">World</b-dropdown-item>
             <b-dropdown-item href="#">FA</b-dropdown-item>
           </b-nav-item-dropdown>
@@ -46,7 +46,11 @@
               class="social-icon"
             />
           </b-nav-item>
-          <b-nav-item class="d-none d-lg-block">
+          <b-nav-item
+            class="d-none d-lg-block"
+            target="_blank"
+            href="https://twitter.com/millennials_90"
+          >
             <font-awesome-icon
               :icon="['fab', 'twitter']"
               style="color: #1da1f2;"

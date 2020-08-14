@@ -26,7 +26,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="twitter" target="_blank">
+                <a href="https://twitter.com/millennials_90" class="twitter" target="_blank">
                   <font-awesome-icon :icon="['fab', 'twitter']" />
                 </a>
               </li>
@@ -69,19 +69,19 @@
             <div class="single_post widgets_small">
               <div class="post_img">
                 <div class="img_wrap">
-                  <a href="#">
+                  <nuxt-link :to="x.category.slug + '/'+ x.slug">
                     <b-img-lazy
                       left
                       style="width:85%; "
                       :src="`${$axios.defaults.baseURL}` + x.cover"
-                      :alt="x.tags[1]"
+                      :alt="x.tags[0]"
                     />
-                  </a>
+                  </nuxt-link>
                 </div>
               </div>
               <div class="single_post_text">
                 <h4>
-                  <a href="#">{{ x.title | truncate(70) }}</a>
+                  <nuxt-link :to="x.category.slug + '/'+ x.slug">{{ x.title | truncate(70) }}</nuxt-link>
                 </h4>
                 <span class="date">
                   {{

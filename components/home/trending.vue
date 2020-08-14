@@ -1,6 +1,6 @@
 <template>
   <div class="row my-2">
-    <div class="col-md-8 col-lg-8 col-sm-10 shadow-md p-3 mb-3 bg-white rounded">
+    <div class="col-md-8 col-sm-10 p-3 mb-3 bg-white">
       <div>
         <h3>
           <span class="font-weight-bold">Trending News</span>
@@ -16,43 +16,53 @@
         <hr />
       </div>
       <div class="row" v-if="show">
-        <b-carousel
-          ref="trending"
-          :interval="100000"
-          style="text-shadow: 1px 1px 2px #333;"
-          :no-animation="true"
-        >
+        <b-carousel ref="trending" :interval="100000" :no-animation="true">
           <b-carousel-slide v-for="(i, index) in data" :key="index">
             <template v-slot:img>
               <b-card-group>
-                <b-card tag="article" style="max-width: 30rem;height:15rem; " class="mb-2">
-                  <b-card-img-lazy
-                    :src="`${$axios.defaults.baseURL}` + data[index].cover"
-                    style="height:12rem;"
-                  ></b-card-img-lazy>
-
-                  <b-card-text>
-                    {{
-                    data[index].title | truncate(60)
-                    }}
-                  </b-card-text>
-                </b-card>
-
                 <b-card
                   tag="article"
-                  style="max-width: 30rem;height:15rem;"
-                  class="ml-2"
-                  v-if="data[index + 1]"
+                  style="max-width: 30rem;height:15rem; border:none;"
+                  class="mb-3 mr-2"
                 >
-                  <b-card-img-lazy
-                    :src="`${$axios.defaults.baseURL}` + data[index + 1].cover"
-                    style="height:12rem;"
-                  ></b-card-img-lazy>
+                  <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                    <b-card-img-lazy
+                      :src="`${$axios.defaults.baseURL}` + data[index].cover"
+                      style="height:12rem;"
+                    ></b-card-img-lazy>
+                  </nuxt-link>
 
                   <b-card-text>
-                    {{
-                    data[index + 1].title | truncate(60)
-                    }}
+                    <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                      <h5>
+                        {{
+                        data[index].title | truncate(70)
+                        }}
+                      </h5>
+                    </nuxt-link>
+                  </b-card-text>
+                </b-card>
+                <b-card
+                  tag="article"
+                  style="max-width: 30rem;height:15rem; border:none;"
+                  class="mb-3 mr-1"
+                  v-if="data[index + 1]"
+                >
+                  <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                    <b-card-img-lazy
+                      :src="`${$axios.defaults.baseURL}` + data[index + 1].cover"
+                      style="height:12rem;"
+                    ></b-card-img-lazy>
+                  </nuxt-link>
+
+                  <b-card-text>
+                    <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                      <h5>
+                        {{
+                        data[index+1].title | truncate(70)
+                        }}
+                      </h5>
+                    </nuxt-link>
                   </b-card-text>
                 </b-card>
               </b-card-group>

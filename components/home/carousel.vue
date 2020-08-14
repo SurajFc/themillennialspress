@@ -19,22 +19,24 @@
           <p class="sub text-capitalize">{{ x.subtitle | truncate(60) }}</p>
 
           <template v-slot:img>
-            <b-img-lazy
-              fluid-grow
-              class="d-block img-fluid w-100"
-              style="width:100%; height: 450px;"
-              :src="`${$axios.defaults.baseURL}` + x.cover"
-              :alt="x.tags[1]"
-            />
+            <nuxt-link :to="x.category.slug + '/'+ x.slug">
+              <b-img-lazy
+                fluid-grow
+                class="d-block img-fluid w-100"
+                style="width:100%; height: 450px;"
+                :src="`${$axios.defaults.baseURL}` + x.cover"
+                :alt="x.tags[1]"
+              />
+            </nuxt-link>
           </template>
         </b-carousel-slide>
       </b-carousel>
     </div>
-    <div class="col-md-8 col-lg-8" v-else>
+    <div class="col-md-8" v-else>
       <content-loader></content-loader>
       <content-loader></content-loader>
     </div>
-    <div class="col-md-4 col-lg-4">
+    <div class="col-md-4">
       <Latest :show="show" :getData="data" />
     </div>
   </div>
