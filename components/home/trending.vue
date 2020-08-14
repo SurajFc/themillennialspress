@@ -25,7 +25,7 @@
                   style="max-width: 30rem;height:15rem; border:none;"
                   class="mb-3 mr-2"
                 >
-                  <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                  <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
                     <b-card-img-lazy
                       :src="`${$axios.defaults.baseURL}` + data[index].cover"
                       style="height:12rem;"
@@ -33,7 +33,7 @@
                   </nuxt-link>
 
                   <b-card-text>
-                    <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                    <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
                       <h5>
                         {{
                         data[index].title | truncate(70)
@@ -48,7 +48,7 @@
                   class="mb-3 mr-1"
                   v-if="data[index + 1]"
                 >
-                  <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                  <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
                     <b-card-img-lazy
                       :src="`${$axios.defaults.baseURL}` + data[index + 1].cover"
                       style="height:12rem;"
@@ -56,7 +56,7 @@
                   </nuxt-link>
 
                   <b-card-text>
-                    <nuxt-link :to="i.category.slug + '/'+ i.slug">
+                    <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
                       <h5>
                         {{
                         data[index+1].title | truncate(70)

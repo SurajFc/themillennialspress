@@ -14,7 +14,7 @@
         <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <nuxt-link :to="data[0].category.slug + '/'+ data[0].slug">
+              <nuxt-link :to="'/' +data[0].category.slug + '/'+ data[0].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[0].cover"
                   :alt="data[0].tags[0]"
@@ -38,7 +38,7 @@
         <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <nuxt-link :to="data[1].category.slug + '/'+ data[1].slug">
+              <nuxt-link :to="'/' +data[1].category.slug + '/'+ data[1].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[1].cover"
                   :alt="data[1].tags[0]"
@@ -63,7 +63,7 @@
         <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <nuxt-link :to="data[2].category.slug + '/'+ data[2].slug">
+              <nuxt-link :to="'/' +data[2].category.slug + '/'+ data[2].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[2].cover"
                   :alt="data[2].tags[0]"
@@ -76,7 +76,7 @@
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[2].title }}</b-card-text>
                 <b-button
-                  :to="data[2].category.slug + '/'+ data[2].slug"
+                  :to="'/' +data[2].category.slug + '/'+ data[2].slug"
                   variant="outline-secondary"
                   style="margin-left:1rem;"
                 >Read More</b-button>
@@ -87,7 +87,7 @@
         <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <nuxt-link :to="data[1].category.slug + '/'+ data[1].slug">
+              <nuxt-link :to="'/' +data[1].category.slug + '/'+ data[1].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[1].cover"
                   :alt="data[1].tags[0]"
@@ -98,7 +98,7 @@
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
                 <b-button
-                  :to="data[1].category.slug + '/'+ data[1].slug"
+                  :to="'/' +data[1].category.slug + '/'+ data[1].slug"
                   variant="outline-secondary"
                   style="margin-left:1rem;"
                 >Read More</b-button>

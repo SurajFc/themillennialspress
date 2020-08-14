@@ -10,7 +10,7 @@
           <b-card no-body style=" border:none;">
             <b-row no-gutters>
               <b-col md="4" sm="12">
-                <nuxt-link :to="x.category.slug + '/'+ x.slug">
+                <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                   <b-card-img-lazy
                     left
                     style="width:85%; "
@@ -22,7 +22,7 @@
               <b-col md="8" sm="12">
                 <b-card-body>
                   <b-card-text>
-                    <nuxt-link :to="x.category.slug + '/'+ x.slug">
+                    <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                       <h5>{{x.title | truncate(35)}}</h5>
                     </nuxt-link>
                   </b-card-text>

@@ -69,7 +69,7 @@
             <div class="single_post widgets_small">
               <div class="post_img">
                 <div class="img_wrap">
-                  <nuxt-link :to="x.category.slug + '/'+ x.slug">
+                  <nuxt-link :to="'/' + x.category.slug + '/'+ x.slug">
                     <b-img-lazy
                       left
                       style="width:85%; "
@@ -81,7 +81,7 @@
               </div>
               <div class="single_post_text">
                 <h4>
-                  <nuxt-link :to="x.category.slug + '/'+ x.slug">{{ x.title | truncate(70) }}</nuxt-link>
+                  <nuxt-link :to="'/' + x.category.slug + '/'+ x.slug">{{ x.title | truncate(70) }}</nuxt-link>
                 </h4>
                 <span class="date">
                   {{

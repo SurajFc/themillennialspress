@@ -19,7 +19,7 @@
           <p class="sub text-capitalize">{{ x.subtitle | truncate(60) }}</p>
 
           <template v-slot:img>
-            <nuxt-link :to="x.category.slug + '/'+ x.slug">
+            <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug" exact>
               <b-img-lazy
                 fluid-grow
                 class="d-block img-fluid w-100"

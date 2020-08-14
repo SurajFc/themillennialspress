@@ -2,7 +2,7 @@
   <div>
     <div class="p-3" v-if="show">
       <div class="mr-3">
-        <nuxt-link :to="data[0].category.slug + '/'+ data[0].slug">
+        <nuxt-link :to=" '/' + data[0].category.slug + '/'+ data[0].slug">
           <b-img-lazy
             :src="`${$axios.defaults.baseURL}` + data[0].cover"
             :alt="data[0].tags[0]"
@@ -20,7 +20,7 @@
             <b-card no-body class="overflow-hidden" style=" border:none;">
               <b-row no-gutters>
                 <b-col md="4">
-                  <nuxt-link :to="x.category.slug + '/'+ x.slug">
+                  <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                     <b-card-img-lazy
                       thumbnail
                       left
@@ -38,7 +38,7 @@
                         <i>{{$moment(x.realease).format("LLL")}}(IST)</i>
                       </p>
                       <p>{{x.subtitle | truncate(100)}}</p>
-                      <nuxt-link :to="x.category.slug + '/'+ x.slug">
+                      <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                         <p>Read More...</p>
                       </nuxt-link>
                     </b-card-text>
