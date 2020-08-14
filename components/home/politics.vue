@@ -131,7 +131,7 @@ export default {
     getPoliticalNews() {
       this.$axios.$get("news/getPoliticsNews").then((res) => {
         this.data = res;
-        console.log("==><-====", this.data);
+
         if (this.data.length > 2) {
           this.show = true;
         }

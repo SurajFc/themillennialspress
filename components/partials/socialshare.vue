@@ -4,7 +4,7 @@
       network="facebook"
       :url="
                   'https://themillennialspress.com/' +
-                    x.category['name'] +
+                    x.category.slug +
                     '/' +
                     x.slug
                 "
@@ -23,7 +23,7 @@
       network="reddit"
       :url="
                   'https://themillennialspress.com/' +
-                    x.category['name'] +
+                    x.category.slug +
                     '/' +
                     x.slug
                 "
@@ -40,7 +40,7 @@
       network="twitter"
       :url="
                   'https://themillennialspress.com/' +
-                    x.category['name'] +
+                    x.category.slug +
                     '/' +
                     x.slug
                 "
