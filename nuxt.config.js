@@ -115,6 +115,8 @@ export default {
     ],
     "nuxt-moment",
     "vue-social-sharing/nuxt",
+    "@nuxtjs/gtm",
+    "@nuxtjs/google-adsense",
     "@nuxtjs/recaptcha",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap" //should be last
@@ -126,6 +128,18 @@ export default {
     version: 2, // Version
     size: "normal" // Size: 'compact', 'normal', 'invisible' (v2)
   },
+
+  //Google Tag Manager
+  gtm: {
+    id: process.env.gtm,
+    enabled: true
+  },
+
+  //Google Adsense
+  "google-adsense": {
+    id: process.env.adsense
+  },
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
