@@ -45,7 +45,7 @@
                     x.slug
                 "
       :title="x.title"
-      twitter-user="themillennialspress"
+      twitter-user="millennials_90"
       quote="The Millennials Press"
       :hashtags="x.tags.join(',')"
     >

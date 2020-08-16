@@ -17,6 +17,9 @@
           href="mailto:info@themillennialspress.com"
           target="_blank"
         >info@themillennialspress.com</a>
+        <p>
+          <nuxt-link to="/refund-policy" exact>Refund Policy</nuxt-link>
+        </p>
       </div>
       <DonateForm />
     </div>
@@ -31,7 +34,7 @@ export default {
   },
   head() {
     return {
-      title: "Support us | themillennialspress.com",
+      title: "Support us | The Millennials Press | TheMillennialsPress.com",
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {

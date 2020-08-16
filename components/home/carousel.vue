@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-8 col-lg-8" v-if="show">
+    <div class="col-md-8 col-sm-10" v-if="show">
       <b-carousel
         id="carousel-fade"
         fade
@@ -19,7 +19,7 @@
           <p class="sub text-capitalize">{{ x.subtitle | truncate(60) }}</p>
 
           <template v-slot:img>
-            <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug" exact>
+            <nuxt-link :to="x.category.slug + '/'+ x.slug" exact>
               <b-img-lazy
                 fluid-grow
                 class="d-block img-fluid w-100"
@@ -32,7 +32,7 @@
         </b-carousel-slide>
       </b-carousel>
     </div>
-    <div class="col-md-8" v-else>
+    <div class="col-md-8 col-sm-10" v-else>
       <content-loader></content-loader>
       <content-loader></content-loader>
     </div>

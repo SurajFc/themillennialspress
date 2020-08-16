@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="p-3" v-if="show">
-      <div class="mr-3">
+    <div class="p-4" v-if="show">
+      <div class="mr-3 text-center">
         <nuxt-link :to=" '/' + data[0].category.slug + '/'+ data[0].slug">
           <b-img-lazy
             :src="`${$axios.defaults.baseURL}` + data[0].cover"
             :alt="data[0].tags[0]"
             fluid
-            style="width:100%;height:25rem;"
+            style="width:90%;height:23rem;"
           />
 
-          <p class="h3">{{data[0].title | truncate(80)}}</p>
+          <p class="h3">{{data[0].title | truncate(70)}}</p>
         </nuxt-link>
       </div>
-      <div class="col-lg-9 col-sm-12 col-md-12">
+      <div class="col-sm-12 col-md-9">
         <br />
         <ul v-for="x in data.slice(1,data.length)" :key="x.id" class="mt-3 p-2">
           <li>

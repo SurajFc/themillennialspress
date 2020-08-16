@@ -48,16 +48,16 @@
             </div>
             <div class="mt-4">
               <p>
-                <router-link to="/privacy-policy" exact>About us</router-link>
+                <nuxt-link to="/privacy-policy" exact>About us</nuxt-link>
               </p>
               <p>
-                <router-link to="/privacy-policy" exact>Privacy Policy</router-link>
+                <nuxt-link to="/privacy-policy" exact>Privacy Policy</nuxt-link>
               </p>
               <p>
-                <router-link to="/cookie-policy" exact>Cookie Policy</router-link>
+                <nuxt-link to="/cookie-policy" exact>Cookie Policy</nuxt-link>
               </p>
               <p>
-                <router-link to="/disclaimer" exact>Disclaimer</router-link>
+                <nuxt-link to="/disclaimer" exact>Disclaimer</nuxt-link>
               </p>
             </div>
           </div>

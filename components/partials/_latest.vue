@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="show" class="shadow-md p-3 mb-3 bg-white rounded">
+    <div v-if="show" class="shadow-md p-1 mb-3 bg-white rounded">
       <h3>
         <b>Latest News</b>
       </h3>
@@ -23,13 +23,14 @@
                 <b-card-body>
                   <b-card-text>
                     <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
-                      <h5>{{x.title | truncate(35)}}</h5>
+                      <h5>{{x.title | truncate(40)}}</h5>
                     </nuxt-link>
                   </b-card-text>
                 </b-card-body>
               </b-col>
             </b-row>
           </b-card>
+          <br />
         </li>
       </ul>
     </div>

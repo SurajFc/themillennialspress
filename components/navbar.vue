@@ -13,13 +13,15 @@
           <b-nav-item to="/political-news" exact-active-class>Politics</b-nav-item>
           <b-nav-item to="/technology-news" exact-active-class>Technology</b-nav-item>
 
-          <b-nav-item>Videos</b-nav-item>
+          <b-nav-item to="/videos" exact-active-class>Videos</b-nav-item>
 
           <b-nav-item-dropdown text="More" right>
-            <b-dropdown-item href="#">Sports</b-dropdown-item>
-            <b-dropdown-item href="#">Women</b-dropdown-item>
-            <b-dropdown-item href="#">World</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
+            <b-dropdown-item to="/sports-news" exact-active-class>Sports</b-dropdown-item>
+            <b-dropdown-item to="/women" exact-active-class>Women</b-dropdown-item>
+            <b-dropdown-item to="/science-news" exact-active-class>Science</b-dropdown-item>
+            <b-dropdown-item to="/drugs-news" exact-active-class>Drugs</b-dropdown-item>
+            <b-dropdown-item to="/culture-news" exact-active-class>Culture</b-dropdown-item>
+            <b-dropdown-item to="/environment-news" exact-active-class>Environment</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
 

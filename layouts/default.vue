@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container-fluid row">
+    <div class="row">
       <div class="col-md-2 col-sm-0"></div>
-      <div class="col-md-8 col-sm-12 container-fluid">
+      <div class="col-md-8 col-sm-12">
         <Navbar />
         <Nuxt />
       </div>

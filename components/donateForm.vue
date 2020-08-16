@@ -1,35 +1,30 @@
 <template>
-  <div class="col-lg-6 col-md-6 col-sm-10 col-xs-10">
+  <div class="col-md-6 col-sm-12 mb-3">
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <b-form
         @submit.stop.prevent="handleSubmit(onSubmit)"
         ref="myform"
-        class="shadow-lg p-5 mb-1 bg-white rounded"
+        class="shadow-lg p-4 mb-2 bg-white rounded"
       >
         <validation-provider
           name="Amount"
           :rules="{ required: true, min_value: 100 }"
           v-slot="validationContext"
         >
-          <b-form-group
-            id="example-input-group-1"
-            label="Amount"
-            label-for="Amount"
-          >
+          <b-form-group id="example-input-group-1" label="Amount" label-for="Amount">
             <b-form-input
               id="Amount"
               size="lg"
+              type="number"
               name="amount"
               class="border-right-0 border-top-0 border-left-0 shadow-sm p-3 mb-5 bg-white rounded"
-              placeholder="first name *"
+              placeholder="donation amount *"
               v-model="form.amount"
               :state="getValidationState(validationContext)"
               required
             ></b-form-input>
 
-            <b-form-invalid-feedback>
-              {{ validationContext.errors[0] }}
-            </b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
         <div class="row">
@@ -51,9 +46,7 @@
                   required
                 ></b-form-input>
 
-                <b-form-invalid-feedback>
-                  {{ validationContext.errors[0] }}
-                </b-form-invalid-feedback>
+                <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
               </b-form-group>
             </validation-provider>
           </div>
@@ -75,9 +68,7 @@
                   required
                 ></b-form-input>
 
-                <b-form-invalid-feedback>
-                  {{ validationContext.errors[0] }}
-                </b-form-invalid-feedback>
+                <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
               </b-form-group>
             </validation-provider>
           </div>
@@ -100,9 +91,7 @@
               required
             ></b-form-input>
 
-            <b-form-invalid-feedback>
-              {{ validationContext.errors[0] }}
-            </b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
         <validation-provider
@@ -123,9 +112,7 @@
               required
             ></b-form-input>
 
-            <b-form-invalid-feedback>
-              {{ validationContext.errors[0] }}
-            </b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
 
@@ -136,8 +123,7 @@
           value="accepted"
           unchecked-value="not_accepted"
           required
-          >I declare that I am a citizen of India.</b-form-checkbox
-        >
+        >I declare that I am a citizen of India.</b-form-checkbox>
         <br />
 
         <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
@@ -158,14 +144,14 @@ export default {
       script: [
         {
           src: "https://checkout.razorpay.com/v1/checkout.js",
-          body: true
-        }
-      ]
+          body: true,
+        },
+      ],
     };
   },
   components: {
     ValidationObserver,
-    ValidationProvider
+    ValidationProvider,
   },
   data() {
     return {
@@ -174,10 +160,10 @@ export default {
         lname: null,
         email: null,
         phone: null,
-        amount: 500
+        amount: 500,
       },
       status: "not_accepted",
-      captcha: false
+      captcha: false,
     };
   },
 
@@ -189,7 +175,7 @@ export default {
     onSubmit() {
       var order_id = "";
       if (this.captcha) {
-        this.$axios.$post("news/razorpay", this.form).then(res => {
+        this.$axios.$post("news/razorpay", this.form).then((res) => {
           order_id = res.id;
           var options = {
             key: "rzp_test_P1kchqg0zHT5QO",
@@ -199,21 +185,21 @@ export default {
             currency: "INR",
             image: "tmp.webp",
             order_id: order_id,
-            handler: response => {
+            handler: (response) => {
               this.finalFunction(response);
             },
             prefill: {
               name: this.form.fname + this.form.lname,
               contact: "+91" + this.form.phone,
-              email: this.form.email
+              email: this.form.email,
             },
             notes: {
-              address: "The Millennials Press"
+              address: "The Millennials Press",
             },
 
             theme: {
-              color: "#FB5000"
-            }
+              color: "#FB5000",
+            },
           };
           var rzp1 = new Razorpay(options);
           rzp1.open();
@@ -225,7 +211,7 @@ export default {
       this.$store.dispatch("toasty/myToaster", {
         body: "Error",
         title: "Captcha Failed",
-        variant: "danger"
+        variant: "danger",
       });
     },
     onSuccess(token) {
@@ -239,7 +225,7 @@ export default {
       this.$store.dispatch("toasty/myToaster", {
         body: "Error",
         title: "Captcha expired. Retry Again",
-        variant: "danger"
+        variant: "danger",
       });
     },
     finalFunction(response) {
@@ -251,19 +237,19 @@ export default {
             this.$store.dispatch("toasty/myToaster", {
               body: "Donation Success. Thank You..!",
               title: "Success",
-              autoHideDelay: 4000
+              autoHideDelay: 4000,
             })
           )
-          .catch(e => {
+          .catch((e) => {
             this.$store.dispatch("toasty/myToaster", {
               body: "Error",
               title: "Error",
-              variant: "danger"
+              variant: "danger",
             });
           });
       }
-    }
-  }
+    },
+  },
 };
 // cusMsg(response) {
 //   console.log("in here", response);
