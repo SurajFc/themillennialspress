@@ -46,7 +46,7 @@
       <font-awesome-icon
         :icon="['fab', 'whatsapp']"
         style="color: white;background:#7DD666;"
-        class="icons__btn ml-2 d-none d-sm-block d-md-none"
+        class="icons__btn ml-2 d-block d-md-none"
       />
     </ShareNetwork>
   </span>
@@ -59,7 +59,9 @@ export default {
 </script>
 
 <style scoped>
-.d-sm-block {
-  display: inline !important;
+@media (max-width: 500px) {
+  .d-block {
+    display: inline !important;
+  }
 }
 </style>
