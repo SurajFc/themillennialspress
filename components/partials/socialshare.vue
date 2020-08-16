@@ -2,16 +2,9 @@
   <span>
     <ShareNetwork
       network="facebook"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' "
       :description="x.subtitle"
-      quote="The Millennials Press"
-      :hashtags="x.tags.join(',')"
     >
       <font-awesome-icon
         :icon="['fab', 'facebook-square']"
@@ -21,13 +14,8 @@
     </ShareNetwork>
     <ShareNetwork
       network="reddit"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' "
     >
       <font-awesome-icon
         :icon="['fab', 'reddit']"
@@ -38,21 +26,27 @@
 
     <ShareNetwork
       network="twitter"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' + ' - '"
       twitter-user="millennials_90"
-      quote="The Millennials Press"
       :hashtags="x.tags.join(',')"
     >
       <font-awesome-icon
         :icon="['fab', 'twitter-square']"
         style="color: #1da1f2;background:white;"
         class="icons__btn ml-2"
+      />
+    </ShareNetwork>
+
+    <ShareNetwork
+      network="whatsapp"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' + ' - '"
+    >
+      <font-awesome-icon
+        :icon="['fab', 'whatsapp']"
+        style="color: white;background:#7DD666;"
+        class="icons__btn ml-2 d-block d-md-none"
       />
     </ShareNetwork>
   </span>
@@ -64,5 +58,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+@media (max-width: 500px) {
+  .d-block {
+    display: inline !important;
+  }
+}
 </style>

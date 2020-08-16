@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-12 col-sm-12">
-    <b-navbar toggleable="lg" type="light" variant="white">
+    <b-navbar toggleable="sm" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp.webp" alt="The Millennials Press" height="150" />
       </b-navbar-brand>
