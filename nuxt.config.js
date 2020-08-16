@@ -174,6 +174,6 @@ export default {
   robots: {
     UserAgent: "*",
     Allow: "/",
-    Sitemap: "/sitemap.xml"
+    Sitemap: "https://themillennialspress.com/sitemap.xml"
   }
 };
