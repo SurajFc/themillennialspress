@@ -5,7 +5,6 @@
       :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
       :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' "
       :description="x.subtitle"
-      :quote="x.title"
     >
       <font-awesome-icon
         :icon="['fab', 'facebook-square']"
@@ -30,7 +29,6 @@
       :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
       :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' + ' - '"
       twitter-user="millennials_90"
-      quote="The Millennials Press"
       :hashtags="x.tags.join(',')"
     >
       <font-awesome-icon
