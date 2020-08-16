@@ -1,6 +1,6 @@
 <template>
-  <div class="col-lg-5 ml-3" style="margin-top:-28px; ">
-    <b-tabs content-class="mt-2 mx-2">
+  <div class="col-md-5 ml-3">
+    <b-tabs content-class="mx-2 mb-2">
       <b-tab active>
         <template v-slot:title>
           <b-spinner type="grow" small></b-spinner>India
@@ -15,7 +15,7 @@
         <Corona :data="world" v-if="show" />
         <CoronaSkel v-else />
       </b-tab>
-      <b-tab title="Covid-19 Statistics" disabled style="margin-left:-20px"></b-tab>
+      <b-tab title="Covid-19 Statistics" disabled></b-tab>
     </b-tabs>
   </div>
 </template>
@@ -44,9 +44,7 @@ export default {
 
         this.india = res;
         this.show = true;
-      } catch {
-        console.log("some error");
-      }
+      } catch {}
     },
     getCoronaWorld() {
       this.$axios.$get("https://disease.sh/v3/covid-19/all").then((res) => {
@@ -62,15 +60,5 @@ export default {
 };
 </script>
 
-<style>
-.card-header {
-  margin-bottom: 0;
-  background-color: white;
-  border-bottom: none;
-}
-.card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 0;
-}
+<style >
 </style>

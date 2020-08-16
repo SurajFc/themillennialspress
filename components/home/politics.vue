@@ -11,37 +11,48 @@
         <hr />
       </div>
       <b-card-group deck>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <b-card-img-lazy
-                :src="`${$axios.defaults.baseURL}` + data[0].cover"
-                :alt="data[0].tags[0]"
-              ></b-card-img-lazy>
-              <SocialButton :x="data[0]" />
+              <nuxt-link :to="'/' +data[0].category.slug + '/'+ data[0].slug">
+                <b-card-img-lazy
+                  :src="`${$axios.defaults.baseURL}` + data[0].cover"
+                  :alt="data[0].tags[0]"
+                ></b-card-img-lazy>
+              </nuxt-link>
+
               <br />
             </b-col>
             <b-col md="6">
               <b-card-body>
-                <b-card-text class="ml-2">{{data[0].title}}</b-card-text>
-                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
+                <b-card-text class="ml-2">{{ data[0].title }}</b-card-text>
+                <b-button
+                  :to="data[0].category.slug + '/'+ data[0].slug"
+                  variant="outline-secondary"
+                  style="margin-left:1rem;"
+                >Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
         </b-card>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <b-card-img-lazy
-                :src="`${$axios.defaults.baseURL}` + data[1].cover"
-                :alt="data[1].tags[0]"
-              ></b-card-img-lazy>
-              <SocialButton :x="data[1]" />
+              <nuxt-link :to="'/' +data[1].category.slug + '/'+ data[1].slug">
+                <b-card-img-lazy
+                  :src="`${$axios.defaults.baseURL}` + data[1].cover"
+                  :alt="data[1].tags[0]"
+                ></b-card-img-lazy>
+              </nuxt-link>
             </b-col>
             <b-col md="6">
               <b-card-body>
-                <b-card-text class="ml-2">{{data[1].title}}</b-card-text>
-                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
+                <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
+                <b-button
+                  :to="data[1].category.slug + '/'+ data[1].slug"
+                  variant="outline-secondary"
+                  style="margin-left:1rem;"
+                >Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
@@ -49,37 +60,48 @@
       </b-card-group>
       <br />
       <b-card-group deck>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <b-card-img-lazy
-                :src="`${$axios.defaults.baseURL}` + data[0].cover"
-                :alt="data[0].tags[0]"
-              ></b-card-img-lazy>
-              <SocialButton :x="data[0]" />
+              <nuxt-link :to="'/' +data[2].category.slug + '/'+ data[2].slug">
+                <b-card-img-lazy
+                  :src="`${$axios.defaults.baseURL}` + data[2].cover"
+                  :alt="data[2].tags[0]"
+                ></b-card-img-lazy>
+              </nuxt-link>
+
               <br />
             </b-col>
             <b-col md="6">
               <b-card-body>
-                <b-card-text class="ml-2">{{data[0].title}}</b-card-text>
-                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
+                <b-card-text class="ml-2">{{ data[2].title }}</b-card-text>
+                <b-button
+                  :to="'/' +data[2].category.slug + '/'+ data[2].slug"
+                  variant="outline-secondary"
+                  style="margin-left:1rem;"
+                >Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
         </b-card>
-        <b-card class="overflow-hidden mycon" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
           <b-row no-gutters>
             <b-col md="6">
-              <b-card-img-lazy
-                :src="`${$axios.defaults.baseURL}` + data[1].cover"
-                :alt="data[1].tags[0]"
-              ></b-card-img-lazy>
-              <SocialButton :x="data[1]" />
+              <nuxt-link :to="'/' +data[1].category.slug + '/'+ data[1].slug">
+                <b-card-img-lazy
+                  :src="`${$axios.defaults.baseURL}` + data[1].cover"
+                  :alt="data[1].tags[0]"
+                ></b-card-img-lazy>
+              </nuxt-link>
             </b-col>
             <b-col md="6">
               <b-card-body>
-                <b-card-text class="ml-2">{{data[1].title}}</b-card-text>
-                <b-button href="#" variant="outline-secondary" style="margin-left:1rem;">Read More</b-button>
+                <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
+                <b-button
+                  :to="'/' +data[1].category.slug + '/'+ data[1].slug"
+                  variant="outline-secondary"
+                  style="margin-left:1rem;"
+                >Read More</b-button>
               </b-card-body>
             </b-col>
           </b-row>
@@ -94,12 +116,10 @@
 
 <script>
 import PoliticsList from "~/components/partials/_politics.vue";
-import SocialButton from "~/components/partials/socialshare.vue";
 
 export default {
   components: {
     PoliticsList,
-    SocialButton,
   },
   data() {
     return {
@@ -108,16 +128,14 @@ export default {
     };
   },
   methods: {
-    async getPoliticalNews() {
-      try {
-        const res = await this.$axios.$get("news/getPoliticsNews");
-
+    getPoliticalNews() {
+      this.$axios.$get("news/getPoliticsNews").then((res) => {
         this.data = res;
 
-        console.log(this.data);
-        console.log(this.data[0].tags[0]);
-        this.show = true;
-      } catch {}
+        if (this.data.length > 2) {
+          this.show = true;
+        }
+      });
     },
   },
   mounted() {
@@ -126,14 +144,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.top_left {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 13%;
-  left: 23%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-</style>
+

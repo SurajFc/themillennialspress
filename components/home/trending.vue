@@ -1,6 +1,6 @@
 <template>
   <div class="row my-2">
-    <div class="col-md-8 col-lg-8 col-sm-10 shadow-md p-3 mb-3 bg-white rounded">
+    <div class="col-md-8 col-sm-10 p-3 mb-3 bg-white">
       <div>
         <h3>
           <span class="font-weight-bold">Trending News</span>
@@ -16,36 +16,54 @@
         <hr />
       </div>
       <div class="row" v-if="show">
-        <b-carousel
-          ref="trending"
-          :interval="100000"
-          style="text-shadow: 1px 1px 2px #333;"
-          :no-animation="true"
-        >
-          <b-carousel-slide v-for="(i,index) in data" :key="index">
+        <b-carousel ref="trending" :interval="100000" :no-animation="true">
+          <b-carousel-slide v-for="(i, index) in data" :key="index">
             <template v-slot:img>
               <b-card-group>
-                <b-card tag="article" style="max-width: 30rem;height:15rem; " class="mb-2 mycon">
-                  <b-card-img-lazy
-                    :src="`${$axios.defaults.baseURL}` + data[index].cover"
-                    style="height:12rem;"
-                  ></b-card-img-lazy>
-                  <SocialButton :x="data[index]" />
-                  <b-card-text>{{data[index].title | truncate(60)}}</b-card-text>
-                </b-card>
-
                 <b-card
                   tag="article"
-                  style="max-width: 30rem;height:15rem;"
-                  class="ml-2 mycon"
-                  v-if="data[index+1]"
+                  style="max-width: 30rem;height:15rem; border:none;"
+                  class="mb-3 mr-2"
                 >
-                  <b-card-img-lazy
-                    :src="`${$axios.defaults.baseURL}` + data[index+1].cover"
-                    style="height:12rem;"
-                  ></b-card-img-lazy>
-                  <SocialButton :x="data[index+1]" />
-                  <b-card-text>{{data[index+1].title | truncate(60)}}</b-card-text>
+                  <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
+                    <b-card-img-lazy
+                      :src="`${$axios.defaults.baseURL}` + data[index].cover"
+                      style="height:12rem;"
+                    ></b-card-img-lazy>
+                  </nuxt-link>
+
+                  <b-card-text>
+                    <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
+                      <h5>
+                        {{
+                        data[index].title | truncate(70)
+                        }}
+                      </h5>
+                    </nuxt-link>
+                  </b-card-text>
+                </b-card>
+                <b-card
+                  tag="article"
+                  style="max-width: 30rem;height:15rem; border:none;"
+                  class="mb-3 mr-1"
+                  v-if="data[index + 1]"
+                >
+                  <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
+                    <b-card-img-lazy
+                      :src="`${$axios.defaults.baseURL}` + data[index + 1].cover"
+                      style="height:12rem;"
+                    ></b-card-img-lazy>
+                  </nuxt-link>
+
+                  <b-card-text>
+                    <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
+                      <h5>
+                        {{
+                        data[index+1].title | truncate(70)
+                        }}
+                      </h5>
+                    </nuxt-link>
+                  </b-card-text>
                 </b-card>
               </b-card-group>
             </template>
@@ -66,7 +84,6 @@
 import { ContentLoader } from "vue-content-loader";
 
 import TrendingList from "~/components/partials/_trending.vue";
-import SocialButton from "~/components/partials/socialshare.vue";
 
 export default {
   data() {
@@ -79,23 +96,18 @@ export default {
   components: {
     ContentLoader,
     TrendingList,
-    SocialButton,
   },
   methods: {
     prev() {
-      console.log("here", Math.floor(this.data.length / 2));
       if (this.cur > 0 && this.cur <= Math.floor(this.data.length / 2)) {
-        console.log("inside prev");
         this.$refs.trending.setSlide(this.cur - 1);
         this.cur = this.cur - 1;
-        console.log(this.cur);
       } else {
         this.$refs.trending.setSlide(Math.floor(this.data.length / 2));
         this.cur = Math.floor(this.data.length / 2);
       }
     },
     next() {
-      console.log("here", this.cur);
       if (this.cur >= 0 && this.cur < Math.floor(this.data.length / 2)) {
         this.$refs.trending.setSlide(this.cur + 1);
         this.cur += 1;
@@ -111,9 +123,7 @@ export default {
           this.data = res;
           this.show = true;
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     },
   },
   mounted() {

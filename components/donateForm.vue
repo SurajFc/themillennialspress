@@ -1,40 +1,37 @@
 <template>
-  <div class="col-lg-6 col-md-6 col-sm-10 col-xs-10">
+  <div class="col-md-6 col-sm-12 mb-3">
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <b-form
         @submit.stop.prevent="handleSubmit(onSubmit)"
         ref="myform"
-        class="shadow-lg p-5 mb-1 bg-white rounded"
+        class="shadow-lg p-4 mb-2 bg-white rounded"
       >
         <validation-provider
           name="Amount"
-          :rules="{ required: true,min_value:100 }"
+          :rules="{ required: true, min_value: 100 }"
           v-slot="validationContext"
         >
           <b-form-group id="example-input-group-1" label="Amount" label-for="Amount">
             <b-form-input
               id="Amount"
               size="lg"
+              type="number"
               name="amount"
               class="border-right-0 border-top-0 border-left-0 shadow-sm p-3 mb-5 bg-white rounded"
-              placeholder="first name *"
+              placeholder="donation amount *"
               v-model="form.amount"
               :state="getValidationState(validationContext)"
               required
             ></b-form-input>
 
-            <b-form-invalid-feedback>
-              {{
-              validationContext.errors[0]
-              }}
-            </b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
         <div class="row">
           <div class="col-6">
             <validation-provider
               name="First Name"
-              :rules="{ required: true, min: 3,max:20 }"
+              :rules="{ required: true, min: 3, max: 20 }"
               v-slot="validationContext"
             >
               <b-form-group id="example-input-group-1" label-for="fname">
@@ -49,18 +46,14 @@
                   required
                 ></b-form-input>
 
-                <b-form-invalid-feedback>
-                  {{
-                  validationContext.errors[0]
-                  }}
-                </b-form-invalid-feedback>
+                <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
               </b-form-group>
             </validation-provider>
           </div>
           <div class="col-6">
             <validation-provider
               name="Last name"
-              :rules="{ required: true, min: 3,max:20  }"
+              :rules="{ required: true, min: 3, max: 20 }"
               v-slot="validationContext"
             >
               <b-form-group id="last name">
@@ -75,11 +68,7 @@
                   required
                 ></b-form-input>
 
-                <b-form-invalid-feedback>
-                  {{
-                  validationContext.errors[0]
-                  }}
-                </b-form-invalid-feedback>
+                <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
               </b-form-group>
             </validation-provider>
           </div>
@@ -87,7 +76,7 @@
 
         <validation-provider
           name="Email"
-          :rules="{ required: true, email: true ,max:40 }"
+          :rules="{ required: true, email: true, max: 40 }"
           v-slot="validationContext"
         >
           <b-form-group id="email">
@@ -102,11 +91,7 @@
               required
             ></b-form-input>
 
-            <b-form-invalid-feedback>
-              {{
-              validationContext.errors[0]
-              }}
-            </b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
         <validation-provider
@@ -127,11 +112,7 @@
               required
             ></b-form-input>
 
-            <b-form-invalid-feedback>
-              {{
-              validationContext.errors[0]
-              }}
-            </b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
           </b-form-group>
         </validation-provider>
 
@@ -195,7 +176,6 @@ export default {
       var order_id = "";
       if (this.captcha) {
         this.$axios.$post("news/razorpay", this.form).then((res) => {
-          console.log("herexcvxv", res);
           order_id = res.id;
           var options = {
             key: "rzp_test_P1kchqg0zHT5QO",
@@ -206,7 +186,6 @@ export default {
             image: "tmp.webp",
             order_id: order_id,
             handler: (response) => {
-              console.log("res====>", response);
               this.finalFunction(response);
             },
             prefill: {
@@ -228,7 +207,6 @@ export default {
       }
     },
     onError(error) {
-      console.log("Error happened:", error);
       this.captcha = false;
       this.$store.dispatch("toasty/myToaster", {
         body: "Error",
@@ -238,12 +216,11 @@ export default {
     },
     onSuccess(token) {
       this.captcha = true;
-      console.log(token);
+
       // here you submit the form
       //   this.$refs.form.submit();
     },
     onExpired() {
-      console.log("Expired");
       this.captcha = false;
       this.$store.dispatch("toasty/myToaster", {
         body: "Error",
@@ -252,7 +229,6 @@ export default {
       });
     },
     finalFunction(response) {
-      console.log("omg", response);
       if (response["razorpay_signature"]) {
         this.$axios
           .$post(`news/razorpay/${response.razorpay_order_id}`)

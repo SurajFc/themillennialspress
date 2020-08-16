@@ -1,26 +1,27 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="light" variant="white" style="margin-bottom:-20px;">
-      <b-navbar-brand href="#">
-        <nuxt-link to="/" exact>
-          <img src="tmp.webp" alt="The Millennials Press" height="150" />
-        </nuxt-link>
+  <div class="col-md-12 col-sm-12">
+    <b-navbar toggleable="lg" type="light" variant="white">
+      <b-navbar-brand to="/" exact>
+        <img src="~/static/tmp.webp" alt="The Millennials Press" height="150" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="main">
           <b-nav-item to="/trending-news" exact-active-class>Trending</b-nav-item>
           <b-nav-item to="/india-news" exact-active-class>India</b-nav-item>
-          <b-nav-item>World</b-nav-item>
-          <b-nav-item>Technology</b-nav-item>
+          <b-nav-item to="/world-news" exact-active-class>World</b-nav-item>
           <b-nav-item to="/political-news" exact-active-class>Politics</b-nav-item>
-          <b-nav-item>Videos</b-nav-item>
+          <b-nav-item to="/technology-news" exact-active-class>Technology</b-nav-item>
+
+          <b-nav-item to="/videos" exact-active-class>Videos</b-nav-item>
 
           <b-nav-item-dropdown text="More" right>
-            <b-dropdown-item href="#">India</b-dropdown-item>
-            <b-dropdown-item href="#">Politics</b-dropdown-item>
-            <b-dropdown-item href="#">World</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
+            <b-dropdown-item to="/sports-news" exact-active-class>Sports</b-dropdown-item>
+            <b-dropdown-item to="/women" exact-active-class>Women</b-dropdown-item>
+            <b-dropdown-item to="/science-news" exact-active-class>Science</b-dropdown-item>
+            <b-dropdown-item to="/drugs-news" exact-active-class>Drugs</b-dropdown-item>
+            <b-dropdown-item to="/culture-news" exact-active-class>Culture</b-dropdown-item>
+            <b-dropdown-item to="/environment-news" exact-active-class>Environment</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
 
@@ -47,7 +48,11 @@
               class="social-icon"
             />
           </b-nav-item>
-          <b-nav-item class="d-none d-lg-block">
+          <b-nav-item
+            class="d-none d-lg-block"
+            target="_blank"
+            href="https://twitter.com/millennials_90"
+          >
             <font-awesome-icon
               :icon="['fab', 'twitter']"
               style="color: #1da1f2;"
@@ -92,7 +97,6 @@ export default {
     searchNews() {
       if (this.search_icon) {
         //search
-        console.log("search");
       } else {
         this.search_icon = true;
       }
@@ -100,5 +104,4 @@ export default {
   },
 };
 </script>
-<style>
-</style>
+<style></style>

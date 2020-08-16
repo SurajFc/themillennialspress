@@ -187,7 +187,10 @@ ul {
   margin: 0;
 }
 
-a,
+a {
+  color: black
+}
+
 a:hover,
 a:focus {
   text-decoration: none;
@@ -407,4 +410,17 @@ footer p {
   padding: 20px 0px 20px;
   border-top: 1px dashed #272a2f;
   margin-top: 45px;
+}
+
+
+.card-header {
+  margin-bottom: 0;
+  background-color: white;
+  border-bottom: none;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0;
 }

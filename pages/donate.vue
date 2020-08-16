@@ -17,6 +17,9 @@
           href="mailto:info@themillennialspress.com"
           target="_blank"
         >info@themillennialspress.com</a>
+        <p>
+          <nuxt-link to="/refund-policy" exact>Refund Policy</nuxt-link>
+        </p>
       </div>
       <DonateForm />
     </div>
@@ -28,6 +31,19 @@ import DonateForm from "~/components/donateForm.vue";
 export default {
   components: {
     DonateForm,
+  },
+  head() {
+    return {
+      title: "Support us | The Millennials Press | TheMillennialsPress.com",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "Support us",
+          name: "Support us",
+          content: "Support us | The Millennials Press",
+        },
+      ],
+    };
   },
 };
 </script>
