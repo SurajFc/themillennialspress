@@ -55,6 +55,23 @@
         class="icons__btn ml-2"
       />
     </ShareNetwork>
+
+    <ShareNetwork
+      network="whatsapp"
+      :url="
+                  'https://themillennialspress.com/' +
+                    x.category.slug +
+                    '/' +
+                    x.slug
+                "
+      :title="x.title"
+    >
+      <font-awesome-icon
+        :icon="['fab', 'whatsapp']"
+        style="color: white;background:#7DD666;"
+        class="icons__btn ml-2 d-none d-sm-block d-md-none"
+      />
+    </ShareNetwork>
   </span>
 </template>
 
@@ -64,5 +81,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.d-sm-block {
+  display: inline !important;
+}
 </style>
