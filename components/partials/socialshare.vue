@@ -2,16 +2,10 @@
   <span>
     <ShareNetwork
       network="facebook"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' "
       :description="x.subtitle"
-      quote="The Millennials Press"
-      :hashtags="x.tags.join(',')"
+      :quote="x.title"
     >
       <font-awesome-icon
         :icon="['fab', 'facebook-square']"
@@ -21,13 +15,8 @@
     </ShareNetwork>
     <ShareNetwork
       network="reddit"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' "
     >
       <font-awesome-icon
         :icon="['fab', 'reddit']"
@@ -38,13 +27,8 @@
 
     <ShareNetwork
       network="twitter"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' + ' - '"
       twitter-user="millennials_90"
       quote="The Millennials Press"
       :hashtags="x.tags.join(',')"
@@ -58,13 +42,8 @@
 
     <ShareNetwork
       network="whatsapp"
-      :url="
-                  'https://themillennialspress.com/' +
-                    x.category.slug +
-                    '/' +
-                    x.slug
-                "
-      :title="x.title"
+      :url="'https://themillennialspress.com/' +x.category.slug +'/' +x.slug"
+      :title="x.title + ' , ' + x.category.name + ' News' + ' | '+ 'themillennialspress.com' + ' - '"
     >
       <font-awesome-icon
         :icon="['fab', 'whatsapp']"
