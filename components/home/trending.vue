@@ -1,6 +1,6 @@
 <template>
-  <div class="row my-2">
-    <div class="col-md-8 col-sm-10 p-3 mb-3 bg-white">
+  <div class="row p-2">
+    <div class="col-md-8 col-sm-10 mb-3 bg-white">
       <div>
         <h3>
           <span class="font-weight-bold">Trending News</span>
@@ -15,7 +15,7 @@
         </h3>
         <hr />
       </div>
-      <div class="row" v-if="show">
+      <div class="row p-3" v-if="show">
         <b-carousel ref="trending" :interval="100000" :no-animation="true">
           <b-carousel-slide v-for="(i, index) in data" :key="index">
             <template v-slot:img>
@@ -133,7 +133,7 @@ export default {
 </script>
 
 <style scoped>
-.card-img,
+/* .card-img,
 .card-img-bottom {
   height: 14vw;
   width: 100%;
@@ -147,5 +147,5 @@ export default {
   left: 17%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-}
+} */
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container row">
+    <div class="row">
       <div class="col-lg-3 text-center">
         <p>Total</p>
         <h5 style="color:#FF083B;">{{ data.cases | numberFormat }}</h5>

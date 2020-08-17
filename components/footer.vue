@@ -48,7 +48,7 @@
             </div>
             <div class="mt-4">
               <p>
-                <nuxt-link to="/privacy-policy" exact>About us</nuxt-link>
+                <nuxt-link to="/about-us" exact>About us</nuxt-link>
               </p>
               <p>
                 <nuxt-link to="/privacy-policy" exact>Privacy Policy</nuxt-link>
@@ -72,7 +72,7 @@
                   <nuxt-link :to="'/' + x.category.slug + '/'+ x.slug">
                     <b-img-lazy
                       left
-                      style="width:85%; "
+                      style="width:100%; "
                       :src="`${$axios.defaults.baseURL}` + x.cover"
                       :alt="x.tags[0]"
                     />
@@ -81,11 +81,11 @@
               </div>
               <div class="single_post_text">
                 <h4>
-                  <nuxt-link :to="'/' + x.category.slug + '/'+ x.slug">{{ x.title | truncate(70) }}</nuxt-link>
+                  <nuxt-link :to="'/' + x.category.slug + '/'+ x.slug">{{ x.title | truncate(50) }}</nuxt-link>
                 </h4>
                 <span class="date">
                   {{
-                  $moment(x.realease).format("LLLL")
+                  $moment(x.realease).format("LL")
                   }}
                 </span>
               </div>
@@ -150,7 +150,7 @@
       <!-- Row End -->
 
       <!-- Copyright -->
-      <div class="copy-bg text-center">
+      <div class="copy-bg mt-0 text-center">
         <p>Copyright © 2020. All rights reserved by The Millennials Press</p>
       </div>
     </div>

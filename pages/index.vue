@@ -9,11 +9,11 @@
           <span>GMT{{ $moment().format("Z") }}</span>
         </p>
       </div>
-      <div class="col-md-1 d-none d-lg-block ml-md-4">
+      <!-- <div class="col-md-1 d-none d-lg-block ml-md-4">
         <b-img src="corona.webp" height="100"></b-img>
-      </div>
+      </div>-->
       <Coronavirus />
-      <div class="col-md-2 offset-md-1 mb-4">
+      <div class="col-md-3 col-lg-2 offset-md-3 offset-lg-2 mb-4">
         <b-button
           type="button"
           size="lg"

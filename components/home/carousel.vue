@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-md-8 col-sm-10" v-if="show">
+  <div class="row p-2">
+    <div class="col-md-8 col-lg-9 col-sm-10" v-if="show">
       <b-carousel
         id="carousel-fade"
         fade
@@ -32,11 +32,11 @@
         </b-carousel-slide>
       </b-carousel>
     </div>
-    <div class="col-md-8 col-sm-10" v-else>
+    <div class="col-sm-10" v-else>
       <content-loader></content-loader>
       <content-loader></content-loader>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-lg-3">
       <Latest :show="show" :getData="data" />
     </div>
   </div>
@@ -79,26 +79,5 @@ img {
 
 img:hover {
   filter: none;
-}
-
-.top_left {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 7%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-@media only screen and (max-width: 700px) {
-  .top_left {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
 }
 </style>

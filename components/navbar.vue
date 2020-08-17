@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-12 col-sm-12">
-    <b-navbar toggleable="sm" type="light" variant="white">
+    <b-navbar toggleable="lg" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp.webp" alt="The Millennials Press" height="150" />
       </b-navbar-brand>
@@ -60,13 +60,7 @@
             />
           </b-nav-item>
 
-          <b-button
-            size="sm"
-            v-b-modal.modal-xl
-            variant="white"
-            class="search_button"
-            @click="searchNews()"
-          >
+          <b-button size="sm" v-b-modal.searchmodal variant="white" class="search_button">
             <font-awesome-icon
               :icon="['fas', 'search']"
               style="color:
@@ -76,8 +70,15 @@
           </b-button>
         </b-navbar-nav>
 
-        <b-modal id="modal-xl" size="xl" title="Search Anything" hide-footer lazy>
-          <b-input placeholder="e.g. india"></b-input>
+        <b-modal id="searchmodal" size="xl" title="Search Anything" hide-footer lazy>
+          <b-input-group>
+            <b-form-input placeholder="e.g. india" v-model="search"></b-form-input>
+            <b-input-group-append>
+              <b-button variant="outline-success" @click="searchNews()">
+                <font-awesome-icon :icon="['fas', 'search']" />
+              </b-button>
+            </b-input-group-append>
+          </b-input-group>
         </b-modal>
       </b-collapse>
     </b-navbar>
@@ -88,18 +89,18 @@
 export default {
   data() {
     return {
-      search_icon: false,
       search: "",
     };
   },
 
   methods: {
+    openSearch() {},
     searchNews() {
-      if (this.search_icon) {
-        //search
-      } else {
-        this.search_icon = true;
-      }
+      //search
+      console.log("Serach", this.search);
+      this.$router.push(`/search?q=${this.search}`);
+      this.search = "";
+      this.$bvModal.hide("searchmodal");
     },
   },
 };

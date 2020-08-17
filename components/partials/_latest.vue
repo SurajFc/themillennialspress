@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="show" class="shadow-md p-1 mb-3 bg-white rounded">
+    <div v-if="show">
       <h3>
         <b>Latest News</b>
       </h3>

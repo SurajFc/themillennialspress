@@ -13,7 +13,7 @@
           <p class="h3">{{data[0].title | truncate(70)}}</p>
         </nuxt-link>
       </div>
-      <div class="col-sm-12 col-md-9">
+      <div class="col-sm-12 col-md-9 col-lg-9">
         <br />
         <ul v-for="x in data.slice(1,data.length)" :key="x.id" class="mt-3 p-2">
           <li>
