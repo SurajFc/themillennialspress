@@ -24,12 +24,19 @@ export default {
   components: {
     Result,
   },
+  watch: {
+    "$route.query.q": function (q) {
+      this.searchQuery();
+    },
+  },
   methods: {
     searchQuery() {
-      this.$axios.get(`news/search?q=${this.$route.query.q}`).then((res) => {
-        this.data = res.data["results"];
-        this.show = true;
-      });
+      this.$axios
+        .get(`news/search?q=${this.$route.query.q}?page=${this.page}`)
+        .then((res) => {
+          this.data = res.data["results"];
+          this.show = true;
+        });
     },
   },
   mounted() {

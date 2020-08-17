@@ -94,15 +94,14 @@ export default {
   },
 
   methods: {
-    openSearch() {},
     searchNews() {
       //search
       console.log("Serach", this.search);
-      this.$router.push(`/search?q=${this.search}`);
+      this.$router.replace(`/search?q=${this.search}`);
       this.search = "";
       this.$bvModal.hide("searchmodal");
     },
   },
 };
 </script>
-<style></style>
+
