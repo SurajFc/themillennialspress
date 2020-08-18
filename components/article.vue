@@ -38,6 +38,20 @@ export default {
     ArticleLoader,
     Social,
   },
+  methods: {
+    articleCount() {
+      this.$axios
+        .post("news/articlecount", {
+          article: this.data.id,
+        })
+        .then((res) => {
+          console.log("response", res);
+        });
+    },
+  },
+  beforeDestroy() {
+    this.articleCount();
+  },
 };
 </script>
 

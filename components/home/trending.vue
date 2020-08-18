@@ -1,6 +1,6 @@
 <template>
-  <div class="row p-2">
-    <div class="col-md-8 col-sm-10 mb-3 bg-white">
+  <div class="row p-1">
+    <div class="col-md-8 col-lg-8 col-sm-10 offset-sm-1 offset-md-0 mb-3 bg-white">
       <div>
         <h3>
           <span class="font-weight-bold">Trending News</span>
@@ -34,11 +34,11 @@
 
                   <b-card-text>
                     <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
-                      <h5>
+                      <h6>
                         {{
                         data[index].title | truncate(70)
                         }}
-                      </h5>
+                      </h6>
                     </nuxt-link>
                   </b-card-text>
                 </b-card>
@@ -57,11 +57,11 @@
 
                   <b-card-text>
                     <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
-                      <h5>
+                      <h6>
                         {{
                         data[index+1].title | truncate(70)
                         }}
-                      </h5>
+                      </h6>
                     </nuxt-link>
                   </b-card-text>
                 </b-card>
@@ -74,9 +74,8 @@
         <content-loader></content-loader>
       </div>
     </div>
-    <div class="col-md-4 col-lg-4">
-      <TrendingList :getData="data" :show="show" />
-    </div>
+
+    <TrendingList :getData="data" :show="show" />
   </div>
 </template>
 

@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="col-md-4 col-lg-4 col-sm-10 offset-sm-1 ml-sm-5 ml-md-0 offset-md-0">
     <div v-if="show">
       <h3>
         <b>Latest News</b>
       </h3>
       <hr />
       <ul class="list-unstyled">
-        <li v-for="x in getData">
-          <b-card no-body style=" border:none;">
+        <li v-for="(x,index) in getData" :key="index">
+          <b-card no-body style="border:none;">
             <b-row no-gutters>
               <b-col md="4" sm="12">
                 <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                   <b-card-img-lazy
                     left
-                    style="width:85%; "
+                    class="card-news"
                     :src="`${$axios.defaults.baseURL}` + x.cover"
                     :alt="x.tags[0]"
                   />
@@ -21,11 +21,9 @@
               </b-col>
               <b-col md="8" sm="12">
                 <b-card-body>
-                  <b-card-text>
-                    <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
-                      <h5>{{x.title | truncate(40)}}</h5>
-                    </nuxt-link>
-                  </b-card-text>
+                  <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
+                    <p>{{x.title | truncate(65)}}</p>
+                  </nuxt-link>
                 </b-card-body>
               </b-col>
             </b-row>

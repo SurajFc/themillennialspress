@@ -424,3 +424,17 @@ footer p {
   min-height: 1px;
   padding: 0;
 }
+
+
+
+.card-news {
+  width: 95%;
+  height: 4rem;
+}
+
+@media(max-width:768px) {
+  .card-news {
+    width: 26rem;
+    height: 15rem;
+  }
+}

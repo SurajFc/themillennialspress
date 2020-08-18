@@ -13,7 +13,7 @@
         <b-img src="corona.webp" height="100"></b-img>
       </div>-->
       <Coronavirus />
-      <div class="col-md-3 col-lg-2 offset-md-3 offset-lg-2 mb-4">
+      <div class="col-md-3 col-lg-2 offset-lg-2 mb-4">
         <b-button
           type="button"
           size="lg"

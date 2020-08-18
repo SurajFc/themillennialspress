@@ -1,7 +1,7 @@
 <template>
   <div class="row my-3">
-    <div class="shadow-lg p-3 bg-white rounded" v-if="show">
-      <div>
+    <div class="shadow-lg bg-white rounded p-3" v-if="show">
+      <div class="col-sm-10 col-md-12 offset-sm-1 offset-md-0">
         <h3>
           <span class="font-weight-bold">Political News</span>
           <span style="float:right;">
@@ -10,10 +10,10 @@
         </h3>
         <hr />
       </div>
-      <b-card-group deck>
-        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
+      <b-card-group deck class="col-sm-10 col-md-12 offset-sm-1 offset-md-0">
+        <b-card class="overflow-hidden mb-2">
           <b-row no-gutters>
-            <b-col md="6">
+            <b-col md="6" sm="12">
               <nuxt-link :to="'/' +data[0].category.slug + '/'+ data[0].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[0].cover"
@@ -23,7 +23,7 @@
 
               <br />
             </b-col>
-            <b-col md="6">
+            <b-col md="6" sm="12">
               <b-card-body>
                 <b-card-text class="ml-2">{{ data[0].title }}</b-card-text>
                 <b-button
@@ -35,9 +35,9 @@
             </b-col>
           </b-row>
         </b-card>
-        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden mb-2">
           <b-row no-gutters>
-            <b-col md="6">
+            <b-col md="6" xs="12">
               <nuxt-link :to="'/' +data[1].category.slug + '/'+ data[1].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[1].cover"
@@ -45,9 +45,9 @@
                 ></b-card-img-lazy>
               </nuxt-link>
             </b-col>
-            <b-col md="6">
+            <b-col md="6" sm="12">
               <b-card-body>
-                <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
+                <b-card-text class="ml-2">{{ data[1].title | truncate(70) }}</b-card-text>
                 <b-button
                   :to="data[1].category.slug + '/'+ data[1].slug"
                   variant="outline-secondary"
@@ -59,10 +59,10 @@
         </b-card>
       </b-card-group>
       <br />
-      <b-card-group deck>
-        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
+      <b-card-group deck class="offset-sm-1 offset-md-0 col-sm-10 col-md-12">
+        <b-card class="overflow-hidden mb-2">
           <b-row no-gutters>
-            <b-col md="6">
+            <b-col md="6" sm="12">
               <nuxt-link :to="'/' +data[2].category.slug + '/'+ data[2].slug">
                 <b-card-img-lazy
                   :src="`${$axios.defaults.baseURL}` + data[2].cover"
@@ -72,9 +72,9 @@
 
               <br />
             </b-col>
-            <b-col md="6">
+            <b-col md="6" sm="12">
               <b-card-body>
-                <b-card-text class="ml-2">{{ data[2].title }}</b-card-text>
+                <b-card-text class="ml-2">{{ data[2].title | truncate(70) }}</b-card-text>
                 <b-button
                   :to="'/' +data[2].category.slug + '/'+ data[2].slug"
                   variant="outline-secondary"
@@ -84,19 +84,19 @@
             </b-col>
           </b-row>
         </b-card>
-        <b-card class="overflow-hidden" style="max-width: 40rem; height:200px">
+        <b-card class="overflow-hidden mb-2">
           <b-row no-gutters>
-            <b-col md="6">
-              <nuxt-link :to="'/' +data[1].category.slug + '/'+ data[1].slug">
+            <b-col md="6" sm="12">
+              <nuxt-link :to="'/' +data[0].category.slug + '/'+ data[1].slug">
                 <b-card-img-lazy
-                  :src="`${$axios.defaults.baseURL}` + data[1].cover"
-                  :alt="data[1].tags[0]"
+                  :src="`${$axios.defaults.baseURL}` + data[0].cover"
+                  :alt="data[0].tags[0]"
                 ></b-card-img-lazy>
               </nuxt-link>
             </b-col>
-            <b-col md="6">
+            <b-col md="6" sm="12">
               <b-card-body>
-                <b-card-text class="ml-2">{{ data[1].title }}</b-card-text>
+                <b-card-text class="ml-2">{{ data[0].title | truncate(70)}}</b-card-text>
                 <b-button
                   :to="'/' +data[1].category.slug + '/'+ data[1].slug"
                   variant="outline-secondary"
@@ -145,3 +145,12 @@ export default {
 </script>
 
 
+<style scoped>
+.card {
+  flex: 1 0 0%;
+  margin-right: 15px;
+  margin-bottom: 0;
+  margin-left: 15px;
+  border: none;
+}
+</style>
