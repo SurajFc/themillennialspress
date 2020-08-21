@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="md" type="light" variant="white">
       <b-navbar-brand to="/" exact>
-        <img src="~/static/tmp.webp" alt="The Millennials Press" height="150" />
+        <img src="~/static/tmp2.webp" alt="The Millennials Press" height="50" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
