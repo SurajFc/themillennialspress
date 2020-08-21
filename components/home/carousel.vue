@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-8 col-lg-8 col-sm-12 mb-4" v-if="show">
+    <div class="col-md-8  col-sm-12 mb-4" v-if="show">
       <b-carousel
         id="carousel-fade"
         fade
@@ -19,7 +19,7 @@
           <p class="sub text-capitalize">{{ x.subtitle | truncate(60) }}</p>
 
           <template v-slot:img>
-            <nuxt-link :to="x.category.slug + '/'+ x.slug" exact>
+            <nuxt-link :to="x.category.slug + '/' + x.slug" exact>
               <b-img-lazy
                 fluid-grow
                 class="d-block img-fluid w-100"
@@ -48,12 +48,12 @@ import Latest from "~/components/partials/_latest.vue";
 export default {
   components: {
     ContentLoader,
-    Latest,
+    Latest
   },
   data() {
     return {
       show: false,
-      data: [],
+      data: []
     };
   },
   methods: {
@@ -63,12 +63,12 @@ export default {
         this.data = res;
         this.show = true;
       } catch (err) {}
-    },
+    }
   },
 
   mounted() {
     this.getLatest();
-  },
+  }
 };
 </script>
 <style scoped>

@@ -27,71 +27,71 @@
           <swiper-slide>
             <youtube
               video-id="r_0JjYUe5jo"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube>
           </swiper-slide>
           <swiper-slide>
             <youtube
               video-id="6TAPqXkZW_I"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="eJnQBXmZ7Ek"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="XbGs_qK2PQA"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="eJO5HU_7_1w"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="kXYiU_JCYtU"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="5NPBIwQyPWE"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="8xg3vE8Ie_E"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="KlyXNRrsk4A"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
           <swiper-slide>
             <youtube
               video-id="eJnQBXmZ7Ek"
-              player-width="600"
-              player-height="350"
+              player-width="480"
+              player-height="320"
             ></youtube
           ></swiper-slide>
         </swiper>
@@ -113,8 +113,7 @@ export default {
       show: true,
       swiperOption: {
         direction: "horizontal",
-        loop: true,
-        loopFillGroupWithBlank: true,
+
         keyboard: {
           enabled: true
         },

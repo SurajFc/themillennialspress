@@ -1,13 +1,10 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-md-0 col-lg-2 col-sm-0"></div>
-      <div class="col-md-0 col-lg-8 col-sm-12">
+    <div class="container">
+      <div>
         <Navbar />
         <Nuxt />
       </div>
-
-      <div class="col-md-0 col-sm-0"></div>
     </div>
     <Footer />
   </div>
@@ -18,7 +15,7 @@ import Footer from "~/components/footer.vue";
 export default {
   components: {
     Navbar,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>
