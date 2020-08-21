@@ -3,7 +3,7 @@
     <div class="shadow-lg bg-white rounded p-3" v-if="show">
       <div class="col-sm-10 col-md-12 offset-sm-1 offset-md-0">
         <h3>
-          <span class="font-weight-bold">Political News</span>
+          <span class="font-weight-bold">Editorial</span>
           <span style="float:right;">
             <b-button variant="outline-secondary" to="/political-news"
               >SEE ALL</b-button
@@ -121,17 +121,17 @@
       </b-card-group>
     </div>
     <div v-else class="col-12">
-      <PoliticsList name="Political News" />
+      <EditorialList name="Editorial" />
     </div>
   </div>
 </template>
 
 <script>
-import PoliticsList from "~/components/partials/_cardlist.vue";
+import EditorialList from "~/components/partials/_cardlist.vue";
 
 export default {
   components: {
-    PoliticsList
+    EditorialList
   },
   data() {
     return {

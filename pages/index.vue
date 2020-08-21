@@ -21,14 +21,16 @@
           to="/donate"
           exact
           class="btn-1 btn-danger float-md-right text-center d-flex justify-content-center"
-        >Support</b-button>
+          >Support</b-button
+        >
       </div>
     </div>
 
     <LatestNews />
 
     <TrendingNews />
-
+    <Editorial />
+    <Youtube />
     <Politics />
   </div>
 </template>
@@ -38,7 +40,8 @@ import Coronavirus from "~/components/coronavirus.vue";
 import LatestNews from "~/components/home/carousel.vue";
 import TrendingNews from "~/components/home/trending.vue";
 import Politics from "~/components/home/politics.vue";
-
+import Youtube from "~/components/home/videos.vue";
+import Editorial from "~/components/home/editorial.vue";
 export default {
   head() {
     return {
@@ -48,9 +51,9 @@ export default {
         {
           hid: "Home",
           name: "Home",
-          content: "Home | The Millennials Press",
-        },
-      ],
+          content: "Home | The Millennials Press"
+        }
+      ]
     };
   },
   components: {
@@ -59,20 +62,22 @@ export default {
 
     TrendingNews,
     Politics,
+    Editorial,
+    Youtube
   },
   data() {
     return {
-      show1: false,
+      show1: false
     };
   },
   computed: {
     getData() {
       return this.$store.state.latestnews.latest;
-    },
+    }
   },
   mounted() {
     this.show1 = true;
-  },
+  }
 };
 </script>
 <style scoped>

@@ -2,7 +2,7 @@
   <div>
     <div>
       <h3>
-        <span class="font-weight-bold">Political News</span>
+        <span class="font-weight-bold">{{ name }}</span>
         <span style="float:right;">
           <b-button variant="outline-secondary">SEE ALL</b-button>
         </span>
@@ -32,11 +32,11 @@
 <script>
 import ListCardSkel from "~/components/skeletons/_listCardSkel.vue";
 export default {
+  props: ["name"],
   components: {
-    ListCardSkel,
-  },
+    ListCardSkel
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -69,7 +69,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/assets/css/global.css"],
+  css: ["~/assets/css/global.css", "swiper/css/swiper.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -77,7 +77,12 @@ export default {
   plugins: [
     "~/plugins/numberFilter.js",
     "~/plugins/truncatetext.js",
-    "~/plugins/vee-validate.js"
+    "~/plugins/vee-validate.js",
+    {
+      src: "@/plugins/vue-awesome-swiper.js",
+      ssr: false
+    },
+    { src: "@/plugins/youtube.js", ssr: false }
   ],
   /*
    ** Auto import components
