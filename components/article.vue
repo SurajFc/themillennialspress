@@ -44,9 +44,7 @@ export default {
         .post("news/articlecount", {
           article: this.data.id,
         })
-        .then((res) => {
-          console.log("response", res);
-        });
+        .then((res) => {});
     },
   },
   beforeDestroy() {

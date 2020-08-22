@@ -57,7 +57,6 @@ export default {
   methods: {
     getMostViewed() {
       this.$axios.get("news/mostviewed").then((res) => {
-        console.log(res.data);
         this.data = res.data;
         this.show = true;
       });
