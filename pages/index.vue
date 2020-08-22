@@ -4,7 +4,7 @@
       <div class="col-md-2 mt-2 d-none d-lg-block mr-3">
         <h3>{{ $moment().format("dddd") }}</h3>
         <p>
-          {{ $moment().format("LLL") }}
+          {{ $moment().format("LLLL") }}
           <br />
           <span>GMT{{ $moment().format("Z") }}</span>
         </p>
@@ -21,8 +21,7 @@
           to="/donate"
           exact
           class="btn-1 btn-danger float-md-right text-center d-flex justify-content-center"
-          >Support</b-button
-        >
+        >Support</b-button>
       </div>
     </div>
 
@@ -51,9 +50,9 @@ export default {
         {
           hid: "Home",
           name: "Home",
-          content: "Home | The Millennials Press"
-        }
-      ]
+          content: "Home | The Millennials Press",
+        },
+      ],
     };
   },
   components: {
@@ -63,21 +62,21 @@ export default {
     TrendingNews,
     Politics,
     Editorial,
-    Youtube
+    Youtube,
   },
   data() {
     return {
-      show1: false
+      show1: false,
     };
   },
   computed: {
     getData() {
       return this.$store.state.latestnews.latest;
-    }
+    },
   },
   mounted() {
     this.show1 = true;
-  }
+  },
 };
 </script>
 <style scoped>
