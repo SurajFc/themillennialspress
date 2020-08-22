@@ -21,8 +21,7 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || "The Millennials Press",
-    meta: [
-      {
+    meta: [{
         charset: "utf-8"
       },
       {
@@ -32,8 +31,7 @@ export default {
       {
         hid: "The Millennials Press",
         name: "The Millennials Press",
-        content:
-          "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
+        content: "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
       },
       {
         hid: "og:image",
@@ -43,14 +41,12 @@ export default {
       {
         hid: "og:site_name",
         property: "og:site_name",
-        content:
-          "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
+        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
       },
       {
         hid: "og:description",
         property: "og:description",
-        content:
-          "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
+        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
       },
       {
         hid: "og:type",
@@ -58,13 +54,12 @@ export default {
         content: "websites"
       }
     ],
-    link: [
-      {
-        rel: "icon",
-        type: "image/x-icon",
-        href: "/favicon.ico"
-      }
-    ]
+    link: [{
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/favicon.ico"
+    }],
+
   },
   /*
    ** Global CSS
@@ -82,7 +77,10 @@ export default {
       src: "@/plugins/vue-awesome-swiper.js",
       ssr: false
     },
-    { src: "@/plugins/youtube.js", ssr: false }
+    {
+      src: "@/plugins/youtube.js",
+      ssr: false
+    }
   ],
   /*
    ** Auto import components
@@ -106,8 +104,7 @@ export default {
     [
       "nuxt-fontawesome",
       {
-        imports: [
-          {
+        imports: [{
             set: "@fortawesome/free-solid-svg-icons",
             icons: ["fas"]
           },

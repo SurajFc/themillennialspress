@@ -14,9 +14,9 @@
             <span>{{ $moment(x.realease).format("ll") }}</span>
           </b>
           <h4>
-            <b class="sub text-capitalize">{{ x.title | truncate(100) }}</b>
+            <b class="sub text-capitalize">{{ x.title | truncate(90) }}</b>
           </h4>
-          <p class="sub text-capitalize">{{ x.subtitle | truncate(60) }}</p>
+          <p class="sub text-capitalize">{{ x.subtitle | truncate(70) }}</p>
 
           <template v-slot:img>
             <nuxt-link :to="x.category.slug + '/' + x.slug" exact>

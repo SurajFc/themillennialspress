@@ -75,14 +75,14 @@
       </div>
     </div>
 
-    <TrendingList :getData="data" :show="show" />
+    <MostViewed />
   </div>
 </template>
 
 <script>
 import { ContentLoader } from "vue-content-loader";
 
-import TrendingList from "~/components/partials/_trending.vue";
+import MostViewed from "~/components/partials/_mostviewed.vue";
 
 export default {
   data() {
@@ -94,7 +94,7 @@ export default {
   },
   components: {
     ContentLoader,
-    TrendingList,
+    MostViewed,
   },
   methods: {
     prev() {

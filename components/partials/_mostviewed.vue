@@ -6,7 +6,7 @@
       </h3>
       <hr />
       <ul class="list-unstyled">
-        <li v-for="(x,index) in getData.slice(0,5)" :key="index" class="mb-1">
+        <li v-for="(x,index) in data" :key="index" class="mb-1">
           <b-card no-body style="border:none;">
             <b-row no-gutters>
               <b-col md="4" sm="12">
@@ -45,9 +45,26 @@
 import ListSkeleton from "~/components/skeletons/_listSkel.vue";
 
 export default {
-  props: ["getData", "show"],
   components: {
     ListSkeleton,
+  },
+  data() {
+    return {
+      show: false,
+      data: [],
+    };
+  },
+  methods: {
+    getMostViewed() {
+      this.$axios.get("news/mostviewed").then((res) => {
+        console.log(res.data);
+        this.data = res.data;
+        this.show = true;
+      });
+    },
+  },
+  mounted() {
+    this.getMostViewed();
   },
 };
 </script>
