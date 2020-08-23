@@ -139,6 +139,7 @@ export default {
       'ImagePlugin',
       'ToastPlugin',
       'ModalPlugin',
+      'SidebarPlugin',
       'NavbarPlugin',
       'TabsPlugin',
 

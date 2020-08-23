@@ -1,27 +1,18 @@
 <template>
   <div>
-    <b-navbar toggleable="sm" type="light" variant="white">
+    <b-navbar toggleable="md" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp2.webp" alt="The Millennials Press" height="50" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
       <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="main" v-for="(x,index) in links" :key="index">
+          <b-nav-item :to="x.to" exact-active-class>{{x.name}}</b-nav-item>
+        </b-navbar-nav>
         <b-navbar-nav class="main">
-          <b-nav-item to="/trending-news" exact-active-class>Trending</b-nav-item>
-          <b-nav-item to="/india-news" exact-active-class>India</b-nav-item>
-          <b-nav-item to="/world-news" exact-active-class>World</b-nav-item>
-          <b-nav-item to="/political-news" exact-active-class>Politics</b-nav-item>
-          <b-nav-item to="/technology-news" exact-active-class>Technology</b-nav-item>
-
-          <b-nav-item to="/videos" exact-active-class>Videos</b-nav-item>
-
           <b-nav-item-dropdown text="More" right>
-            <b-dropdown-item to="/sports-news" exact-active-class>Sports</b-dropdown-item>
-            <b-dropdown-item to="/women" exact-active-class>Women</b-dropdown-item>
-            <b-dropdown-item to="/science-news" exact-active-class>Science</b-dropdown-item>
-            <b-dropdown-item to="/drugs-news" exact-active-class>Drugs</b-dropdown-item>
-            <b-dropdown-item to="/culture-news" exact-active-class>Culture</b-dropdown-item>
-            <b-dropdown-item to="/environment-news" exact-active-class>Environment</b-dropdown-item>
+            <b-dropdown-item v-for="(x,index) in links2" :key="index" :to="x.to">{{x.name}}</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
 
@@ -86,10 +77,79 @@
 </template>
 
 <script>
+import SideBar from "~/components/partials/_sidebar.vue";
 export default {
+  name: "Navbar",
+  components: {
+    SideBar,
+  },
   data() {
     return {
       search: null,
+      links: [
+        {
+          id: 1,
+          to: "/trending-news",
+          name: "Trending",
+        },
+        {
+          id: 2,
+          to: "/india-news",
+          name: "India",
+        },
+        {
+          id: 3,
+          to: "/world-news",
+          name: "World",
+        },
+        {
+          id: 4,
+          to: "/political-news",
+          name: "Politics",
+        },
+        {
+          id: 5,
+          to: "/technology-news",
+          name: "Technology",
+        },
+        {
+          id: 6,
+          to: "/latest-news",
+          name: "Latest",
+        },
+      ],
+      links2: [
+        {
+          id: 1,
+          to: "/sports-news",
+          name: "Sports",
+        },
+        {
+          id: 2,
+          to: "/women",
+          name: "Women",
+        },
+        {
+          id: 3,
+          to: "/science-news",
+          name: "Science",
+        },
+        {
+          id: 4,
+          to: "/drugs-news",
+          name: "Drugs",
+        },
+        {
+          id: 5,
+          to: "/culture-news",
+          name: "Culture",
+        },
+        {
+          id: 6,
+          to: "/environment-news",
+          name: "Environment",
+        },
+      ],
     };
   },
 
@@ -99,7 +159,7 @@ export default {
       if (this.search) {
         console.log("Serach", this.search);
         this.$router.replace(`/search?q=${this.search}`);
-        this.search = "";
+        this.search = null;
         this.$bvModal.hide("searchmodal");
       }
     },
