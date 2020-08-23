@@ -124,6 +124,31 @@ export default {
     "@nuxtjs/sitemap" //should be last
   ],
 
+  //Tree Shaking Vue Bootstrap
+  bootstrapVue: {
+    bootstrapCSS: true,
+    bootstrapVueCSS: false,
+    componentPlugins: [
+      'LayoutPlugin',
+      'FormPlugin',
+      'FormCheckboxPlugin',
+      'FormInputPlugin',
+      'CardPlugin',
+      'CarouselPlugin',
+      'ButtonPlugin',
+      'ImagePlugin',
+      'ToastPlugin',
+      'ModalPlugin',
+      'NavbarPlugin',
+      'TabsPlugin',
+
+    ],
+    directivePlugins: [],
+    components: ['BIcon', 'BSpinner', 'BInputGroup', 'BInputGroupAppend']
+
+  },
+
+
   recaptcha: {
     hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
     siteKey: process.env.siteKey,

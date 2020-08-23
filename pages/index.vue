@@ -29,7 +29,7 @@
 
     <TrendingNews />
     <Editorial />
-    <Youtube />
+    <!-- <Youtube /> -->
     <Politics />
   </div>
 </template>
@@ -39,7 +39,7 @@ import Coronavirus from "~/components/coronavirus.vue";
 import LatestNews from "~/components/home/carousel.vue";
 import TrendingNews from "~/components/home/trending.vue";
 import Politics from "~/components/home/politics.vue";
-import Youtube from "~/components/home/videos.vue";
+// import Youtube from "~/components/home/videos.vue";
 import Editorial from "~/components/home/editorial.vue";
 export default {
   head() {
@@ -62,7 +62,7 @@ export default {
     TrendingNews,
     Politics,
     Editorial,
-    Youtube,
+    // Youtube,
   },
   data() {
     return {
