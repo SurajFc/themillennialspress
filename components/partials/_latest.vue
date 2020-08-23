@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4 col-lg-4 col-sm-10 offset-sm-1 ml-sm-5 ml-md-0 offset-md-0">
+  <div class="col-md-4 col-sm-10 ml-md-0 offset-md-0">
     <div v-if="show">
       <h3>
         <b>Latest News</b>

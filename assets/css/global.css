@@ -428,7 +428,7 @@ footer p {
 
 @media(max-width:768px) {
   .card-news {
-    width: 26rem;
+    width: 20rem;
     height: 15rem;
   }
 }
