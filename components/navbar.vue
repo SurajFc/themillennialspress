@@ -124,28 +124,24 @@ export default {
           to: "/sports-news",
           name: "Sports",
         },
+
         {
           id: 2,
-          to: "/women",
-          name: "Women",
-        },
-        {
-          id: 3,
           to: "/science-news",
           name: "Science",
         },
         {
-          id: 4,
+          id: 3,
           to: "/drugs-news",
           name: "Drugs",
         },
         {
-          id: 5,
+          id: 4,
           to: "/culture-news",
           name: "Culture",
         },
         {
-          id: 6,
+          id: 5,
           to: "/environment-news",
           name: "Environment",
         },

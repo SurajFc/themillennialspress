@@ -11,13 +11,13 @@ export default {
   head() {
     return {
       title:
-        "India News - Latest India News, Breaking India News, India News Headlines | themillennialspress.com millennials",
+        "Environment News - Latest Environment News, Breaking Environment News, Environment News Headlines | themillennialspress.com millennials",
       meta: [
         {
           hid: "og:title",
           property: "og:title",
           content:
-            "India News - Latest India News, Breaking India News, World India Headlines | themillennialspress.com  millennials ",
+            "Environment News - Latest Environment News, Breaking Environment News, World Environment Headlines | themillennialspress.com  millennials ",
         },
         {
           hid: "og:type",
@@ -25,21 +25,21 @@ export default {
           content: "articles",
         },
         {
-          hid: "India News",
-          name: "India News",
-          content: "India News | The Millennials Press",
+          hid: "Environment News",
+          name: "Environment News",
+          content: "Environment News | The Millennials Press",
         },
         {
           hid: "keywords",
           name: "keywords",
           content:
-            "India News, Latest India News, Breaking India News, World News Headlines, millennials,  themillennials, millennialsnews, the millennials, themillennialspress.com ",
+            "Environment News, Latest Environment News, Breaking Environment News, World News Headlines, millennials,  themillennials, millennialsnews, the millennials, themillennialspress.com ",
         },
         {
           hid: "description",
           name: "description",
           content:
-            "Get top and latest India News - Read Breaking India News and India News Headlines. millennials is leading news website worldwide get all latest and breaking India news online on themillennialspress.com",
+            "Get top and latest Environment News - Read Breaking Environment News and Environment News Headlines. millennials is leading news website worldwide get all latest and breaking Environment news online on themillennialspress.com",
         },
       ],
     };
@@ -57,7 +57,9 @@ export default {
   methods: {
     async getAllNews() {
       try {
-        const res = await this.$axios.$get(`news/categorynews?slug=india`);
+        const res = await this.$axios.$get(
+          `news/categorynews?slug=environment`
+        );
         this.data = res.results;
 
         this.show = true;

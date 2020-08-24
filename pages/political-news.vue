@@ -55,9 +55,9 @@ export default {
     };
   },
   methods: {
-    async getTrendingAll() {
+    async getAllNews() {
       try {
-        const res = await this.$axios.$get(`news/political/all?q=${this.page}`);
+        const res = await this.$axios.$get(`news/categorynews?slug=politics`);
         this.data = res.results;
 
         this.show = true;
@@ -65,7 +65,7 @@ export default {
     },
   },
   mounted() {
-    this.getTrendingAll();
+    this.getAllNews();
   },
 };
 </script>

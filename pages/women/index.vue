@@ -1,8 +1,12 @@
 <template>
-  <div class="p-3">Women</div>
+  <div class="p-3">
+    <DetailedView :data="data" :show="show" />
+  </div>
 </template>
 
 <script>
+import DetailedView from "~/components/detailed.vue";
+
 export default {
   head() {
     return {
@@ -39,6 +43,29 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    DetailedView,
+  },
+  data() {
+    return {
+      data: [],
+      page: 1,
+      show: false,
+    };
+  },
+  methods: {
+    async getAllNews() {
+      try {
+        const res = await this.$axios.$get(`news/categorynews?slug=women`);
+        this.data = res.results;
+
+        this.show = true;
+      } catch {}
+    },
+  },
+  mounted() {
+    this.getAllNews();
   },
 };
 </script>
