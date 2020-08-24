@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="light" variant="white">
+    <b-navbar toggleable="lg" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp2.webp" alt="The Millennials Press" height="50" />
       </b-navbar-brand>
@@ -114,8 +114,8 @@ export default {
         },
         {
           id: 6,
-          to: "/latest-news",
-          name: "Latest",
+          to: "/women",
+          name: "Women",
         },
       ],
       links2: [

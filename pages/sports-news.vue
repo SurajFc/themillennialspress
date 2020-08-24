@@ -1,32 +1,13 @@
 <template>
-  <div class="container p-3">
-    <div v-if="error">
-      <Error />
-    </div>
-    <div v-else>
-      <Article :show="show" :data="data" />
-    </div>
-  </div>
+  <div class="p-3">Sports</div>
 </template>
 
 <script>
-import Error from "~/components/error404.vue";
-import Article from "~/components/article.vue";
 export default {
-  data() {
-    return {
-      data: {},
-      error: false,
-      show: false,
-    };
-  },
-  components: {
-    Error,
-    Article,
-  },
   head() {
     return {
-      title: this.data["title"],
+      title:
+        "Sports News - Latest Sports News, Breaking Sports News, Sports News Headlines | themillennialspress.com millennials",
       meta: [
         {
           hid: "og:title",
@@ -59,22 +40,8 @@ export default {
       ],
     };
   },
-  methods: {
-    getArticle() {
-      var fc = this.$route.path.split("/");
-      this.$axios
-        .get(`/news/${fc[1]}/${fc[2]}`)
-        .then((res) => {
-          this.data = res.data;
-          this.show = true;
-        })
-        .catch((e) => {
-          this.error = true;
-        });
-    },
-  },
-  mounted() {
-    this.getArticle();
-  },
 };
 </script>
+
+<style>
+</style>

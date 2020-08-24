@@ -36,7 +36,7 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content: "icon.png"
+        content: "https://themillennialspress.com/_nuxt/img/tmp2.9d19128.webp"
       },
       {
         hid: "og:site_name",
@@ -52,7 +52,12 @@ export default {
         hid: "og:type",
         property: "og:type",
         content: "websites"
-      }
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content: "millennials, Millennials, themillennials, millennials news, Millennials press ,the millennials, milenials, themillennialspress.com ",
+      },
     ],
     link: [{
       rel: "icon",

@@ -7,19 +7,15 @@
             :src="`${$axios.defaults.baseURL}` + data[0].cover"
             :alt="data[0].tags[0]"
             fluid
-            style="width:90%;height:23rem;"
+            style="width:90%;"
           />
 
           <p class="h3">{{ data[0].title | truncate(70) }}</p>
         </nuxt-link>
       </div>
-      <div class="col-sm-12 col-md-9 ">
+      <div class="col-sm-12 col-md-9">
         <br />
-        <ul
-          v-for="x in data.slice(1, data.length)"
-          :key="x.id"
-          class="mt-3 p-2"
-        >
+        <ul v-for="x in data.slice(1, data.length)" :key="x.id" class="mt-3 p-2">
           <li>
             <b-card no-body class="overflow-hidden" style=" border:none;">
               <b-row no-gutters>
@@ -67,8 +63,8 @@ import DetailSkel from "~/components/skeletons/detailSkel.vue";
 export default {
   props: ["data", "show"],
   components: {
-    DetailSkel
-  }
+    DetailSkel,
+  },
 };
 </script>
 

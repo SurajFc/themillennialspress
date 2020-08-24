@@ -1,10 +1,10 @@
 <template>
   <div class="col-md-4 col-sm-10 ml-md-0 offset-md-0">
+    <h3>
+      <b>Latest News</b>
+    </h3>
+    <hr />
     <div v-if="show">
-      <h3>
-        <b>Latest News</b>
-      </h3>
-      <hr />
       <ul class="list-unstyled">
         <li v-for="(x,index) in getData" :key="index">
           <b-card no-body style="border:none;">
@@ -33,9 +33,6 @@
       </ul>
     </div>
     <div v-else>
-      <h3>
-        <b>Latest News</b>
-      </h3>
       <ListSkeleton />
     </div>
   </div>

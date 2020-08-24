@@ -52,6 +52,18 @@ export default {
           name: "Home",
           content: "Home | The Millennials Press",
         },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "millennials, Millennials, themillennials, millennials news, Millennials press ,the millennials, milenials, themillennialspress.com ",
+        },
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Millennials is leading news website worldwide get all latest and breaking India news online on themillennialspress.com",
+        },
       ],
     };
   },
