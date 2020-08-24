@@ -4,7 +4,7 @@
       <div class="col-md-2 mt-2 d-none d-lg-block mr-3">
         <h3>{{ $moment().format("dddd") }}</h3>
         <p>
-          {{ $moment().format("LLLL") }}
+          {{ $moment().format("LLL") }}
           <br />
           <span>GMT{{ $moment().format("Z") }}</span>
         </p>

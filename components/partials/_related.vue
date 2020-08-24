@@ -47,7 +47,7 @@ export default {
       show: false,
       swiperOption: {
         direction: "horizontal",
-        loop: true,
+
         keyboard: {
           enabled: true,
         },
