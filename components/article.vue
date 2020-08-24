@@ -33,6 +33,7 @@
     <div v-else>
       <ArticleLoader />
     </div>
+
     <Latest :getData="latest" :show="show1" />
   </div>
 </template>

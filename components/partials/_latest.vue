@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4 col-sm-10 ml-md-0 offset-md-0">
+  <div class="col-md-4 col-sm-12 ml-md-0 offset-md-0">
     <h3>
       <b>Latest News</b>
     </h3>
