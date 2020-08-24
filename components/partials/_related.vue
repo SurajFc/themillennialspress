@@ -16,20 +16,20 @@
     <div class="row p-3" v-if="show">
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(x,index) in data" :key="index">
-          <b-card class="border-0 mb-2 p-2 d-flex align-items-stretch">
-            <nuxt-link :to="'/' + x.category.slug + '/' + x.slug">
-              <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + x.cover" :alt="x.tags[0]"></b-card-img-lazy>
-            </nuxt-link>
+          <b-card class="overflow-hidden mb-2 border-0">
+            <b-row no-gutters>
+              <nuxt-link :to="'/' + x.category.slug + '/' + x.slug">
+                <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + x.cover" :alt="x.tags[0]"></b-card-img-lazy>
+              </nuxt-link>
 
-            <br />
+              <br />
 
-            <b-card-body>
-              <b-card-text class>
-                <nuxt-link :to="'/' + x.category.slug + '/' + x.slug">
-                  <p>{{ x.title | truncate(50)}}</p>
-                </nuxt-link>
-              </b-card-text>
-            </b-card-body>
+              <b-col sm="12">
+                <b-card-body>
+                  <b-card-text class="ml-2">{{ x.title | truncate(45)}}</b-card-text>
+                </b-card-body>
+              </b-col>
+            </b-row>
           </b-card>
         </swiper-slide>
       </swiper>
