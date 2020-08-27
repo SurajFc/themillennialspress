@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-6 col-md-6 offset-1">
-    <b-tabs content-class="mx-2 mb-2">
+    <b-tabs content-class="mb-2">
       <b-tab active>
         <template v-slot:title>
           <b-spinner type="grow" small></b-spinner>India
