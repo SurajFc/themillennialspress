@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-2 mt-2 d-none d-lg-block mr-3">
+      <div class="col-md-2 mt-2 d-none d-md-block">
         <h3>{{ $moment().format("dddd") }}</h3>
         <p>
           {{ $moment().format("LLL") }}
@@ -13,7 +13,7 @@
         <b-img src="corona.webp" height="100"></b-img>
       </div>-->
       <Coronavirus />
-      <div class="col-md-3 col-lg-2 offset-lg-2 mb-4">
+      <div class="col-md-2 col-lg-2 offset-md-1 mb-4">
         <b-button
           type="button"
           size="lg"

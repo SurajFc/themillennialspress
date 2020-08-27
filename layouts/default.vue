@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div class="container">
-      <div>
-        <Navbar />
-        <Nuxt />
-      </div>
+    <Navbar />
+    <div class="container-fluid">
+      <Nuxt />
     </div>
     <Footer />
   </div>

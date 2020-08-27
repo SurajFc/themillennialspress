@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <b-navbar toggleable="md" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp2.webp" alt="The Millennials Press" height="50" />
