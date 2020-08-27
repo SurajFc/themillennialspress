@@ -1,14 +1,19 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="light" variant="white">
+    <b-navbar toggleable="md" type="light" variant="white">
       <b-navbar-brand to="/" exact>
         <img src="~/static/tmp2.webp" alt="The Millennials Press" height="50" />
       </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="navbar-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="main" v-for="(x,index) in links" :key="index">
-          <b-nav-item :to="x.to" exact-active-class>{{x.name}}</b-nav-item>
+      <b-collapse id="navbar-collapse" is-nav>
+        <b-navbar-nav class="main">
+          <b-nav-item
+            v-for="(x,index) in links"
+            :key="index"
+            :to="x.to"
+            exact-active-class
+          >{{x.name}}</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="main">
           <b-nav-item-dropdown text="More" right>
@@ -162,3 +167,5 @@ export default {
   },
 };
 </script>
+<style scoped>
+</style>
