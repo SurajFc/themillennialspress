@@ -147,6 +147,7 @@ export default {
       'SidebarPlugin',
       'NavbarPlugin',
       'TabsPlugin',
+      'BreadcrumbPlugin',
 
     ],
     directivePlugins: [],

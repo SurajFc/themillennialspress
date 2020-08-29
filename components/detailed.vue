@@ -1,5 +1,15 @@
 <template>
   <div>
+    <b-breadcrumb>
+      <b-breadcrumb-item to="/" tag="nuxt-link">
+        <font-awesome-icon :icon="['fas', 'home']" style="color:black" class="social" />
+        <span style="color:black">Home</span>
+      </b-breadcrumb-item>
+
+      <b-breadcrumb-item exact-active-class :to="$route.path" tag="nuxt-link">
+        <span class="text-capitalize">{{$route.name.split('-')[0]}}</span>
+      </b-breadcrumb-item>
+    </b-breadcrumb>
     <div class="container" v-if="!data.length">
       <div v-if="show">Empty</div>
       <div v-else>
@@ -14,7 +24,6 @@
               :src="`${$axios.defaults.baseURL}` + data[0].cover"
               :alt="data[0].tags[0]"
               fluid
-              style="width:90%;"
             />
 
             <p class="h3">{{ data[0].title | truncate(70) }}</p>
@@ -31,13 +40,12 @@
                       <b-card-img-lazy
                         thumbnail
                         left
-                        style="width:85%; height:10rem;"
                         :src="`${$axios.defaults.baseURL}` + x.cover"
                         :alt="x.tags[1]"
                       />
                     </nuxt-link>
                   </b-col>
-                  <b-col md="8">
+                  <b-col md="7" class="ml-3">
                     <b-card-body>
                       <b-card-text>
                         <h5>{{ x.title | truncate(100) }}</h5>
@@ -82,6 +90,9 @@ export default {
   components: {
     DetailSkel,
   },
+  mounted() {
+    console.log("===>", this.$route);
+  },
 };
 </script>
 
@@ -91,5 +102,26 @@ a {
 }
 a:hover {
   color: #fe5900;
+}
+.img-fluid {
+  width: 100%;
+  height: 30rem;
+}
+.breadcrumb {
+  background-color: white;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+li:hover {
+  transform: translateY(0px);
+  transition: 0s;
+}
+@media (max-width: 576px) {
+  .img-fluid {
+    width: 100%;
+    height: 18rem;
+  }
 }
 </style>
