@@ -1,23 +1,22 @@
 <template>
   <div>
     <div class="container row">
-      <div class="col-lg-3  text-center">
+      <div class="col-lg-3 text-center">
         <p>Total</p>
-        <content-loader> </content-loader>
+        <content-loader></content-loader>
       </div>
-      <div class="col-lg-3  text-center">
+      <div class="col-lg-3 text-center">
         <p>Active</p>
-        <content-loader> </content-loader>
+        <content-loader></content-loader>
       </div>
       <div class="col-lg-3 text-center">
         <p>Recovered</p>
-        <content-loader> </content-loader>
+        <content-loader></content-loader>
       </div>
-      <div class="col-lg-2  text-center">
+      <div class="col-lg-2 text-center">
         <p>Deaths</p>
-        <content-loader> </content-loader>
+        <content-loader></content-loader>
       </div>
-      <p class="text-center ml-4">Source: Worldometers.info</p>
     </div>
   </div>
 </template>
@@ -26,8 +25,8 @@
 import { ContentLoader } from "vue-content-loader";
 export default {
   components: {
-    ContentLoader
-  }
+    ContentLoader,
+  },
 };
 </script>
 

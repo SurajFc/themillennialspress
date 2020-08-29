@@ -17,9 +17,7 @@
         <p>Deaths</p>
         <h5 style="color:#6D767E;">{{ data.deaths | numberFormat }}</h5>
       </div>
-      <div>
-        <p class="source">Source: Worldometers.info</p>
-      </div>
+      <div></div>
     </div>
   </div>
 </template>
@@ -30,8 +28,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.source {
-  margin-left: 8rem;
-}
-</style>

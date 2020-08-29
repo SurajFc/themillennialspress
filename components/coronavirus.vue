@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-6 col-md-6 offset-1">
+  <div class="col-lg-6 col-md-6 col-sm-12 offset-md-1">
     <b-tabs content-class="mb-2">
       <b-tab active>
         <template v-slot:title>

@@ -4,10 +4,10 @@
       <b>Latest News</b>
     </h3>
     <hr />
-    <div v-if="show">
+    <div v-if="show" class="mb-2">
       <ul class="list-unstyled">
         <li v-for="(x,index) in getData" :key="index">
-          <b-card no-body style="border:none;">
+          <b-card no-body style="border:none;" class="shadow-mobile ma-1">
             <b-row no-gutters>
               <b-col md="4" sm="12">
                 <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
@@ -22,7 +22,7 @@
               <b-col md="8" sm="12">
                 <b-card-body>
                   <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
-                    <p>{{x.title | truncate(65)}}</p>
+                    <p class="ml-2 mt-2">{{x.title | truncate(65)}}</p>
                   </nuxt-link>
                 </b-card-body>
               </b-col>

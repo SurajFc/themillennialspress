@@ -20,15 +20,11 @@
           <b-carousel-slide v-for="(i, index) in data" :key="index">
             <template v-slot:img>
               <b-card-group>
-                <b-card
-                  tag="article"
-                  style="max-width: 30rem;height:15rem; border:none;"
-                  class="mb-3 mr-2"
-                >
+                <b-card tag="article" no-body style="border:none;" class="shadow-mobile ma-1">
                   <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
                     <b-card-img-lazy
                       :src="`${$axios.defaults.baseURL}` + data[index].cover"
-                      style="height:12rem;"
+                      class="trending-card"
                     ></b-card-img-lazy>
                   </nuxt-link>
 
@@ -44,14 +40,15 @@
                 </b-card>
                 <b-card
                   tag="article"
-                  style="max-width: 30rem;height:15rem; border:none;"
-                  class="mb-3 mr-1"
+                  no-body
+                  style="border:none;"
+                  class="shadow-mobile ma-1"
                   v-if="data[index + 1]"
                 >
                   <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
                     <b-card-img-lazy
                       :src="`${$axios.defaults.baseURL}` + data[index + 1].cover"
-                      style="height:12rem;"
+                      class="trending-card"
                     ></b-card-img-lazy>
                   </nuxt-link>
 

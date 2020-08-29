@@ -1,29 +1,29 @@
 <template>
   <div class="row">
-    <div class="col-md-8  col-sm-12 mb-4" v-if="show">
+    <div class="col-md-8 col-sm-12 mb-3 mt-2" v-if="show">
       <b-carousel
         id="carousel-fade"
         fade
         :interval="6000"
         style="text-shadow: 1px 1px 2px #333;"
         indicators
+        class="shadow"
       >
         <b-carousel-slide v-for="x in data" :key="x.id">
           <b class="text-uppercase">
             {{ x.category["name"] }} /
             <span>{{ $moment(x.realease).format("ll") }}</span>
           </b>
-          <h4>
-            <b class="sub text-capitalize">{{ x.title | truncate(90) }}</b>
-          </h4>
-          <p class="sub text-capitalize">{{ x.subtitle | truncate(70) }}</p>
+          <h5>
+            <p class="text-capitalize font-weight-bold truncate">{{ x.title | truncate(90) }}</p>
+          </h5>
+          <p class="text-capitalize truncate">{{ x.subtitle | truncate(70) }}</p>
 
           <template v-slot:img>
             <nuxt-link :to="x.category.slug + '/' + x.slug" exact>
               <b-img-lazy
                 fluid-grow
                 class="d-block img-fluid w-100"
-                style="width:100%; height: 450px;"
                 :src="`${$axios.defaults.baseURL}` + x.cover"
                 :alt="x.tags[1]"
               />
@@ -48,12 +48,12 @@ import Latest from "~/components/partials/_latest.vue";
 export default {
   components: {
     ContentLoader,
-    Latest
+    Latest,
   },
   data() {
     return {
       show: false,
-      data: []
+      data: [],
     };
   },
   methods: {
@@ -63,12 +63,12 @@ export default {
         this.data = res;
         this.show = true;
       } catch (err) {}
-    }
+    },
   },
 
   mounted() {
     this.getLatest();
-  }
+  },
 };
 </script>
 <style scoped>
@@ -78,5 +78,9 @@ img {
 
 img:hover {
   filter: none;
+}
+.img-fluid {
+  max-width: 100%;
+  height: 450px;
 }
 </style>
