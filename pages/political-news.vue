@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="p-3">
     <DetailedView :data="data" :show="show" />
   </div>
 </template>

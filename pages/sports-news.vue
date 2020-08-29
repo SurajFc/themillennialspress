@@ -1,5 +1,7 @@
 <template>
-  <DetailedView :data="data" :show="show" />
+  <div class="p-3">
+    <DetailedView :data="data" :show="show" />
+  </div>
 </template>
 
 <script>

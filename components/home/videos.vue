@@ -176,11 +176,9 @@ export default {
   methods: {
     ready(event) {
       this.player = event.target;
-      console.log("event==>", event);
     },
     playing(event) {
       // The player is playing a video.
-      console.log("event==> playing===>", event);
     },
     change() {
       // when you change the value, the player will also change.
@@ -190,11 +188,9 @@ export default {
     },
     stop() {
       this.player.stopVideo();
-      console.log("ins stop");
     },
     pause() {
       this.player.pauseVideo();
-      console.log("in pause");
     },
   },
 };

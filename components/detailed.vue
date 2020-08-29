@@ -2,11 +2,11 @@
   <div>
     <b-breadcrumb>
       <b-breadcrumb-item to="/" tag="nuxt-link">
-        <font-awesome-icon :icon="['fas', 'home']" style="color:black" class="social" />
-        <span style="color:black">Home</span>
+        <font-awesome-icon :icon="['fas', 'home']" />
+        <span>Home</span>
       </b-breadcrumb-item>
 
-      <b-breadcrumb-item exact-active-class :to="$route.path" tag="nuxt-link">
+      <b-breadcrumb-item exact-active-class active :to="$route.path" tag="nuxt-link">
         <span class="text-capitalize">{{$route.name.split('-')[0]}}</span>
       </b-breadcrumb-item>
     </b-breadcrumb>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div v-else>
-      <div class="p-4" v-if="show">
+      <div class="p-3" v-if="show">
         <div class="mr-3 text-center">
           <nuxt-link :to="'/' + data[0].category.slug + '/' + data[0].slug">
             <b-img-lazy
@@ -89,9 +89,6 @@ export default {
   },
   components: {
     DetailSkel,
-  },
-  mounted() {
-    console.log("===>", this.$route);
   },
 };
 </script>
