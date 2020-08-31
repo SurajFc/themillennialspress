@@ -20,7 +20,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || "The Millennials Press",
+    title: "The Millennials Press",
     meta: [{
         charset: "utf-8"
       },
@@ -28,36 +28,51 @@ export default {
         name: "viewport",
         content: "width=device-width, initial-scale=1"
       },
+
       {
         hid: "The Millennials Press",
         name: "The Millennials Press",
         content: "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
-      },
-      {
-        hid: "og:image",
-        property: "og:image",
-        content: "https://themillennialspress.com/_nuxt/img/tmp2.9d19128.webp"
-      },
-      {
+      }, {
         hid: "og:site_name",
         property: "og:site_name",
-        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
+        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com ",
+      }, {
+        hid: "twitter:site",
+        property: "twitter:site",
+        content: "@millennials_90",
       },
       {
-        hid: "og:description",
-        property: "og:description",
-        content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com "
+        hid: "twitter:creator",
+        property: "twitter:site",
+        content: "@millennials_90",
       },
-      {
-        hid: "og:type",
-        property: "og:type",
-        content: "websites"
-      },
-      {
-        hid: "keywords",
-        name: "keywords",
-        content: "millennials, Millennials, themillennials, millennials news, Millennials press ,the millennials, milenials, themillennialspress.com ",
-      },
+
+      // {
+      //   hid: "twitter:title",
+      //   name: "twitter:title",
+      //   content: "The Millennials Press ",
+
+      // }, {
+      //   hid: "twitter:description",
+      //   name: "twitter:description",
+      //   content: "The Millennials Press - The Millennials, exploring the world of the largest living generation. We have made this website to change the way of journalism so that you all can trust us. This is just an idea to show the whole new side of our country news, and to give you a piece of our country news. We want to give you an unbiased review and impression. We believe in facts, unbiased opinions, and truth. "
+      // }, {
+      //   hid: "twitter:image",
+      //   property: "twitter:image",
+      //   content: "https://themillennialspress.com/_nuxt/img/tmp2.9d19128.webp"
+      // }
+
+      // , {
+      //   hid: "twitter:site",
+      //   property: "twitter:site",
+      //   content: "@millennials_90"
+      // }, {
+      //   hid: "twitter:creator",
+      //   property: "twitter:site",
+      //   content: "@millennials_90"
+      // }
+
     ],
     link: [{
       rel: "icon",

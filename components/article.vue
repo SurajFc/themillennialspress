@@ -1,10 +1,10 @@
 <template>
   <div class="row">
     <div v-if="show" class="col-md-8 col-sm-12">
-      <h3>{{data.title}}</h3>
+      <h3>{{ data.title }}</h3>
       <br />
       <p>
-        {{$moment(data.realease).format('LLLL')}} (IST)
+        {{ $moment(data.realease).format("LLLL") }} (IST)
         <span class="float-right">
           <Social :x="data" />
         </span>
@@ -18,12 +18,12 @@
       />
       <br />
       <br />
-      <h5>{{data.subtitle}}</h5>
+      <h5>{{ data.subtitle }}</h5>
       <br />
       <div v-html="data.content"></div>
       <div class="float-right">
         Source:
-        <b>{{data.source}}</b>
+        <b>{{ data.source }}</b>
       </div>
       <br />
 
@@ -45,6 +45,64 @@ import Related from "~/components/partials/_related.vue";
 import Latest from "~/components/partials/_latest.vue";
 export default {
   props: ["show", "data"],
+  head() {
+    return {
+      title: this.data["title"],
+      meta: [
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "articles",
+        },
+        {
+          hid: "World News",
+          name: "World News",
+          content: "World News | The Millennials Press",
+        },
+
+        {
+          hid: "description",
+          name: "description",
+          content: this.data.title,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.data.title,
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.data.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "https://themillennialspress.com/" + this.data.cover,
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.data.tags,
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.data.title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.data.title,
+        },
+        {
+          hid: "twitter:image",
+          property: "twitter:image",
+          content: "https://themillennialspress.com/" + this.data.cover,
+        },
+      ],
+    };
+  },
   data() {
     return {
       latest: [],
@@ -82,5 +140,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

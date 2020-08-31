@@ -25,12 +25,6 @@ export default {
       title: this.data["title"],
       meta: [
         {
-          hid: "og:title",
-          property: "og:title",
-          content:
-            "World News - Latest World News, Breaking World News, World News Headlines | themillennialspress.com  millennials ",
-        },
-        {
           hid: "og:type",
           property: "og:type",
           content: "articles",
@@ -40,18 +34,6 @@ export default {
           name: "World News",
           content: "World News | The Millennials Press",
         },
-        {
-          hid: "keywords",
-          name: "keywords",
-          content:
-            "World News, Latest World News, Breaking World News, World News Headlines, millennials,  themillennials, millennialsnews, the millennials, themillennialspress.com ",
-        },
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Get top and latest World News - Read Breaking World News and World News Headlines. millennials is leading news website worldwide get all latest and breaking world news online on themillennialspress.com",
-        },
       ],
     };
   },
@@ -60,21 +42,20 @@ export default {
     Article,
   },
   methods: {
-    getArticle() {
-      var fc = this.$route.path.split("/");
-      this.$axios
-        .get(`/news/${fc[1]}/${fc[2]}`)
-        .then((res) => {
-          this.data = res.data;
+    async getArticle() {
+      try {
+        var fc = this.$route.path.split("/");
+        const res = await this.$axios.get(`/news/${fc[1]}/${fc[2]}`);
 
-          this.show = true;
-        })
-        .catch((e) => {
-          this.error = true;
-        });
+        this.data = res.data;
+
+        this.show = true;
+      } catch {
+        this.error = true;
+      }
     },
   },
-  mounted() {
+  fetch() {
     this.getArticle();
   },
 };
