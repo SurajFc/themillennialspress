@@ -25,6 +25,7 @@
                     <b-card-img-lazy
                       :src="`${$axios.defaults.baseURL}` + data[index].cover"
                       class="trending-card"
+                      :alt="i.tags[0]"
                     ></b-card-img-lazy>
                   </nuxt-link>
 
@@ -45,10 +46,11 @@
                   class="shadow-mobile ma-1"
                   v-if="data[index + 1]"
                 >
-                  <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
+                  <nuxt-link :to="'/' +data[index + 1].category.slug + '/'+ data[index + 1].slug">
                     <b-card-img-lazy
                       :src="`${$axios.defaults.baseURL}` + data[index + 1].cover"
                       class="trending-card"
+                      :alt="data[index + 1].tags[0]"
                     ></b-card-img-lazy>
                   </nuxt-link>
 

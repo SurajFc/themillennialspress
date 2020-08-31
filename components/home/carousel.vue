@@ -25,7 +25,7 @@
                 fluid-grow
                 class="d-block img-fluid w-100"
                 :src="`${$axios.defaults.baseURL}` + x.cover"
-                :alt="x.tags[1]"
+                :alt="x.tags[0]"
               />
             </nuxt-link>
           </template>
