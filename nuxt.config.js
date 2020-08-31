@@ -28,16 +28,32 @@ export default {
         name: "viewport",
         content: "width=device-width, initial-scale=1"
       },
-
       {
         hid: "The Millennials Press",
         name: "The Millennials Press",
         content: "The Millenials Press - The Millennials, Millennials, millennials, news, themillennialspress.com millennials.com"
-      }, {
+      },
+      {
+        hid: "description",
+        property: "description",
+        content: "The Millennials Press - The Millennials, exploring the world of the largest living generation. We have made this website to change the way of journalism so that you all can trust us. This is just an idea to show the whole new side of our country news, and to give you a piece of our country news. We want to give you an unbiased review and impression. We believe in facts, unbiased opinions, and truth. ",
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "website",
+      },
+      {
         hid: "og:site_name",
         property: "og:site_name",
         content: "The Millennials Press - themillennialspress.com millennials.com themillennials.com www.themillennialspress.com ",
-      }, {
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://themillennialspress.com/"
+      },
+      {
         hid: "twitter:site",
         property: "twitter:site",
         content: "@millennials_90",
@@ -50,11 +66,22 @@ export default {
 
     ],
     link: [{
-      rel: "icon",
-      type: "image/x-icon",
-      href: "/favicon.ico"
-    }],
-
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      },
+      {
+        rel: "canonical",
+        href: "https://themillennialspress.com/"
+      },
+      {
+        rel: "shortlink",
+        href: "https://themillennialspress.com/"
+      }
+    ],
+    script: [{
+      src: '/fb.js'
+    }]
   },
   /*
    ** Global CSS

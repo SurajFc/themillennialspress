@@ -31,11 +31,11 @@
 
                   <b-card-text>
                     <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
-                      <h6>
+                      <h5>
                         {{
                         data[index].title | truncate(70)
                         }}
-                      </h6>
+                      </h5>
                     </nuxt-link>
                   </b-card-text>
                 </b-card>
@@ -56,11 +56,11 @@
 
                   <b-card-text>
                     <nuxt-link :to="'/' +i.category.slug + '/'+ i.slug">
-                      <h6>
+                      <h5>
                         {{
                         data[index+1].title | truncate(70)
                         }}
-                      </h6>
+                      </h5>
                     </nuxt-link>
                   </b-card-text>
                 </b-card>
