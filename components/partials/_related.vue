@@ -25,7 +25,7 @@
               <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                 <h6>
                   {{
-                  x.title | truncate(45)
+                  x.title | truncate(40)
                   }}
                 </h6>
               </nuxt-link>

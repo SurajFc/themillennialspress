@@ -48,31 +48,6 @@ export default {
         content: "@millennials_90",
       },
 
-      // {
-      //   hid: "twitter:title",
-      //   name: "twitter:title",
-      //   content: "The Millennials Press ",
-
-      // }, {
-      //   hid: "twitter:description",
-      //   name: "twitter:description",
-      //   content: "The Millennials Press - The Millennials, exploring the world of the largest living generation. We have made this website to change the way of journalism so that you all can trust us. This is just an idea to show the whole new side of our country news, and to give you a piece of our country news. We want to give you an unbiased review and impression. We believe in facts, unbiased opinions, and truth. "
-      // }, {
-      //   hid: "twitter:image",
-      //   property: "twitter:image",
-      //   content: "https://themillennialspress.com/_nuxt/img/tmp2.9d19128.webp"
-      // }
-
-      // , {
-      //   hid: "twitter:site",
-      //   property: "twitter:site",
-      //   content: "@millennials_90"
-      // }, {
-      //   hid: "twitter:creator",
-      //   property: "twitter:site",
-      //   content: "@millennials_90"
-      // }
-
     ],
     link: [{
       rel: "icon",

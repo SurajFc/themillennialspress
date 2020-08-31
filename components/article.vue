@@ -63,42 +63,59 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.data.title,
+          content: this.data["title"],
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.data.title,
+          content: this.data["title"],
         },
         {
           hid: "og:title",
           property: "og:title",
-          content: this.data.title,
+          content: this.data["title"],
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://themillennialspress.com" + this.$route.path,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: "https://themillennialspress.com/" + this.data.cover,
+          content: "https://themillennialspress.com/" + this.data["cover"],
         },
         {
           hid: "keywords",
           name: "keywords",
-          content: this.data.tags,
+          content: this.data["tags"],
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: "summary",
         },
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: this.data.title,
+          content: this.data["title"],
         },
         {
           hid: "twitter:description",
           name: "twitter:description",
-          content: this.data.title,
+          content: this.data["title"],
         },
         {
           hid: "twitter:image",
           property: "twitter:image",
-          content: "https://themillennialspress.com/" + this.data.cover,
+          content: "https://themillennialspress.com/" + this.data["cover"],
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+
+          href: "https://themillennialspress.com" + this.$route.path,
         },
       ],
     };
