@@ -29,12 +29,6 @@ export default {
       title: this.data["title"],
       meta: [
         {
-          hid: "og:title",
-          property: "og:title",
-          content:
-            "Sports News - Latest Sports News, Breaking Sports News, Sports News Headlines | themillennialspress.com  millennials ",
-        },
-        {
           hid: "og:type",
           property: "og:type",
           content: "articles",
@@ -43,18 +37,6 @@ export default {
           hid: "Sports News",
           name: "Sports News",
           content: "Sports News | The Millennials Press",
-        },
-        {
-          hid: "keywords",
-          name: "keywords",
-          content:
-            "Sports News, Latest Sports News, Breaking Sports News, Sports News Headlines, millennials,  themillennials, millennialsnews, the millennials, themillennialspress.com ",
-        },
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Get top and latest Sports News - Read Breaking Sports News and Sports News Headlines. millennials is leading news website worldwide get all latest and breaking world news online on themillennialspress.com",
         },
       ],
     };
