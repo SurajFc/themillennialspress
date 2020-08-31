@@ -63,6 +63,15 @@ export default {
         property: "twitter:site",
         content: "@millennials_90",
       },
+      {
+        property: "fb:app_id",
+        content: "2061372810750186"
+      },
+      {
+        property: "fb:pages",
+        content: "104140668048667"
+
+      }
 
     ],
     link: [{
