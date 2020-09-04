@@ -110,7 +110,7 @@
                 >
                   <b-form-input
                     id="email"
-                    class="border-right-0 border-top-0 border-left-0 shadow-sm p-3 mb-5 bg-white rounded"
+                    class="border-right-0 border-top-0 border-left-0 shadow-sm p-3 bg-white rounded"
                     name="email"
                     v-model="email"
                     placeholder="your email address"
@@ -125,17 +125,16 @@
                 </b-button>
               </b-form>
             </validation-observer>
-
             <p>Sign up to hear and get our daily update via email</p>
           </div>
 
-          <h6 class="footer-title2">Instagram Gallery</h6>
+          <!-- <h6 class="footer-title2">Instagram Gallery</h6>
 
           <div class="instagram-grid">
-            <div class="gallery-img">
-              <!-- <img src="images/sports4.jpg" class="w-100" alt /> -->
-            </div>
-            <!-- <div class="gallery-img">
+          <div class="gallery-img">-->
+          <!-- <img src="images/sports4.jpg" class="w-100" alt /> -->
+          <!-- </div> -->
+          <!-- <div class="gallery-img">
               <img src="images/sports2.jpg" class="w-100" alt />
             </div>
             <div class="gallery-img">
@@ -143,8 +142,8 @@
             </div>
             <div class="gallery-img">
               <img src="images/sports2.jpg" class="w-100" alt />
-            </div>-->
-          </div>
+          </div>-->
+          <!-- </div> -->
         </div>
       </div>
       <!-- Row End -->

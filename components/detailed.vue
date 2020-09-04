@@ -17,22 +17,21 @@
       </div>
     </div>
     <div v-else>
-      <div class="p-3" v-if="show">
-        <div class="mr-3 text-center">
+      <div v-if="show">
+        <div>
           <nuxt-link :to="'/' + data[0].category.slug + '/' + data[0].slug">
             <b-img-lazy
               :src="`${$axios.defaults.baseURL}` + data[0].cover"
               :alt="data[0].tags[0]"
-              fluid
+              class="up-img shadow mb-1 bg-white rounded"
             />
-
             <p class="h3">{{ data[0].title | truncate(70) }}</p>
           </nuxt-link>
         </div>
         <div class="col-sm-12 col-md-9">
           <br />
-          <ul v-for="x in data.slice(1, data.length)" :key="x.id" class="mt-3 p-2">
-            <li>
+          <ul>
+            <li v-for="x in data.slice(1, data.length)" :key="x.id" class="mt-3 shadow-mobile ma-1">
               <b-card no-body class="overflow-hidden" style=" border:none;">
                 <b-row no-gutters>
                   <b-col md="4">
@@ -41,7 +40,7 @@
                         thumbnail
                         left
                         :src="`${$axios.defaults.baseURL}` + x.cover"
-                        :alt="x.tags[1]"
+                        :alt="x.tags[0]"
                       />
                     </nuxt-link>
                   </b-col>
@@ -100,9 +99,10 @@ a {
 a:hover {
   color: #fe5900;
 }
-.img-fluid {
+
+.up-img {
   width: 100%;
-  height: 30rem;
+  height: 450px;
 }
 .breadcrumb {
   background-color: white;
@@ -114,11 +114,5 @@ a:hover {
 li:hover {
   transform: translateY(0px);
   transition: 0s;
-}
-@media (max-width: 576px) {
-  .img-fluid {
-    width: 100%;
-    height: 18rem;
-  }
 }
 </style>

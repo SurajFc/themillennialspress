@@ -23,7 +23,6 @@
             <nuxt-link :to="x.category.slug + '/' + x.slug" exact>
               <b-img-lazy
                 fluid-grow
-                class="d-block img-fluid w-100"
                 :src="`${$axios.defaults.baseURL}` + x.cover"
                 :alt="x.tags[0]"
               />

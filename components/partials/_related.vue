@@ -16,7 +16,7 @@
     <div class="row p-3" v-if="show">
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(x,index) in data" :key="index">
-          <b-card tag="article" style="max-width: 30rem;height:15rem;" class="mb-3 mr-1 border-0">
+          <b-card tag="article" class="mb-3 mr-1 border-0">
             <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
               <b-card-img-lazy :src="`${$axios.defaults.baseURL}` + x.cover"></b-card-img-lazy>
             </nuxt-link>
@@ -25,7 +25,7 @@
               <nuxt-link :to="'/' +x.category.slug + '/'+ x.slug">
                 <h6>
                   {{
-                  x.title | truncate(40)
+                  x.title | truncate(35)
                   }}
                 </h6>
               </nuxt-link>
@@ -47,7 +47,6 @@ export default {
       show: false,
       swiperOption: {
         direction: "horizontal",
-
         keyboard: {
           enabled: true,
         },

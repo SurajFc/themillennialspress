@@ -1,48 +1,52 @@
 <template>
-  <div class="row">
-    <div v-if="show" class="col-md-8 col-sm-12">
-      <h3>{{ data.title }}</h3>
+  <div>
+    <div v-if="show" class="col-md-12 col-sm-12">
+      <p class="h4">{{ data.title }}</p>
+      <p class="font-italic">{{ data.subtitle }}</p>
       <br />
-      <p>
-        {{ $moment(data.realease).format("LLLL") }} (IST)
-        <span class="float-right">
-          <Social :x="data" />
-        </span>
-      </p>
-      <br />
-      <b-img-lazy
-        :src="`${$axios.defaults.baseURL}` + data.cover"
-        :alt="data.tags[0]"
-        fluid
-        style="width:100%;height:25rem;"
-      />
-      <br />
-      <br />
-      <h5>{{ data.subtitle }}</h5>
-      <br />
-      <div v-html="data.content"></div>
-      <div class="float-right">
-        Source:
-        <b>{{ data.source }}</b>
-      </div>
-      <br />
-
-      <Related />
+      <hr />
     </div>
-
     <div v-else>
       <ArticleLoader />
     </div>
+    <div class="row">
+      <div v-if="show" class="col-md-8 col-sm-12">
+        <p>
+          {{ $moment(data.realease).format("LLLL") }} (IST)
+          <span class="float-right">
+            Source:
+            <b>{{ data.source }}</b>
+          </span>
+        </p>
+        <br />
+        <b-img-lazy :src="`${$axios.defaults.baseURL}` + data.cover" :alt="data.tags[0]" fluid />
+        <br />
+        <br />
+        <p>
+          <Social :x="data" />
+        </p>
 
-    <Latest :getData="latest" :show="show1" />
+        <br />
+        <div v-html="data.content"></div>
+
+        <br />
+        <Support />
+        <Related />
+      </div>
+      <div v-if="show" class="col-md-4 col-sm-12">
+        <LatestAll :getData="latest" :show="show1" />
+      </div>
+    </div>
   </div>
 </template>
 
+      
 <script>
 import ArticleLoader from "~/components/skeletons/_articleSkel.vue";
 import Social from "~/components/partials/socialshare.vue";
 import Related from "~/components/partials/_related.vue";
-import Latest from "~/components/partials/_latest.vue";
+import LatestAll from "~/components/partials/_latestall.vue";
+import Support from "~/components/partials/_support.vue";
 export default {
   props: ["show", "data"],
   head() {
@@ -54,12 +58,6 @@ export default {
           property: "og:type",
           content: "articles",
         },
-        {
-          hid: "World News",
-          name: "World News",
-          content: "World News | The Millennials Press",
-        },
-
         {
           hid: "description",
           name: "description",
@@ -114,7 +112,6 @@ export default {
       link: [
         {
           rel: "canonical",
-
           href: "https://themillennialspress.com" + this.$route.path,
         },
       ],
@@ -130,7 +127,8 @@ export default {
     ArticleLoader,
     Social,
     Related,
-    Latest,
+    LatestAll,
+    Support,
   },
   methods: {
     articleCount() {
@@ -142,7 +140,7 @@ export default {
     },
     async getLatest() {
       try {
-        const res = await this.$axios.$get("news/getLatestnews");
+        const res = await this.$axios.$get("news/getLatestnews/all");
         this.latest = res;
         this.show1 = true;
       } catch (err) {}
