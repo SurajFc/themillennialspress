@@ -64,7 +64,12 @@
 
           <b-modal id="searchmodal" size="xl" title="Search Anything" hide-footer lazy>
             <b-input-group>
-              <b-form-input placeholder="e.g. india" required v-model="search"></b-form-input>
+              <b-form-input
+                placeholder="e.g. india"
+                @keyup.enter="searchNews()"
+                required
+                v-model="search"
+              ></b-form-input>
               <b-input-group-append>
                 <b-button variant="outline-success" @click="searchNews()">
                   <font-awesome-icon :icon="['fas', 'search']" />
@@ -93,7 +98,12 @@
         <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
         <div class="overlay-content">
           <b-input-group>
-            <b-form-input placeholder="e.g. india" required v-model="search"></b-form-input>
+            <b-form-input
+              placeholder="e.g. india"
+              @keyup.enter="searchNews()"
+              required
+              v-model="search"
+            ></b-form-input>
             <b-input-group-append>
               <b-button variant="success" @click="searchNews()">
                 <font-awesome-icon :icon="['fas', 'search']" />
