@@ -53,12 +53,7 @@
             </b-nav-item>
 
             <b-button size="sm" v-b-modal.searchmodal variant="white" class="search_button">
-              <font-awesome-icon
-                :icon="['fas', 'search']"
-                style="color:
-              #000;"
-                class="social"
-              />
+              <font-awesome-icon :icon="['fas', 'search']" style="color:#000;" class="social" />
             </b-button>
           </b-navbar-nav>
 
@@ -245,7 +240,7 @@ export default {
 .overlay a {
   padding: 8px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 26px;
   color: #818181;
   display: block;
   transition: 0.3s;
