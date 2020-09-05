@@ -14,5 +14,10 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+.display-3 {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
 </style>

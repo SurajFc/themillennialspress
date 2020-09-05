@@ -13,7 +13,7 @@
       <div v-if="show" class="col-md-8 col-sm-12">
         <p>
           {{ $moment(data.realease).format("LLLL") }} (IST)
-          <span class="float-right">
+          <span class="float-md-right">
             Source:
             <b>{{ data.source }}</b>
           </span>

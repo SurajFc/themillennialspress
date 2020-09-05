@@ -3,11 +3,8 @@
     <div class="row">
       <div class="col-md-2 mt-2 d-none d-md-block">
         <h3>{{ $moment().format("dddd") }}</h3>
-        <p>
-          {{ $moment().format("LLL") }}
-          <br />
-          <span>GMT{{ $moment().format("Z") }}</span>
-        </p>
+        <p>{{ $moment().format("LL") }}</p>
+        <span>GMT{{ $moment().format("Z") }}</span>
       </div>
       <!-- <div class="col-md-1 d-none d-lg-block ml-md-4">
         <b-img src="corona.webp" height="100"></b-img>
@@ -20,8 +17,10 @@
           pill
           to="/donate"
           exact
-          class="btn-1 btn-danger float-md-right text-center d-flex justify-content-center"
-        >Support</b-button>
+          class="btn-1 btn-danger button float-md-right d-flex justify-content-center"
+        >
+          <span>Support</span>
+        </b-button>
       </div>
     </div>
 
@@ -85,7 +84,6 @@ export default {
   components: {
     Coronavirus,
     LatestNews,
-
     TrendingNews,
     Politics,
     Editorial,
@@ -107,13 +105,41 @@ export default {
 };
 </script>
 <style scoped>
-.btn-1 {
-  color: hsl(0, 0%, 100%) !important;
-  background-color: #fb5000;
-  border-color: #fb5000;
-  box-shadow: azure;
-  padding-left: 30px;
-  padding-right: 30px;
-  /* box-shadow: none; */
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 23px;
+  padding: 10px 25px 10px 25px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: " \00bb\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 </style>

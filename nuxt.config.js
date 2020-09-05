@@ -174,7 +174,8 @@ export default {
       'NavbarPlugin',
       'TabsPlugin',
       'BreadcrumbPlugin',
-      'JumbotronPlugin'
+      'JumbotronPlugin',
+
 
     ],
     directivePlugins: [],
